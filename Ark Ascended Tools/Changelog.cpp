@@ -18,9 +18,9 @@ INT_PTR CALLBACK ChangeLog(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam
         {
             const char* changelogText =
                 "v3.0\r\n"
-                "     - New features \"Solo Nanny\", \"Empty Crop Plots\",\r\n"
-                "      \"Mass Baby Feed\", \"Drop Thief\", \"Alarm / Timer\"\r\n"
-                "       and \"Auto Walk / Fly\"\r\n"
+                "     - New features \"Solo Nanny\", \"Empty Crop\r\n"
+                "       Plots\", \"Mass Baby Feed\", \"Drop Thief\",\r\n"
+                "      \"Alarm / Timer\" and \"Auto Walk / Fly\"\r\n"
                 "     - Updated user guide for better explaining of\r\n"
                 "       each feature\r\n"
                 "     - Added server number for Auto Joiner\r\n"
@@ -29,7 +29,7 @@ INT_PTR CALLBACK ChangeLog(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam
                 "     - First implementation of settings with known\r\n" 
                 "       hotkeys / transparency slider\r\n"
                 "     - Finalized major build with reduced size and files\r\n"
-                "     - Program is now \"open source\" with link in\r\n"
+                "     - Project is now \"open source\" with link in\r\n"
                 "      \"About\" to allow others to add to or fix in the\r\n"
                 "       future\r\n\r\n"
                 "v2.6\r\n"

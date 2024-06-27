@@ -2,12 +2,21 @@
 #include "Coordinates.h"
 
 // Define the extern variables
-// inventory color rgb(188, 244, 255)
-// drop thief rgb(128, 231, 255)
-//               
-int text1x, text1y, text2x, text2y, xfer1x, xfer1y, xfer2x,
-xfer2y, closex, closey, drop1x, drop1y, drop2x, drop2y, blackx, 
-blacky, invcolx, invcoly, xferdropx, xferdropy, dropcolorx, dropcolory;
+// inventory color BCF4FF RGB(188, 244, 255). 
+// 
+//       
+int text1x = 0, text1y = 0, text2x = 0, text2y = 0;
+int xfer1x = 0, xfer1y = 0, xfer2x = 0, xfer2y = 0;
+int closex = 0, closey = 0, drop1x = 0, drop1y = 0;
+int drop2x = 0, drop2y = 0, blackx = 0, blacky = 0;
+int invcolx = 0, invcoly = 0, xferdropx = 0, xferdropy = 0;
+int dropcolorx = 0, dropcolory = 0, servnx = 0, servny = 0;
+int color1x = 0, color1y = 0, color2x = 0, color2y = 0, color3x = 0, color3y = 0,
+click1X = 0, click1Y = 0, click2X = 0, click2Y = 0, click3X = 0, click3Y = 0,
+click4X = 0, click4Y = 0, click5X = 0, click5Y = 0, click6X = 0, click6Y = 0,
+click7X = 0, click7Y = 0;
+int click10X = 0, click10Y = 0, click20X = 0, click20Y = 0, click30X = 0, click30Y = 0,
+click40X = 0, click40Y = 0, click50X = 0, click50Y = 0, click60X = 0, click60Y = 0;
 
 void PerformMouseClick(int x, int y) {
     SetCursorPos(x, y);
@@ -42,8 +51,42 @@ void setCoordinates() {
         invcoly = 180;
         xferdropx = 2349;
         xferdropy = 263;
-        dropcolorx = 2726;
-        dropcolory = 249;
+        dropcolorx = 2659;
+        dropcolory = 182;
+        servnx = 2608;
+        servny = 261;
+        color1x = 657;
+        color1y = 438;
+        color2x = 1072;
+        color2y = 1246;
+        color3x = 1641;
+        color3y = 486;
+        click1X = 2721;
+        click1Y = 1190;
+        click2X = 2721;
+        click2Y = 1259;
+        click3X = 1082;
+        click3Y = 1245;
+        click4X = 1866;
+        click4Y = 971;
+        click5X = 664;
+        click5Y = 1173;
+        click6X = 1142;
+        click6Y = 756;
+        click7X = 1142;
+        click7Y = 756;
+        click10X = 1633;
+        click10Y = 435;
+        click20X = 2725;
+        click20Y = 1261;
+        click30X = 1080;
+        click30Y = 1243;
+        click40X = 1865;
+        click40Y = 971;
+        click50X = 667;
+        click50Y = 1170;
+        click60X = 1131;
+        click60Y = 769;
     }
     else if (screenWidth == 2560 && screenHeight == 1440) {
         text1x = 314;
@@ -64,6 +107,44 @@ void setCoordinates() {
         blacky = 89;
         invcolx = 1631;
         invcoly = 182;
+        xferdropx = 1907;
+        xferdropy = 266;
+        dropcolorx = 2217;
+        dropcolory = 184;
+        servnx = 2139;
+        servny = 262;
+        color1x = 219;
+        color1y = 438;
+        color2x = 632;
+        color2y = 1241;
+        color3x = 1177;
+        color3y = 482;
+        click1X = 2272;
+        click1Y = 1189;
+        click2X = 2269;
+        click2Y = 1258;
+        click3X = 619;
+        click3Y = 1247;
+        click4X = 1398;
+        click4Y = 973;
+        click5X = 222;
+        click5Y = 1172;
+        click6X = 713;
+        click6Y = 790;
+        click7X = 713;
+        click7Y = 790;
+        click10X = 1287;
+        click10Y = 436;
+        click20X = 2284;
+        click20Y = 1258;
+        click30X = 705;
+        click30Y = 1246;
+        click40X = 1428;
+        click40Y = 969;
+        click50X = 218;
+        click50Y = 1173;
+        click60X = 703;
+        click60Y = 778;
     }
     else if (screenWidth == 1920 && screenHeight == 1080) {
         text1x = 228;
@@ -84,6 +165,44 @@ void setCoordinates() {
         blacky = 66;
         invcolx = 1222;
         invcoly = 135;
+        xferdropx = 1425;
+        xferdropy = 197;
+        dropcolorx = 1665;
+        dropcolory = 136;
+        servnx = 1608;
+        servny = 194;
+        color1x = 970;
+        color1y = 327;
+        color2x = 476;
+        color2y = 932;
+        color3x = 937;
+        color3y = 369;
+        click1X = 1688;
+        click1Y = 896;
+        click2X = 1709;
+        click2Y = 943;
+        click3X = 469;
+        click3Y = 933;
+        click4X = 1070;
+        click4Y = 729;
+        click5X = 169;
+        click5Y = 877;
+        click6X = 529;
+        click6Y = 582;
+        click7X = 529;
+        click7Y = 582;
+        click10X = 1016;
+        click10Y = 330;
+        click20X = 1713;
+        click20Y = 943;
+        click30X = 521;
+        click30Y = 933;
+        click40X = 1057;
+        click40Y = 728;
+        click50X = 170;
+        click50Y = 867;
+        click60X = 525;
+        click60Y = 563;
     }
     else if (screenWidth == 1920 && screenHeight == 1200) {
         text1x = 224;
@@ -104,6 +223,44 @@ void setCoordinates() {
         blacky = 75;
         invcolx = 1222;
         invcoly = 195;
+        xferdropx = 1425;
+        xferdropy = 258;
+        dropcolorx = 1665;
+        dropcolory = 196;
+        servnx = 1602;
+        servny = 257;
+        color1x = 164;
+        color1y = 389;
+        color2x = 421;
+        color2y = 1031;
+        color3x = 892;
+        color3y = 406;
+        click1X = 1711;
+        click1Y = 955;
+        click2X = 1718;
+        click2Y = 1005;
+        click3X = 417;
+        click3Y = 1037;
+        click4X = 1069;
+        click4Y = 806;
+        click5X = 170;
+        click5Y = 937;
+        click6X = 524;
+        click6Y = 647;
+        click7X = 524;
+        click7Y = 647;
+        click10X = 971;
+        click10Y = 381;
+        click20X = 1729;
+        click20Y = 998;
+        click30X = 478;
+        click30Y = 1034;
+        click40X = 1082;
+        click40Y = 809;
+        click50X = 169;
+        click50Y = 936;
+        click60X = 525;
+        click60Y = 636;
     }
     else if (screenWidth == 1536 && screenHeight == 864) {
         text1x = 183;
@@ -124,5 +281,43 @@ void setCoordinates() {
         blacky = 55;
         invcolx = 978;
         invcoly = 108;
+        xferdropx = 1141;
+        xferdropy = 157;
+        dropcolorx = 1333;
+        dropcolory = 109;
+        servnx = 1279;
+        servny = 156;
+        color1x = 775;
+        color1y = 262;
+        color2x = 387;
+        color2y = 744;
+        color3x = 710;
+        color3y = 294;
+        click1X = 726;
+        click1Y = 265;
+        click2X = 1362;
+        click2Y = 754;
+        click3X = 415;
+        click3Y = 743;
+        click4X = 857;
+        click4Y = 582;
+        click5X = 139;
+        click5Y = 703;
+        click6X = 421;
+        click6Y = 454;
+        click7X = 421;
+        click7Y = 454;
+        click10X = 692;
+        click10Y = 263;
+        click20X = 1324;
+        click20Y = 760;
+        click30X = 422;
+        click30Y = 749;
+        click40X = 837;
+        click40Y = 583;
+        click50X = 113;
+        click50Y = 700;
+        click60X = 422;
+        click60Y = 469;
     }
 }

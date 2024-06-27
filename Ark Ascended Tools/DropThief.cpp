@@ -10,7 +10,7 @@ void DropThief()
 
     while (true)
     {
-        while (GetPixel(GetDC(NULL), dropcolorx, dropcolory) != RGB(128, 231, 255))
+        while (GetPixel(GetDC(NULL), dropcolorx, dropcolory) != RGB(188, 244, 255))
             Sleep(500);
 
         if (!shouldContinueLoop) {
