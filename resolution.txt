@@ -1,0 +1,7 @@
+1536*960
+
+1920*1200
+
+left autojoin
+
+antiAFK
