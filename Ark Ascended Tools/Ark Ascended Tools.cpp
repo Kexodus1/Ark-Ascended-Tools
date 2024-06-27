@@ -789,17 +789,13 @@ INT_PTR CALLBACK ColorID(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam)
     case WM_INITDIALOG:
     {
         // Get handle to the static control where the image will be displayed
-        HWND hStaticImage = GetDlgItem(hDlg, IDB_PNG1); // Replace IDB_PNG1 with your static control ID
+        HWND hStaticImage = GetDlgItem(hDlg, IDB_COLORID); // Replace IDB_PNG1 with your static control ID
 
         // Load the BMP image
-        HBITMAP hBitmap = (HBITMAP)LoadImage(NULL, L"ColorID1.bmp", IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE);
+        HBITMAP hBitmap = (HBITMAP)LoadImage(NULL, L"ColorID.bmp", IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE);
         if (hBitmap != NULL) {
             // Set the image as the background of the static control
             SendMessage(hStaticImage, STM_SETIMAGE, IMAGE_BITMAP, (LPARAM)hBitmap);
-        }
-        else {
-            // Handle error loading image (optional)
-            MessageBox(hDlg, L"Failed to load image!", L"Error", MB_OK | MB_ICONERROR);
         }
 
         // Recreate the background brush and set the background color

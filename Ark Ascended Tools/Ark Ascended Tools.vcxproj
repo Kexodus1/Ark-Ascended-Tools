@@ -178,7 +178,7 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="Ark Ascended Tools.ico" />
-    <Image Include="ColorID1.png" />
+    <Image Include="ColorID.bmp" />
     <Image Include="small.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

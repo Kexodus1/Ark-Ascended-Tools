@@ -17,6 +17,8 @@ INT_PTR CALLBACK ChangeLog(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam
         if (hEdit)
         {
             const char* changelogText =
+                "v3.0.1\r\n"
+                "     - Minor fix for Color IDs not loading properly\r\n\r\n"
                 "v3.0\r\n"
                 "     - New features \"Solo Nanny\", \"Empty Crop\r\n"
                 "       Plots\", \"Mass Baby Feed\", \"Drop Thief\",\r\n"

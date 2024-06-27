@@ -105,7 +105,7 @@
     <Image Include="Ark Ascended Tools.ico">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="ColorID1.png">
+    <Image Include="ColorID.bmp">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

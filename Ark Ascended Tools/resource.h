@@ -12,10 +12,8 @@
 #define IDI_ARKASCENDEDTOOLS            107
 #define IDI_SMALL                       108
 #define IDC_ARKASCENDEDTOOLS            109
-#define ID_DEVTOOL_COMBOBOX
 #define IDC_COMBOBOX                    110
 #define IDR_MAINFRAME                   128
-#define IDB_PNG1                        132
 #define ID_START_BUTTON                 1001
 #define IDC_STATIC_MOUSE                1002
 #define IDM_CHANGELOG                   1003
@@ -30,6 +28,7 @@
 #define IDC_TRANSPARENCY_EDIT           1013
 #define IDM_COLORID                     1014
 #define IDD_COLORIDBOX                  1015
+#define IDB_COLORID                     1016
 #define IDC_STATIC                      -1
 
 // Next default values for new objects
@@ -37,7 +36,7 @@
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NO_MFC                     1
-#define _APS_NEXT_RESOURCE_VALUE        133
+#define _APS_NEXT_RESOURCE_VALUE        134
 #define _APS_NEXT_COMMAND_VALUE         32781
 #define _APS_NEXT_CONTROL_VALUE         1001
 #define _APS_NEXT_SYMED_VALUE           110
