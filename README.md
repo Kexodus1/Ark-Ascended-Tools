@@ -37,7 +37,6 @@ Ark Ascended Tools User Guide
      - As name implies, will just automatically move you forward without pressing anything.
 
 	Changelog
-==========================
 v3.0
      - New features "Solo Nanny", "Empty Crop
        Plots", "Mass Baby Feed", "Drop Thief",
