@@ -2,8 +2,6 @@
 #include "Features.h"
 #include "Coordinates.h"
 #include <windows.h> // Required for Sleep, SetCursorPos, mouse_event, GetPixel, and keybd_event
-#include <string>    // Required for string handling
-#include <vector>    // Required for vector
 #include <sstream>   // Required for stringstream
 
 // Function to split a string by a delimiter
@@ -93,7 +91,7 @@ void AutoFarmer(HWND AutoFarm)
                         break; // Exit the loop immediately
                     }
 
-                    Sleep(500); // Wait for the text input
+                    Sleep(800); // Wait for the text input
 
                     // Click drop all
                     PerformMouseClick(drop2x, drop2y);
@@ -101,6 +99,18 @@ void AutoFarmer(HWND AutoFarm)
 
                     if (!functionsRunning) {
                         break; // Exit the loop immediately
+                    }
+
+                    // Check color at promptx, prompty
+                    COLORREF color = GetPixel(GetDC(NULL), promptx, prompty);
+                    if (color == RGB(193, 245, 255)) // Assuming red color is RGB(255, 0, 0)
+                    {
+                        PerformMouseClick(okayx, okayy);
+                        Sleep(200);
+                    }
+                    else
+                    {
+                        Sleep(200);
                     }
 
                     // Click text box

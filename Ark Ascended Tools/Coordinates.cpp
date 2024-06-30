@@ -9,8 +9,8 @@ int text1x = 0, text1y = 0, text2x = 0, text2y = 0;
 int xfer1x = 0, xfer1y = 0, xfer2x = 0, xfer2y = 0;
 int closex = 0, closey = 0, drop1x = 0, drop1y = 0;
 int drop2x = 0, drop2y = 0, blackx = 0, blacky = 0;
-int invcolx = 0, invcoly = 0, xferdropx = 0, xferdropy = 0;
-int dropcolorx = 0, dropcolory = 0, servnx = 0, servny = 0;
+int invcolx = 0, invcoly = 0, xferdropx = 0, xferdropy = 0, promptx = 0, prompty = 0;
+int dropcolorx = 0, dropcolory = 0, servnx = 0, servny = 0, okayx = 0, okayy = 0;
 int color1x = 0, color1y = 0, color2x = 0, color2y = 0, color3x = 0, color3y = 0,
 click1X = 0, click1Y = 0, click2X = 0, click2Y = 0, click3X = 0, click3Y = 0,
 click4X = 0, click4Y = 0, click5X = 0, click5Y = 0, click6X = 0, click6Y = 0,
@@ -53,6 +53,10 @@ void setCoordinates() {
         xferdropy = 263;
         dropcolorx = 2659;
         dropcolory = 182;
+        promptx = 1603;
+        prompty = 487;
+        okayx = 1565;
+        okayy = 971;
         servnx = 2608;
         servny = 261;
         color1x = 657;
@@ -111,6 +115,10 @@ void setCoordinates() {
         xferdropy = 266;
         dropcolorx = 2217;
         dropcolory = 184;
+        promptx = 1162;
+        prompty = 487;
+        okayx = 1134;
+        okayy = 968;
         servnx = 2139;
         servny = 262;
         color1x = 219;
@@ -169,6 +177,10 @@ void setCoordinates() {
         xferdropy = 197;
         dropcolorx = 1665;
         dropcolory = 136;
+        promptx = 869;
+        prompty = 365;
+        okayx = 856;
+        okayy = 726;
         servnx = 1608;
         servny = 194;
         color1x = 970;
@@ -227,6 +239,10 @@ void setCoordinates() {
         xferdropy = 258;
         dropcolorx = 1665;
         dropcolory = 196;
+        promptx = 861;
+        prompty = 405;
+        okayx = 838;
+        okayy = 813;
         servnx = 1602;
         servny = 257;
         color1x = 164;
@@ -285,6 +301,10 @@ void setCoordinates() {
         xferdropy = 157;
         dropcolorx = 1333;
         dropcolory = 109;
+        promptx = 696;
+        prompty = 292;
+        okayx = 680;
+        okayy = 580;
         servnx = 1279;
         servny = 156;
         color1x = 775;

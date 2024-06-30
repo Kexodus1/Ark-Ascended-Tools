@@ -26,6 +26,8 @@ INT_PTR CALLBACK UserGuide(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam
                 "     - Type the server number in the \"Input Server Number\" box and hit the \"Start\" button while on the main server selection screen.  The program will take over and automatically attempt to join a full server.  If this function is not working for you check the \"Backup Joiner\" box and re attempt.\r\n\r\n"
                 "--Auto Farmer--\r\n\r\n"
                 "     - This function is for a tribemate or alt account while being a rider on a farming Dino.  This will automatically left click every 2.5 seconds.  Once Dino becomes black weighted the function will automatically drop items listed in the box below.  Please separate these items by a comma(,).\r\n\r\n"
+                "--Auto Drop Items--\r\n\r\n"
+                "     - While activated anytime you open Dino inventory will type the inputed items in the text box one by one and drop all of each item.  Please separate these items by a comma(,).  Example: Doing a meat run and typing \"Prime,Hide,Chitin,Keratin\" into the box, this would drop these items everytime you open the Dino inventory.\r\n\r\n"
                 "--Anti AFK--\r\n\r\n"
                 "     - Anti AFK will automatically move left and right periodically while going prone to prevent getting kicked from server.  If the checkbox is clicked it will eat/drink every 1 hour with 9 and 0 on the keyboard.\r\n\r\n"
                 "--Solo Nanny--\r\n\r\n"

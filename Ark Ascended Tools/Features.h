@@ -2,6 +2,7 @@
 #define Features_H
 #include <atomic>
 #include <string>
+#include <vector>
 
 // Declare TimerBoxProc function
 LRESULT CALLBACK TimerProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam);
@@ -10,6 +11,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
 // Function declarations
 void HandleButtonClick(HWND hWnd, WPARAM wParam);
 void StartTimer(HWND hWnd, int hours, int minutes, int seconds);
+std::vector<std::wstring> split(const std::wstring& s, wchar_t delimiter);
 
 // External Variables
 extern bool timerRunning;
@@ -30,6 +32,7 @@ void typeText(const std::wstring& text);
 void AutoJoiner(HWND ServerN);
 void BackupJoiner(HWND ServerN);
 void AutoFarmer(HWND AutoFarm);
+void AutoDropper(HWND AutoFarm);
 void AntiAFK();
 void SoloNanny(HWND Nanny);
 void MassBabyFeed(HWND Nanny);

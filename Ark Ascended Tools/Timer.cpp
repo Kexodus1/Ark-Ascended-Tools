@@ -131,5 +131,5 @@ void StartTimer(HWND hWnd, int hours, int minutes, int seconds)
     TimerSeconds = seconds;
 
     // Set a timer to trigger every second (1000 milliseconds)
-    TimerID = SetTimer(hWnd, 1, 1000, TimerProc);
+    TimerID = SetTimer(hWnd, 1, 990, TimerProc);
 }

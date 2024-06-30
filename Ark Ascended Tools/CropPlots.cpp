@@ -38,7 +38,21 @@ void CropPlots()
             break; // Exit the loop immediately
         }
 
-        PerformMouseClick(closex, closey);
+        // Check color at promptx, prompty
+        COLORREF color = GetPixel(GetDC(NULL), promptx, prompty);
+        if (color == RGB(193, 245, 255)) // Assuming red color is RGB(255, 0, 0)
+        {
+            PerformMouseClick(okayx, okayy);
+
+            Sleep(300);
+
+            PerformMouseClick(closex, closey);
+        }
+        else
+        {
+            PerformMouseClick(closex, closey);
+        }
+
         Sleep(500);
 
         if (!shouldContinueLoop) {

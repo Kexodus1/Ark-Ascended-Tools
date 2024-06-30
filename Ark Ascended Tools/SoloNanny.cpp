@@ -10,6 +10,13 @@ void SoloNanny(HWND Nanny)
 
     while (true)
     {
+        while (GetPixel(GetDC(NULL), invcolx, invcoly) != RGB(188, 244, 255))
+            Sleep(500);
+
+        if (!shouldContinueLoop) {
+            break; // Exit the loop immediately
+        }
+
         Sleep(1000); // Wait for the click action
 
         // Click at xfer2X, xfer2Y
@@ -42,7 +49,24 @@ void SoloNanny(HWND Nanny)
 
         // Click at xfer1X, xfer1Y
         PerformMouseClick(xfer1x, xfer1y);
-        Sleep(3000); // Wait for the click action
+        Sleep(500); // Wait for the click action
+
+        if (!shouldContinueLoop) {
+            break; // Exit the loop immediately
+        }
+
+        // Check color at promptx, prompty
+        COLORREF color = GetPixel(GetDC(NULL), promptx, prompty);
+        if (color == RGB(193, 245, 255)) // Assuming red color is RGB(255, 0, 0)
+        {
+            PerformMouseClick(okayx, okayy);
+
+            Sleep(300);
+        }
+        else
+        {
+            Sleep(300);
+        }
 
         if (!shouldContinueLoop) {
             break; // Exit the loop immediately

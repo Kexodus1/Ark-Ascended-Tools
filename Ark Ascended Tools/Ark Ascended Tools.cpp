@@ -343,7 +343,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
                         std::thread([=] {
                             while (shouldContinueLoop)
                             {
-                                AntiAFK();
+                                AutoDropper(AutoFarm);
                                 Sleep(100); // Adjust as needed
                             }
                             }).detach();
@@ -352,7 +352,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
                         std::thread([=] {
                             while (shouldContinueLoop)
                             {
-                                SoloNanny(Nanny);
+                                AntiAFK();
                                 Sleep(100); // Adjust as needed
                             }
                             }).detach();
@@ -361,7 +361,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
                         std::thread([=] {
                             while (shouldContinueLoop)
                             {
-                                MassBabyFeed(Nanny);
+                                SoloNanny(Nanny);
                                 Sleep(100); // Adjust as needed
                             }
                             }).detach();
@@ -370,12 +370,21 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
                         std::thread([=] {
                             while (shouldContinueLoop)
                             {
+                                MassBabyFeed(Nanny);
+                                Sleep(100); // Adjust as needed
+                            }
+                            }).detach();
+                            break;
+                    case 6:
+                        std::thread([=] {
+                            while (shouldContinueLoop)
+                            {
                                 DropThief();
                                 Sleep(100); // Adjust as needed
                             }
                             }).detach();
                             break;
-                    case 6: // Timer start button clicked
+                    case 7: // Timer start button clicked
                     {
                         // Assuming TimerHR, TimerMN, TimerSC are the IDs or handles of your edit controls
                         int hours = GetDlgItemInt(hWnd, IDC_TIMER_HOUR, NULL, FALSE);
@@ -387,20 +396,11 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
                         break;
                     }
                     break;
-                    case 7:
-                        std::thread([=] {
-                            while (shouldContinueLoop)
-                            {
-                                CropPlots();
-                                Sleep(100); // Adjust as needed
-                            }
-                            }).detach();
-                            break;
                     case 8:
                         std::thread([=] {
                             while (shouldContinueLoop)
                             {
-                                AutoWalk();
+                                CropPlots();
                                 Sleep(100); // Adjust as needed
                             }
                             }).detach();
@@ -462,23 +462,24 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
                     ShowWindow(hButton, SW_SHOW);
                     break;
                 case 1: // Auto Farmer
+                case 2: // Auto Drop Items
                     ShowWindow(AutoFarm, SW_SHOW);
                     ShowWindow(hButton, SW_SHOW);
                     break;
-                case 2: // Anti AFK
+                case 3: // Anti AFK
                     ShowWindow(AFKFD, SW_SHOW);
                     ShowWindow(hButton, SW_SHOW);
                     break;
-                case 3: // Solo Nanny
-                case 4: // Mass Baby Feed
+                case 4: // Solo Nanny
+                case 5: // Mass Baby Feed
                     ShowWindow(Nanny, SW_SHOW);
                     ShowWindow(hButton, SW_SHOW);
                     break;
-                case 5:
-                case 7:
+                case 6: // Drop Thief
+                case 8: // Crop plots
                     ShowWindow(hButton, SW_SHOW);
                     break;
-                case 6: // Timer
+                case 7: // Timer
                     ShowWindow(TimerHR, SW_SHOW);
                     ShowWindow(TimerMN, SW_SHOW);
                     ShowWindow(TimerSC, SW_SHOW);
@@ -491,11 +492,11 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
                     ShowWindow(TimerSND, SW_SHOW);
                     ShowWindow(hButton, SW_SHOW);
                     break;
-                case 8: // Auto Walk
+                case 9: // Auto Walk
                     ShowWindow(AutoRun, SW_HIDE);
                     ShowWindow(hButton, SW_SHOW);
                     break;
-                case 9: // Developer Tools
+                case 10: // Developer Tools
                     ShowWindow(DevTool, SW_SHOW);
                     int DevToolSel = SendMessage(DevTool, CB_GETCURSEL, 0, 0);
                     switch (DevToolSel)
@@ -588,11 +589,12 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 
         // Create the drop-down box
         hDropDown = CreateWindowEx(WS_EX_CLIENTEDGE, L"COMBOBOX", L"", WS_CHILD | WS_VISIBLE | CBS_DROPDOWNLIST,
-            10, 10, 150, 200, hWnd, NULL, hInst, NULL);
+            10, 10, 150, 300, hWnd, NULL, hInst, NULL);
 
         // Add items to the drop-down box
         SendMessage(hDropDown, CB_ADDSTRING, 0, (LPARAM)L"Auto Join Server");
         SendMessage(hDropDown, CB_ADDSTRING, 0, (LPARAM)L"Auto Farmer");
+        SendMessage(hDropDown, CB_ADDSTRING, 0, (LPARAM)L"Auto Drop Items");
         SendMessage(hDropDown, CB_ADDSTRING, 0, (LPARAM)L"Anti AFK");
         SendMessage(hDropDown, CB_ADDSTRING, 0, (LPARAM)L"Solo Nanny");
         SendMessage(hDropDown, CB_ADDSTRING, 0, (LPARAM)L"Mass Baby Feed");
@@ -612,7 +614,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         BackupJN = CreateWindow(L"BUTTON", L"Backup Joiner", WS_VISIBLE | WS_CHILD | BS_AUTOCHECKBOX, 160, 41, 110, 20, hWnd, NULL, hInst, NULL);
 
         // Create the AutoFarm Edit Box
-        AutoFarm = CreateWindowEx(WS_EX_CLIENTEDGE, L"EDIT", L"Flint,Thatch,Wood", WS_CHILD | WS_VISIBLE,
+        AutoFarm = CreateWindowEx(WS_EX_CLIENTEDGE, L"EDIT", L"Stone,Flint,Thatch,Wood", WS_CHILD | WS_VISIBLE,
             10, 40, 260, 20, hWnd, NULL, hInst, NULL);
 
         // Create Checkbox for AntiAFK

@@ -17,10 +17,14 @@ INT_PTR CALLBACK ChangeLog(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam
         if (hEdit)
         {
             const char* changelogText =
+                "v3.2\r\n"
+                "     - New feature added \"Auto Drop Items\"\r\n"
+                "     - Fixed programming to detect if \"Disable Menu\r\n"
+                "       Transitions\" is enabled or disabled automatically\r\n\r\n"
                 "v3.1\r\n"
-                "     - Fix for \"Timer / Alarm\" function to perform as\r\n"
+                "     - Fix for \"Alarm / Timer\" function to perform as\r\n"
                 "       intended\r\n"
-                "     - \"Timer / Alarm\" will now play sound when\r\n"
+                "     - \"Alarm / Timer\" will now play sound when\r\n"
                 "       reaching \"0\" if \"Enable Sound\" checkbox clicked\r\n\r\n"
                 "v3.0.1\r\n"
                 "     - Minor fix for Color IDs not loading properly\r\n\r\n"
