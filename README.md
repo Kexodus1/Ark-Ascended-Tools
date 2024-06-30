@@ -35,8 +35,12 @@ Ark Ascended Tools User Guide
 
 --Auto Walk / Fly--
      - As name implies, will just automatically move you forward without pressing anything.
-
-	Changelog
+     
+CHANGELOG
+==========================
+v3.0.1
+      - Minor fix for Color IDs not loading properly
+      
 v3.0
      - New features "Solo Nanny", "Empty Crop
        Plots", "Mass Baby Feed", "Drop Thief",
