@@ -17,6 +17,11 @@ INT_PTR CALLBACK ChangeLog(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam
         if (hEdit)
         {
             const char* changelogText =
+                "v3.1\r\n"
+                "     - Fix for \"Timer / Alarm\" function to perform as\r\n"
+                "       intended\r\n"
+                "     - \"Timer / Alarm\" will now play sound when\r\n"
+                "       reaching \"0\" if \"Enable Sound\" checkbox clicked\r\n\r\n"
                 "v3.0.1\r\n"
                 "     - Minor fix for Color IDs not loading properly\r\n\r\n"
                 "v3.0\r\n"

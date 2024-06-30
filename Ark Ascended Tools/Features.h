@@ -4,14 +4,17 @@
 #include <string>
 
 // Declare TimerBoxProc function
-LRESULT CALLBACK TimerBoxProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam);
+LRESULT CALLBACK TimerProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam);
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
 
 // Function declarations
-void UpdateTimerHours(int hoursToAdd);
-void UpdateTimerMinutes(int minutesToAdd);
-void UpdateTimerSeconds(int secondsToAdd);
+void HandleButtonClick(HWND hWnd, WPARAM wParam);
+void StartTimer(HWND hWnd, int hours, int minutes, int seconds);
 
+// External Variables
+extern bool timerRunning;
+extern int TimerHours, TimerMinutes, TimerSeconds;
+extern HWND hButton;
 extern HWND ServerN;
 extern HWND AutoFarm;
 extern HWND Nanny;
@@ -21,6 +24,7 @@ extern HWND TimerSND;
 extern HWND AutoRun;
 extern std::atomic<bool> shouldContinueLoop;
 extern std::atomic<bool> functionsRunning;
+extern UINT_PTR TimerID;
 
 void typeText(const std::wstring& text);
 void AutoJoiner(HWND ServerN);

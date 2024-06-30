@@ -4,6 +4,10 @@
 //
 #define HOTKEY_ID                       1
 #define IDC_MYICON                      2
+#define IDC_TIMER_HOUR                  3
+#define IDC_TIMER_MINUTE                4
+#define IDC_TIMER_SECOND                5
+#define MAX_LOADSTRING                  100
 #define IDD_ARKASCENDEDTOOLS_DIALOG     102
 #define IDS_APP_TITLE                   103
 #define IDD_ABOUTBOX                    103
@@ -14,6 +18,7 @@
 #define IDC_ARKASCENDEDTOOLS            109
 #define IDC_COMBOBOX                    110
 #define IDR_MAINFRAME                   128
+#define IDR_WAVE			            134
 #define ID_START_BUTTON                 1001
 #define IDC_STATIC_MOUSE                1002
 #define IDM_CHANGELOG                   1003
@@ -36,7 +41,7 @@
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NO_MFC                     1
-#define _APS_NEXT_RESOURCE_VALUE        134
+#define _APS_NEXT_RESOURCE_VALUE        136
 #define _APS_NEXT_COMMAND_VALUE         32781
 #define _APS_NEXT_CONTROL_VALUE         1001
 #define _APS_NEXT_SYMED_VALUE           110

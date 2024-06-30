@@ -13,14 +13,13 @@
 #include <vector>
 #include <string>
 #pragma comment(lib, "comctl32.lib")
-
-#define MAX_LOADSTRING 100
 #define WM_UPDATE_TRANSPARENCY (WM_USER + 1)
 
 // Global Variables:
 std::atomic<bool> shouldContinueLoop(true);
 std::atomic<bool> functionsRunning(false); // Variable to keep track of whether the functions are running
 bool keepOnTop = true;
+bool isTimerRunning = false;
 UINT customHotkey = 0;
 UINT_PTR timerID = 0;
 HWND ServerN = NULL, BackupJN, AutoFarm = NULL, AFKFD, Nanny = NULL, AutoRun;
@@ -189,7 +188,8 @@ bool IsResolutionSupported(int width, int height) {
     return false;
 }
 
-//
+
+// 
 //  FUNCTION: WndProc(HWND, UINT, WPARAM, LPARAM)
 //
 //  PURPOSE: Processes messages for the main window.
@@ -247,7 +247,6 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         }
         break;
     }
-
     case WM_HOTKEY:
     {
         if (wParam == 1)
@@ -257,7 +256,6 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         }
         break;
     }
-
     case WM_COMMAND:
     {
         if (HIWORD(wParam) == EN_SETFOCUS && (HWND)lParam == ServerN)
@@ -276,48 +274,22 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             if (wcslen(text) == 0)
                 SetWindowText(ServerN, L"Input Server Number");
         }
-
-        else if (LOWORD(wParam) == BN_CLICKED)
-        {
-            // Check which button was clicked
-            switch (LOWORD(wParam))
-            {
-            case 1: // Hours Up Button
-                SendMessage(TimerHR, WM_COMMAND, 1, 0); // Send message to timer box
-                break;
-            case 2: // Hours Down Button
-                SendMessage(TimerHR, WM_COMMAND, 2, 0); // Send message to timer box
-                break;
-            case 3: // Minutes Up Button
-                SendMessage(TimerMN, WM_COMMAND, 3, 0); // Send message to timer box
-                break;
-            case 4: // Minutes Down Button
-                SendMessage(TimerMN, WM_COMMAND, 4, 0); // Send message to timer box
-                break;
-            case 5: // Seconds Up Button
-                SendMessage(TimerSC, WM_COMMAND, 5, 0); // Send message to timer box
-                break;
-            case 6: // Seconds Down Button
-                SendMessage(TimerSC, WM_COMMAND, 6, 0); // Send message to timer box
-                break;
-            default:
-                break;
-            }
+        if (LOWORD(wParam) >= 1 && LOWORD(wParam) <= 6) {
+            // Handle button clicks
+            HandleButtonClick(hWnd, wParam);
         }
-
         if (LOWORD(wParam) == BN_CLICKED && (HWND)lParam == hButton)
         {
             // Start/stop button clicked
             if (functionsRunning)
             {
+                // Stop the timer
+                KillTimer(hWnd, TimerID);
                 // Stop the functions
                 shouldContinueLoop = false;
-
                 // Wait for threads to terminate
                 Sleep(100);
-
                 functionsRunning = false;
-
                 // Update the button text to "Start"
                 SetWindowText(hButton, L"Start - F4");
                 // Redraw the button to update its appearance
@@ -403,15 +375,18 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
                             }
                             }).detach();
                             break;
-                    case 6:
-                        std::thread([=] {
-                            while (shouldContinueLoop)
-                            {
-                                Timer();
-                                Sleep(100); // Adjust as needed
-                            }
-                            }).detach();
-                            break;
+                    case 6: // Timer start button clicked
+                    {
+                        // Assuming TimerHR, TimerMN, TimerSC are the IDs or handles of your edit controls
+                        int hours = GetDlgItemInt(hWnd, IDC_TIMER_HOUR, NULL, FALSE);
+                        int minutes = GetDlgItemInt(hWnd, IDC_TIMER_MINUTE, NULL, FALSE);
+                        int seconds = GetDlgItemInt(hWnd, IDC_TIMER_SECOND, NULL, FALSE);
+
+                        // Start the timer
+                        StartTimer(hWnd, hours, minutes, seconds);
+                        break;
+                    }
+                    break;
                     case 7:
                         std::thread([=] {
                             while (shouldContinueLoop)
@@ -441,7 +416,6 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
                             break;
                     }
                 }
-
                 // Update the button text to "Stop"
                 SetWindowText(hButton, L"Stop - F4");
                 // Redraw the button to update its appearance
@@ -579,7 +553,6 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
                     break;
                 }
             }
-
         switch (LOWORD(wParam))
         {
         case IDM_COLORID:
@@ -657,9 +630,9 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         SendMessage(Nanny, CB_SETCURSEL, 0, 0);
 
         // Create the main timer display box
-        TimerHR = CreateWindowEx(0, L"EDIT", L"00:", WS_VISIBLE | WS_CHILD, 20, 40, 20, 20, hWnd, NULL, hInst, NULL);
-        TimerMN = CreateWindowEx(0, L"EDIT", L"00:", WS_VISIBLE | WS_CHILD, 63, 40, 20, 20, hWnd, NULL, hInst, NULL);
-        TimerSC = CreateWindowEx(0, L"EDIT", L"00", WS_VISIBLE | WS_CHILD, 106, 40, 20, 20, hWnd, NULL, hInst, NULL);
+        TimerHR = CreateWindowEx(0, L"STATIC", L"00:", WS_VISIBLE | WS_CHILD, 20, 40, 20, 20, hWnd, (HMENU)IDC_TIMER_HOUR, hInst, NULL);
+        TimerMN = CreateWindowEx(0, L"STATIC", L"00:", WS_VISIBLE | WS_CHILD, 63, 40, 20, 20, hWnd, (HMENU)IDC_TIMER_MINUTE, hInst, NULL);
+        TimerSC = CreateWindowEx(0, L"STATIC", L"00", WS_VISIBLE | WS_CHILD, 106, 40, 20, 20, hWnd, (HMENU)IDC_TIMER_SECOND, hInst, NULL);
         // Create buttons for hours, minutes, and seconds adjustments
         hHUB = CreateWindow(L"BUTTON", L"▲", WS_VISIBLE | WS_CHILD | BS_PUSHBUTTON, 10, 40, 10, 20, hWnd, (HMENU)1, hInst, NULL); // Hours up
         hHDB = CreateWindow(L"BUTTON", L"▼", WS_VISIBLE | WS_CHILD | BS_PUSHBUTTON, 40, 40, 10, 20, hWnd, (HMENU)2, hInst, NULL); // Hours down
