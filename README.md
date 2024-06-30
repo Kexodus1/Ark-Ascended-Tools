@@ -16,6 +16,9 @@ Ark Ascended Tools User Guide
 --Auto Farmer--<BR><BR>
      - This function is for a tribemate or alt account while being a rider on a farming Dino.  This will automatically left click every 2.5 seconds.  Once Dino becomes black weighted the function will automatically drop items listed in the box below.  Please separate these items by a comma(,).<BR><BR>
 
+--Auto Drop Items--<BR><BR>
+      - While activated anytime you open Dino inventory will type the inputed items in the text box one by one and drop all of each item.  Please separate these items by a comma(,).  Example: Doing a meat run and typing "Prime,Hide,Chitin,Keratin" into the box, this would drop these items everytime you open the Dino inventory.<BR><BR>
+
 --Anti AFK--<BR><BR>
      - Anti AFK will automatically move left and right periodically while going prone to prevent getting kicked from server.  If the checkbox is clicked it will eat/drink every 1 hour with 9 and 0 on the keyboard.<BR><BR>
 
@@ -39,6 +42,11 @@ Ark Ascended Tools User Guide
      
 CHANGELOG
 ==========================
+v3.2<BR>
+     - New feature added "Auto Drop Items"<BR>
+     - Fixed programming to detect if "Disable Menu<BR>
+       Transitions" is enabled or disabled automatically<BR><BR>
+       
 v3.1<BR>
      - Fix for "Timer / Alarm" function to perform as<BR>
        intended<BR>
