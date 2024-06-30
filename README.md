@@ -38,6 +38,12 @@ Ark Ascended Tools User Guide
      
 CHANGELOG
 ==========================
+v3.1
+     - Fix for "Timer / Alarm" function to perform as
+       intended
+     - "Timer / Alarm" will now play sound when
+       reaching "0" if "Enable Sound" checkbox clicked
+       
 v3.0.1
       - Minor fix for Color IDs not loading properly
       
