@@ -16,55 +16,28 @@ void BackupJoiner(HWND ServerN)
                 break; // Exit the loop immediately
             }
 
-            // Wait 200ms
-            Sleep(100);
+            // Retrieve the Server Number
+            wchar_t selectedValue[256];
+            GetWindowText(ServerN, selectedValue, 256);
+            // Type the selected value
+            typeText(selectedValue);
+            Sleep(500); // Wait for the text input
 
             if (!shouldContinueLoop) {
                 break; // Exit the loop immediately
             }
 
-            // Get the text from the edit control
-            wchar_t text[256];
-            GetWindowText(ServerN, text, 256);
-
-            INPUT inputs[256];
-            ZeroMemory(inputs, sizeof(inputs));
-            size_t textLength = wcslen(text); // Calculate the length once to avoid multiple calls
-            for (UINT i = 0; i < textLength; i++) 
-            {
-                inputs[i].type = INPUT_KEYBOARD;
-                inputs[i].ki.dwFlags = KEYEVENTF_UNICODE;
-                inputs[i].ki.wScan = text[i];
-            }
-            SendInput(static_cast<UINT>(textLength), inputs, sizeof(INPUT));
-
-            // Wait 200ms
-            Sleep(200);
+            //Top Server Click
+            PerformMouseClick(servtx, servty);
+            Sleep(500);
 
             if (!shouldContinueLoop) {
                 break; // Exit the loop immediately
             }
 
-            // perform the first left mouse click
-            SetCursorPos(click10X, click10Y);
-            mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
-            mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
-
-            if (!shouldContinueLoop) {
-                break; // Exit the loop immediately
-            }
-
-            // Wait 200ms
-            Sleep(100);
-
-            if (!shouldContinueLoop) {
-                break; // Exit the loop immediately
-            }
-
-            // Perform the second left mouse click
-            SetCursorPos(click20X, click20Y);
-            mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
-            mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
+            //Server 1st Join Button
+            PerformMouseClick(servjx, servjy);
+            Sleep(500);
 
             if (!shouldContinueLoop) {
                 break; // Exit the loop immediately
@@ -77,10 +50,8 @@ void BackupJoiner(HWND ServerN)
                 break; // Exit the loop immediately
             }
 
-            // Once the color matches, perform the third left mouse click
-            SetCursorPos(click30X, click30Y);
-            mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
-            mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
+            //2nd Join Button 
+            PerformMouseClick(click3X, click3Y);
 
             if (!shouldContinueLoop) {
                 break; // Exit the loop immediately
@@ -93,10 +64,8 @@ void BackupJoiner(HWND ServerN)
                 break; // Exit the loop immediately
             }
 
-            // Once the color matches, perform the fourth left mouse click
-            SetCursorPos(click40X, click40Y);
-            mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
-            mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
+            //Cancel Que Wait
+            PerformMouseClick(click4X, click4Y);
 
             if (!shouldContinueLoop) {
                 break; // Exit the loop immediately
@@ -109,10 +78,8 @@ void BackupJoiner(HWND ServerN)
                 break; // Exit the loop immediately
             }
 
-            // Perform the fifth left mouse click
-            SetCursorPos(click50X, click50Y);
-            mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
-            mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
+            //Go back to Selection
+            PerformMouseClick(click5X, click5Y);
 
             if (!shouldContinueLoop) {
                 break; // Exit the loop immediately
@@ -125,10 +92,8 @@ void BackupJoiner(HWND ServerN)
                 break; // Exit the loop immediately
             }
 
-            // Perform the sixth left mouse click
-            SetCursorPos(click60X, click60Y);
-            mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
-            mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
+            //Select to Join
+            PerformMouseClick(click6X, click6Y);
 
             if (!shouldContinueLoop) {
                 break; // Exit the loop immediately

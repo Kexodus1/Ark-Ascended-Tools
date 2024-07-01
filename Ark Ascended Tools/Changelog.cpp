@@ -17,6 +17,13 @@ INT_PTR CALLBACK ChangeLog(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam
         if (hEdit)
         {
             const char* changelogText =
+                "v3.3\r\n"
+                "     - Fixed unintended breakage of \"Auto Join\r\n"
+                "       Server\" when server number was implemented\r\n"
+                "     - Refactoring of code to optimize \"Auto Join\r\n"
+                "       Server\" and \"Backup Joiner\"\r\n"
+                "     - Consolidated coordinates for \"Auto Join Server\"\r\n"
+                "       and \"Backup Joiner\" eliminating duplicates\r\n\r\n"
                 "v3.2\r\n"
                 "     - New feature added \"Auto Drop Items\"\r\n"
                 "     - Fixed programming to detect if \"Disable Menu\r\n"
