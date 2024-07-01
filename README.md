@@ -42,6 +42,14 @@ Ark Ascended Tools User Guide
      
 CHANGELOG
 ==========================
+v3.3<BR>
+     - Fixed unintended breakage of "Auto Join<BR>
+       Server" when server number was implemented<BR>
+     - Refactoring of code to optimize "Auto Join<BR>
+       Server" and "Backup Joiner"<BR>
+     - Consolidated coordinates for "Auto Join Server"<BR>
+       and "Backup Joiner" eliminating duplicates<BR><BR>
+       
 v3.2<BR>
      - New feature added "Auto Drop Items"<BR>
      - Fixed programming to detect if "Disable Menu<BR>
