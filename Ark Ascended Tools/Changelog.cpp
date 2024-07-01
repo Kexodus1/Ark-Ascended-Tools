@@ -17,6 +17,10 @@ INT_PTR CALLBACK ChangeLog(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam
         if (hEdit)
         {
             const char* changelogText =
+                "v3.3.1\r\n"
+                "     - Added text input to server number box (for\r\n"
+                "       servers with fewer then 4 numbers like arkpoc\r\n"
+                "       and conquest)\r\n\r\n"
                 "v3.3\r\n"
                 "     - Fixed unintended breakage of \"Auto Join\r\n"
                 "       Server\" when server number was implemented\r\n"

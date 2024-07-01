@@ -608,7 +608,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         SendMessage(hDropDown, CB_SETCURSEL, 0, 0);
 
         // Create the ServerNumber edit box
-        ServerN = CreateWindowEx(WS_EX_CLIENTEDGE, L"EDIT", L"Input Server Number", WS_CHILD | WS_VISIBLE | ES_NUMBER,
+        ServerN = CreateWindowEx(WS_EX_CLIENTEDGE, L"EDIT", L"Input Server Number", WS_CHILD | WS_VISIBLE,
             10, 40, 145, 20, hWnd, NULL, hInst, NULL);
         // Create Checkbox for Backup Joiner
         BackupJN = CreateWindow(L"BUTTON", L"Backup Joiner", WS_VISIBLE | WS_CHILD | BS_AUTOCHECKBOX, 160, 41, 110, 20, hWnd, NULL, hInst, NULL);
