@@ -17,6 +17,8 @@ INT_PTR CALLBACK ChangeLog(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam
         if (hEdit)
         {
             const char* changelogText =
+                "v3.3.2\r\n"
+                "     - Minor fix for \"Mass Baby Feed\" timings\r\n\r\n"
                 "v3.3.1\r\n"
                 "     - Added text input to server number box (for\r\n"
                 "       servers with fewer then 4 numbers like arkpoc\r\n"

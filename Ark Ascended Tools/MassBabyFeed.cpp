@@ -29,7 +29,7 @@ void MassBabyFeed(HWND Nanny)
 
         // Click at xfer2X, xfer2Y
         PerformMouseClick(xfer2x, xfer2y);
-        Sleep(500); // Wait for the click action
+        Sleep(900); // Wait for the click action
 
         if (!shouldContinueLoop) {
             break; // Exit the loop immediately
@@ -49,7 +49,7 @@ void MassBabyFeed(HWND Nanny)
         // Type the selected value
         typeText(selectedValue);
 
-        Sleep(800); // Wait for the text input
+        Sleep(500); // Wait for the text input
 
         if (!shouldContinueLoop) {
             break; // Exit the loop immediately
