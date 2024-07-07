@@ -20,7 +20,7 @@ Ark Ascended Tools User Guide
       - While activated anytime you open Dino inventory will type the inputed items in the text box one by one and drop all of each item.  Please separate these items by a comma(,).  Example: Doing a meat run and typing "Prime,Hide,Chitin,Keratin" into the box, this would drop these items everytime you open the Dino inventory.<BR><BR>
 
 --Anti AFK--<BR><BR>
-     - Anti AFK will automatically move left and right periodically while going prone to prevent getting kicked from server.  If the checkbox is clicked it will eat/drink every 1 hour with 9 and 0 on the keyboard.<BR><BR>
+     - Anti AFK will automatically move left(A) and right(D) periodically while going prone(X) if the "Move" checkbox is checked to prevent getting kicked from server.  If the "Eat / Drink" checkbox is checked it will automatically eat and drink with 9 and 0 on the keyboard.  You may input time in minutes to automatically eat and drink, default is 60 minutes.  You may use both "Move" and "Eat / Drink" together or separately.<BR><BR>
 
 --Solo Nanny--<BR><BR>
      - Allows you to automatically hand feed one baby while being in the inventory.  Select which food you want to hand feed and will periodically every 1 minute refeed baby.  Make sure you have the appropriate quantity of selected food in your inventory.<BR><BR>
@@ -42,8 +42,15 @@ Ark Ascended Tools User Guide
      
 CHANGELOG
 ==========================
+v3.4<BR>
+     - Complete rework of "Anti AFK" code<BR>
+     - Added Eat / Drink timer input to "Anti AFK"<BR>
+     - Added ability to only Move or Eat / Drink to<BR>
+      "Anti AFK" (Should add more functionality)<BR><BR>
+      
 v3.3.2<BR>
      - Minor fix for "Mass Baby Feed" timings<BR><BR>
+     
 v3.3.1<BR>
      - Added text input to server number box (for<BR>
        servers with fewer then 4 numbers like arkpoc<BR>
