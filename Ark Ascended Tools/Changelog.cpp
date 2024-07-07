@@ -17,6 +17,11 @@ INT_PTR CALLBACK ChangeLog(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam
         if (hEdit)
         {
             const char* changelogText =
+                "v3.4\r\n"
+                "     - Complete rework of \"Anti AFK\" code\r\n"
+                "     - Added Eat / Drink timer input to \"Anti AFK\"\r\n"
+                "     - Added ability to only Move or Eat / Drink to\r\n"
+                "      \"Anti AFK\" (Should add more functionality)\r\n\r\n"
                 "v3.3.2\r\n"
                 "     - Minor fix for \"Mass Baby Feed\" timings\r\n\r\n"
                 "v3.3.1\r\n"

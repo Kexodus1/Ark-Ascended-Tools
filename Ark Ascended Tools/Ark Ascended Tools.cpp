@@ -22,7 +22,7 @@ bool keepOnTop = true;
 bool isTimerRunning = false;
 UINT customHotkey = 0;
 UINT_PTR timerID = 0;
-HWND ServerN = NULL, BackupJN, AutoFarm = NULL, AFKFD, Nanny = NULL, AutoRun;
+HWND ServerN = NULL, BackupJN, AutoFarm = NULL, AFKM, AFKFD, AFKFDM, AFKFDI, Nanny = NULL, AutoRun;
 HWND TimerHR, TimerMN, TimerSC, hHUB, hHDB, hMUB, hMDB, hSUB, hSDB, TimerSND;
 HWND DevTool, MagicINI, ClubARK, AutoFish;
 HWND hDropDown, hButton, hStaticRes, hStaticText;
@@ -352,7 +352,9 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
                         std::thread([=] {
                             while (shouldContinueLoop)
                             {
-                                AntiAFK();
+                                bool isAFKMChecked = SendMessage(AFKM, BM_GETCHECK, 0, 0) == BST_CHECKED;
+                                bool isAFKFDChecked = SendMessage(AFKFD, BM_GETCHECK, 0, 0) == BST_CHECKED;
+                                AntiAFK(isAFKMChecked, isAFKFDChecked);
                                 Sleep(100); // Adjust as needed
                             }
                             }).detach();
@@ -434,7 +436,10 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
                 ShowWindow(ServerN, SW_HIDE);
                 ShowWindow(BackupJN, SW_HIDE);
                 ShowWindow(AutoFarm, SW_HIDE);
+                ShowWindow(AFKM, SW_HIDE);
                 ShowWindow(AFKFD, SW_HIDE);
+                ShowWindow(AFKFDM, SW_HIDE);
+                ShowWindow(AFKFDI, SW_HIDE);
                 ShowWindow(Nanny, SW_HIDE);
                 ShowWindow(TimerHR, SW_HIDE);
                 ShowWindow(TimerMN, SW_HIDE);
@@ -467,7 +472,10 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
                     ShowWindow(hButton, SW_SHOW);
                     break;
                 case 3: // Anti AFK
+                    ShowWindow(AFKM, SW_SHOW);
                     ShowWindow(AFKFD, SW_SHOW);
+                    ShowWindow(AFKFDM, SW_SHOW);
+                    ShowWindow(AFKFDI, SW_SHOW);
                     ShowWindow(hButton, SW_SHOW);
                     break;
                 case 4: // Solo Nanny
@@ -617,10 +625,16 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         AutoFarm = CreateWindowEx(WS_EX_CLIENTEDGE, L"EDIT", L"Stone,Flint,Thatch,Wood", WS_CHILD | WS_VISIBLE,
             10, 40, 260, 20, hWnd, NULL, hInst, NULL);
 
-        // Create Checkbox for AntiAFK
-        AFKFD = CreateWindow(L"BUTTON", L"Auto Eating / Drinking", WS_VISIBLE | WS_CHILD | BS_AUTOCHECKBOX, 10, 41, 250, 20, hWnd, NULL, hInst, NULL);
+        // Create Checkboxes for AntiAFK
+        AFKM = CreateWindow(L"BUTTON", L"Move", WS_VISIBLE | WS_CHILD | BS_AUTOCHECKBOX, 10, 41, 60, 20, hWnd, NULL, hInst, NULL);
+        AFKFD = CreateWindow(L"BUTTON", L"Eat / Drink", WS_VISIBLE | WS_CHILD | BS_AUTOCHECKBOX, 75, 41, 95, 20, hWnd, NULL, hInst, NULL);
         // Automatically check the checkbox
+        SendMessage(AFKM, BM_SETCHECK, BST_CHECKED, 0);
         SendMessage(AFKFD, BM_SETCHECK, BST_CHECKED, 0);
+        // Create the AntiAFK Edit Box
+        AFKFDM = CreateWindowEx(WS_EX_CLIENTEDGE, L"EDIT", L"60", WS_CHILD | WS_VISIBLE | ES_NUMBER,
+            170, 40, 25, 20, hWnd, NULL, hInst, NULL);
+        AFKFDI = CreateWindowEx(0, L"STATIC", L"Minutes", WS_VISIBLE | WS_CHILD, 200, 42, 100, 20, hWnd, NULL, hInst, NULL);
 
         // Create the Nanny drop-down box
         Nanny = CreateWindowEx(WS_EX_CLIENTEDGE, L"COMBOBOX", L"", WS_CHILD | WS_VISIBLE | CBS_DROPDOWNLIST,
@@ -679,7 +693,10 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         AutoFish = CreateWindow(L"BUTTON", L"Controller", WS_VISIBLE | WS_CHILD | BS_AUTOCHECKBOX, 145, 41, 110, 20, hWnd, NULL, hInst, NULL);
 
         // Initially hide the boxes
+        ShowWindow(AFKM, SW_HIDE);
         ShowWindow(AFKFD, SW_HIDE);
+        ShowWindow(AFKFDM, SW_HIDE);
+        ShowWindow(AFKFDI, SW_HIDE);
         ShowWindow(AutoFarm, SW_HIDE);
         ShowWindow(Nanny, SW_HIDE);
         ShowWindow(TimerHR, SW_HIDE);

@@ -9,6 +9,7 @@ LRESULT CALLBACK TimerProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
 
 // Function declarations
+void UpdateAntiAFKControlsVisibility();
 void HandleButtonClick(HWND hWnd, WPARAM wParam);
 void StartTimer(HWND hWnd, int hours, int minutes, int seconds);
 std::vector<std::wstring> split(const std::wstring& s, wchar_t delimiter);
@@ -17,6 +18,7 @@ std::vector<std::wstring> split(const std::wstring& s, wchar_t delimiter);
 extern bool timerRunning;
 extern int TimerHours, TimerMinutes, TimerSeconds;
 extern HWND hButton;
+extern HWND AFKM, AFKFD, AFKFDM, AFKFDI;
 extern HWND ServerN;
 extern HWND AutoFarm;
 extern HWND Nanny;
@@ -33,7 +35,7 @@ void AutoJoiner(HWND ServerN);
 void BackupJoiner(HWND ServerN);
 void AutoFarmer(HWND AutoFarm);
 void AutoDropper(HWND AutoFarm);
-void AntiAFK();
+void AntiAFK(bool isAFKMChecked, bool isAFKFDChecked);
 void SoloNanny(HWND Nanny);
 void MassBabyFeed(HWND Nanny);
 void DropThief();

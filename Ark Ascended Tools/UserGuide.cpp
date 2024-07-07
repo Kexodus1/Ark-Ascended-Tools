@@ -29,7 +29,7 @@ INT_PTR CALLBACK UserGuide(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam
                 "--Auto Drop Items--\r\n\r\n"
                 "     - While activated anytime you open Dino inventory will type the inputed items in the text box one by one and drop all of each item.  Please separate these items by a comma(,).  Example: Doing a meat run and typing \"Prime,Hide,Chitin,Keratin\" into the box, this would drop these items everytime you open the Dino inventory.\r\n\r\n"
                 "--Anti AFK--\r\n\r\n"
-                "     - Anti AFK will automatically move left and right periodically while going prone to prevent getting kicked from server.  If the checkbox is clicked it will eat/drink every 1 hour with 9 and 0 on the keyboard.\r\n\r\n"
+                "     - Anti AFK will automatically move left(A) and right(D) periodically while going prone(X) if the \"Move\" checkbox is checked to prevent getting kicked from server.  If the \"Eat / Drink\" checkbox is checked it will automatically eat and drink with 9 and 0 on the keyboard.  You may input time in minutes to automatically eat and drink, default is 60 minutes.  You may use both \"Move\" and \"Eat / Drink\" together or separately.\r\n\r\n"
                 "--Solo Nanny--\r\n\r\n"
                 "     - Allows you to automatically hand feed one baby while being in the inventory.  Select which food you want to hand feed and will periodically every 1 minute refeed baby.  Make sure you have the appropriate quantity of selected food in your inventory.\r\n\r\n"
                 "--Mass Baby Feed--\r\n\r\n"
