@@ -42,6 +42,11 @@ Ark Ascended Tools User Guide
      
 CHANGELOG
 ==========================
+v3.3.1<BR>
+     - Added text input to server number box (for<BR>
+       servers with fewer then 4 numbers like arkpoc<BR>
+       and conquest)<BR><BR>
+
 v3.3<BR>
      - Fixed unintended breakage of "Auto Join<BR>
        Server" when server number was implemented<BR>
