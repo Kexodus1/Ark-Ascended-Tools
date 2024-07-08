@@ -1,5 +1,5 @@
-v3.4.0/r/n
-     - Complete rework of "Anti AFK" code
-     - Added Eat / Drink timer input to "Anti AFK"
-     - Added ability to only Move or Eat / Drink to
-      "Anti AFK" (Should add more functionality)
+                "v3.4\r\n"
+                "     - Complete rework of \"Anti AFK\" code\r\n"
+                "     - Added Eat / Drink timer input to \"Anti AFK\"\r\n"
+                "     - Added ability to only Move or Eat / Drink to\r\n"
+                "      \"Anti AFK\" (Should add more functionality)\r\n\r\n"
