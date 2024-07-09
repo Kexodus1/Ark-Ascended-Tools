@@ -16,7 +16,7 @@ extern HBRUSH hbrBackground;
 
 std::string GetCurrentVersion() {
     // Return the current version of your application
-    return "v3.5.0";  // Replace this with the actual current version of your application
+    return "v3.5.1";  // Replace this with the actual current version of your application
 }
 
 std::string GetLatestVersionFromGitHub() {
@@ -101,9 +101,7 @@ void CheckForUpdates(HINSTANCE hInst, HWND hWnd, HWND hDlg) {
 // Function to download a file from a URL
 std::wstring DownloadFile(const std::wstring& version, const std::wstring& savePath) {
     std::wstring url = L"https://github.com/Kexodus1/Ark-Ascended-Tools/releases/download/";
-//OLD zip func
-//     url += version + L"/Ark.Ascended.Tools." + version + L".zip";
-    url += version + L"/Ark.Ascended.Tools.exe";
+    url += version + L"/Ark.Ascended.Tools." + version + L".zip";
 
     HRESULT hr = URLDownloadToFile(nullptr, url.c_str(), savePath.c_str(), 0, nullptr);
     if (SUCCEEDED(hr)) {
@@ -126,10 +124,6 @@ void DownloadAndUpdate() {
     if (!downloadedFilePath.empty()) {
         // Download successful, proceed with update logic
         MessageBoxW(NULL, L"Downloaded update successfully.", L"Update", MB_OK | MB_ICONINFORMATION);
-
-        // Example: Execute the downloaded file or perform update actions
-        // Replace with your actual update logic
-        // Example: ShellExecuteW(NULL, L"open", downloadedFilePath.c_str(), NULL, NULL, SW_SHOWNORMAL);
     }
     else {
         // Handle download failure

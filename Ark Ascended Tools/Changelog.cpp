@@ -17,8 +17,10 @@ INT_PTR CALLBACK ChangeLog(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam
         if (hEdit)
         {
             const char* changelogText =
+                "v3.5.1\r\n"
+                "     - Minor fix for updater downloading exe not zip\r\n\r\n"
                 "v3.5.0\r\n"
-                "     - Minor Fixes to \"Anti AFK\" stop logic\r\n"
+                "     - Minor fixes to \"Anti AFK\" stop logic\r\n"
                 "     - Adjusted version numbers for updater\r\n"
                 "     - New \"Check for Updates\" in help menu\r\n\r\n"
                 "v3.4.0\r\n"

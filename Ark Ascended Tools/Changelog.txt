@@ -1,5 +1,3 @@
-New Version v3.5.0 is available
+New Version v3.5.1 is available
 
-     - Minor Fixes to "Anti AFK" stop logic
-     - Adjusted version numbers for updater
-     - New "Check for Updates" in help menu
+- Minor fix for updater downloading exe not zip
