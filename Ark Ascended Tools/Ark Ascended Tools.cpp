@@ -4,7 +4,6 @@
 #include "pch.h"
 #include "framework.h"
 #include "resource.h"
-#include "Menu.h"
 #include "Features.h"
 #include <codecvt>
 #include <CommCtrl.h>
@@ -22,6 +21,7 @@ bool keepOnTop = true;
 bool isTimerRunning = false;
 UINT customHotkey = 0;
 UINT_PTR timerID = 0;
+HWND hDlg;
 HWND ServerN = NULL, BackupJN, AutoFarm = NULL, AFKM, AFKFD, AFKFDM, AFKFDI, Nanny = NULL, AutoRun;
 HWND TimerHR, TimerMN, TimerSC, hHUB, hHDB, hMUB, hMDB, hSUB, hSDB, TimerSND;
 HWND DevTool, MagicINI, ClubARK, AutoFish;
@@ -55,8 +55,6 @@ BOOL                InitInstance(HINSTANCE, int);
 LRESULT CALLBACK    WndProc(HWND, UINT, WPARAM, LPARAM);
 INT_PTR CALLBACK    ColorID(HWND, UINT, WPARAM, LPARAM);
 INT_PTR CALLBACK    About(HWND, UINT, WPARAM, LPARAM);
-INT_PTR CALLBACK    ChangeLog(HWND, UINT, WPARAM, LPARAM);
-INT_PTR CALLBACK    UserGuide(HWND, UINT, WPARAM, LPARAM);
 INT_PTR CALLBACK    SettingsDlgProc(HWND, UINT, WPARAM, LPARAM);
 
 int APIENTRY wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _In_ LPWSTR lpCmdLine, _In_ int nCmdShow)
@@ -578,6 +576,10 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             // Show the changelog dialog
             DialogBox(hInst, MAKEINTRESOURCE(IDD_CHANGELOGBOX), hWnd, ChangeLog);
             break;
+        case IDM_UPDATE:
+            // Check for updates during initialization
+            CheckForUpdates(hInst, hWnd, nullptr);
+            break;
         case IDM_ABOUT:
             DialogBox(hInst, MAKEINTRESOURCE(IDD_ABOUTBOX), hWnd, About);
             break;
@@ -825,13 +827,18 @@ INT_PTR CALLBACK About(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam)
     switch (message)
     {
     case WM_INITDIALOG:
+    {
+        // Set the current version message
+        std::wstring currentVersion = ConvertToWideString(GetCurrentVersion());
+        SetDlgItemTextW(hDlg, IDC_CURRENT_VERSION, currentVersion.c_str());
+        return (INT_PTR)TRUE;
 
         // Recreate the background brush and set the background color
         hbrBackground = CreateSolidBrush(RGB(0, 0, 0));
         SetClassLongPtr(hDlg, GCLP_HBRBACKGROUND, (LONG_PTR)hbrBackground);
 
         return (INT_PTR)TRUE;
-
+    }
     case WM_COMMAND:
         if (LOWORD(wParam) == IDOK || LOWORD(wParam) == IDCANCEL)
         {

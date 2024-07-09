@@ -12,6 +12,10 @@ void AntiAFK(bool isAFKMChecked, bool isAFKFDChecked)
             // Wait for 5 seconds before Starting the sequence
             Sleep(5000); // Wait 5 seconds
 
+            if (!shouldContinueLoop) {
+                break; // Exit the loop immediately
+            }
+
             // Simulate 'd' key press for 500ms
             keybd_event('D', 0, 0, 0); // Press 'D'
             Sleep(500); // Wait 500 milliseconds
@@ -44,6 +48,10 @@ void AntiAFK(bool isAFKMChecked, bool isAFKFDChecked)
 
             // Wait for 50 seconds before repeating the sequence
             Sleep(55000); // Wait 55 seconds
+
+            if (!shouldContinueLoop) {
+                break; // Exit the loop immediately
+            }
 
             // Simulate 'x' key press
             keybd_event('X', 0, 0, 0); // Press 'X'
@@ -81,6 +89,10 @@ void AntiAFK(bool isAFKMChecked, bool isAFKFDChecked)
 
             if (currentTime - lastActionTime >= AFKFDMValue * 60)
             {
+                if (!shouldContinueLoop) {
+                    break; // Exit the loop immediately
+                }
+
                 // Simulate '9' key press
                 keybd_event('9', 0, 0, 0); // Press 'X'
                 Sleep(50); // Wait 50 milliseconds
@@ -104,6 +116,9 @@ void AntiAFK(bool isAFKMChecked, bool isAFKFDChecked)
                 // Update last action time
                 lastActionTime = currentTime;
             }
+        }
+        if (!shouldContinueLoop) {
+            break; // Exit the loop immediately
         }
     }
 }

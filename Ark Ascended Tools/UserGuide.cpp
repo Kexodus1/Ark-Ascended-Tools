@@ -1,5 +1,5 @@
 #include "pch.h"
-#include "Menu.h"
+#include "Features.h"
 #include "resource.h"
 
 // Global variable to store the background brush

@@ -3,16 +3,24 @@
 #include <atomic>
 #include <string>
 #include <vector>
-
-// Declare TimerBoxProc function
-LRESULT CALLBACK TimerProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam);
-LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
+#include <iostream>
+#include <sstream>
 
 // Function declarations
+LRESULT CALLBACK TimerProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam);
+LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
+INT_PTR CALLBACK UserGuide(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam);
+INT_PTR CALLBACK ChangeLog(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam);
+INT_PTR CALLBACK Update(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam);
+INT_PTR CALLBACK Current(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam);
 void UpdateAntiAFKControlsVisibility();
 void HandleButtonClick(HWND hWnd, WPARAM wParam);
 void StartTimer(HWND hWnd, int hours, int minutes, int seconds);
 std::vector<std::wstring> split(const std::wstring& s, wchar_t delimiter);
+std::string GetLatestVersionFromGitHub();
+std::string GetCurrentVersion();
+void CheckForUpdates(HINSTANCE hInst, HWND hWnd, HWND hDlg);
+std::wstring ConvertToWideString(const std::string& str);
 
 // External Variables
 extern bool timerRunning;

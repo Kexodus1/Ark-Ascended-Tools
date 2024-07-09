@@ -149,7 +149,6 @@
     <ClInclude Include="pch.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="targetver.h" />
-    <ClInclude Include="Menu.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Ark Ascended Tools.cpp" />
@@ -172,6 +171,7 @@
     <ClCompile Include="AutoFarmer.cpp" />
     <ClCompile Include="SoloNanny.cpp" />
     <ClCompile Include="Timer.cpp" />
+    <ClCompile Include="Update.cpp" />
     <ClCompile Include="UserGuide.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -184,6 +184,10 @@
   </ItemGroup>
   <ItemGroup>
     <Media Include="alarm.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Changelog.txt" />
+    <Text Include="Version.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
