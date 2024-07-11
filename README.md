@@ -42,6 +42,9 @@ Ark Ascended Tools User Guide
      
 CHANGELOG
 ==========================
+v3.5.1<BR>
+     - Minor fix for updater downloading exe not zip<BR><BR>
+     
 v3.5.0<BR>
      - Minor Fixes to "Anti AFK" stop logic<BR>
      - Adjusted version numbers for updater<BR>
