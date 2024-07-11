@@ -36,11 +36,12 @@
 #define IDB_COLORID                     1016
 #define IDM_UPDATE                      1017
 #define IDD_UPDATEBOX                   1018
-#define IDUPDATE						1019
-#define IDD_CURRENT						1020
+#define IDUPDATE                        1019
+#define IDD_CURRENTBOX                  1020
 #define IDC_CURRENT_VERSION             1021
-
-
+#define IDM_TROUBLE                     1022
+#define IDD_TROUBLEBOX                  1023
+#define IDC_TROUBLE					    1024
 #define IDC_STATIC                      -1
 
 // Next default values for new objects
@@ -49,7 +50,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NO_MFC                     1
 #define _APS_NEXT_RESOURCE_VALUE        136
-#define _APS_NEXT_COMMAND_VALUE         32783
+#define _APS_NEXT_COMMAND_VALUE         32785
 #define _APS_NEXT_CONTROL_VALUE         1001
 #define _APS_NEXT_SYMED_VALUE           110
 #endif

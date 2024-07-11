@@ -1,3 +1,6 @@
-New Version v3.5.1 is available
+New Version v3.6.0 is available
 
-- Minor fix for updater downloading exe not zip
+- New "Troubleshooting" under help menu
+- Added run checkbox to "Auto Walk / Fly"
+- Added support for 3840x2160 resolution
+- Code organization and optimization

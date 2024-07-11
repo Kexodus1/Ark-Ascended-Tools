@@ -10,7 +10,14 @@ bool IsAutoRunChecked()
 void ReleaseKeys()
 {
     keybd_event('W', 0, KEYEVENTF_KEYUP, 0); // Release 'W'
-    keybd_event(VK_SHIFT, 0, KEYEVENTF_KEYUP, 0); // Release 'Shift'
+}
+
+void TapRightShift()
+{
+    // Press and release right 'Shift'
+    keybd_event(VK_RSHIFT, 0x36, 0, 0); // Press right 'Shift' (scan code for right shift is 0x36)
+    Sleep(50); // Small delay to simulate a key press
+    keybd_event(VK_RSHIFT, 0x36, KEYEVENTF_KEYUP, 0); // Release right 'Shift'
 }
 
 void AutoWalk()
@@ -18,7 +25,7 @@ void AutoWalk()
     while (true)
     {
         if (IsAutoRunChecked()) {
-            keybd_event(VK_SHIFT, 0, 0, 0); // Press 'Shift'
+            TapRightShift(); // Tap right 'Shift' once if AutoRun is checked
         }
 
         keybd_event('W', 0, 0, 0); // Press 'W'
@@ -30,13 +37,12 @@ void AutoWalk()
             if (!shouldContinueLoop) {
                 break;
             }
-
-            if (!IsAutoRunChecked()) {
-                keybd_event(VK_SHIFT, 0, KEYEVENTF_KEYUP, 0); // Release 'Shift' if not checked
-            }
         }
 
         ReleaseKeys(); // Release keys before exiting the function
+        if (IsAutoRunChecked()) {
+            TapRightShift(); // Tap right 'Shift' once if AutoRun is checked
+        }
 
         // Exit the loop if shouldContinueLoop is false
         if (!shouldContinueLoop) {

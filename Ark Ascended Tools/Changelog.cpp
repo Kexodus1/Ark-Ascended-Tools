@@ -17,12 +17,17 @@ INT_PTR CALLBACK ChangeLog(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam
         if (hEdit)
         {
             const char* changelogText =
+                "v3.6.0\r\n"
+                "     - New \"Troubleshooting\" under help menu\r\n"
+                "     - Added run checkbox to \"Auto Walk / Fly\"\r\n"
+                "     - Added support for 3840x2160 resolution\r\n"
+                "     - Code organization and optimization\r\n\r\n"
                 "v3.5.1\r\n"
                 "     - Minor fix for updater downloading exe not zip\r\n\r\n"
                 "v3.5.0\r\n"
-                "     - Minor fixes to \"Anti AFK\" stop logic\r\n"
+                "     - New \"Check for Updates\" in help menu\r\n"
                 "     - Adjusted version numbers for updater\r\n"
-                "     - New \"Check for Updates\" in help menu\r\n\r\n"
+                "     - Minor fixes to \"Anti AFK\" stop logic\r\n\r\n"
                 "v3.4.0\r\n"
                 "     - Complete rework of \"Anti AFK\" code\r\n"
                 "     - Added Eat / Drink timer input to \"Anti AFK\"\r\n"

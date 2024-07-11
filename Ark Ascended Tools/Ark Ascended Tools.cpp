@@ -171,6 +171,7 @@ int screenHeight = GetSystemMetrics(SM_CYSCREEN);
 
 bool IsResolutionSupported(int width, int height) {
     std::vector<std::pair<int, int>> supportedResolutions = {
+        {3840, 2160},
         {3440, 1440},
         {2560, 1440},
         {1920, 1080},
@@ -499,7 +500,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
                     ShowWindow(hButton, SW_SHOW);
                     break;
                 case 9: // Auto Walk
-                    ShowWindow(AutoRun, SW_HIDE);
+                    ShowWindow(AutoRun, SW_SHOW);
                     ShowWindow(hButton, SW_SHOW);
                     break;
                 case 10: // Developer Tools
@@ -575,6 +576,10 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         case IDM_CHANGELOG:
             // Show the changelog dialog
             DialogBox(hInst, MAKEINTRESOURCE(IDD_CHANGELOGBOX), hWnd, ChangeLog);
+            break;
+        case IDM_TROUBLE:
+            // Show the troubleshooting dialog
+            DialogBox(hInst, MAKEINTRESOURCE(IDD_TROUBLEBOX), hWnd, Trouble);
             break;
         case IDM_UPDATE:
             // Check for updates during initialization
@@ -662,7 +667,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         TimerSND = CreateWindow(L"BUTTON", L"Enable Sound", WS_VISIBLE | WS_CHILD | BS_AUTOCHECKBOX, 160, 41, 110, 20, hWnd, (HMENU)7, hInst, NULL);
 
         // Create Checkbox for AutoWalk
-        AutoRun = CreateWindow(L"BUTTON", L"Shift Modifier", WS_VISIBLE | WS_CHILD | BS_AUTOCHECKBOX, 10, 41, 110, 20, hWnd, NULL, hInst, NULL);
+        AutoRun = CreateWindow(L"BUTTON", L"Run Modifier", WS_VISIBLE | WS_CHILD | BS_AUTOCHECKBOX, 10, 41, 110, 20, hWnd, NULL, hInst, NULL);
 
         // Create the DevTools drop-down box
         DevTool = CreateWindowEx(WS_EX_CLIENTEDGE, L"COMBOBOX", L"", WS_CHILD | WS_VISIBLE | CBS_DROPDOWNLIST,

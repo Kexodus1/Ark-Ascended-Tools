@@ -11,6 +11,7 @@ LRESULT CALLBACK TimerProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
 INT_PTR CALLBACK UserGuide(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam);
 INT_PTR CALLBACK ChangeLog(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam);
+INT_PTR CALLBACK Trouble(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam);
 INT_PTR CALLBACK Update(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam);
 INT_PTR CALLBACK Current(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam);
 void UpdateAntiAFKControlsVisibility();

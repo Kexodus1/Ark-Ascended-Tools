@@ -28,7 +28,55 @@ void setCoordinates() {
     int screenHeight = GetSystemMetrics(SM_CYSCREEN);
 
     // Check the current screen resolution and set the coordinates accordingly
-    if (screenWidth == 3440 && screenHeight == 1440) {
+    if (screenWidth == 3840 && screenHeight == 2160) {
+        text1x = 467;
+        text1y = 397;
+        text2x = 2532;
+        text2y = 394;
+        xfer1x = 717;
+        xfer1y = 395;
+        xfer2x = 2753;
+        xfer2y = 395;
+        closex = 3597;
+        closey = 133;
+        drop1x = 810;
+        drop1y = 397;
+        drop2x = 2852;
+        drop2y = 397;
+        blackx = 3469;
+        blacky = 141;
+        invcolx = 2542;
+        invcoly = 269;
+        xferdropx = 2855;
+        xferdropy = 393;
+        dropcolorx = 3329;
+        dropcolory = 275;
+        promptx = 1880;
+        prompty = 730;
+        okayx = 1700;
+        okayy = 1460;
+        color1x = 657;
+        color1y = 438;
+        color2x = 950;
+        color2y = 1864;
+        color3x = 1960;
+        color3y = 725;
+        servnx = 3229;
+        servny = 383;
+        servtx = 1926;
+        servty = 650;
+        servjx = 3423;
+        servjy = 1888;
+        click3X = 1050;
+        click3Y = 1864;
+        click4X = 2123;
+        click4Y = 1457;
+        click5X = 337;
+        click5Y = 1763;
+        click6X = 1050;
+        click6Y = 1108;
+    }
+    else if (screenWidth == 3440 && screenHeight == 1440) {
         text1x = 773;
         text1y = 262;
         text2x = 2131;

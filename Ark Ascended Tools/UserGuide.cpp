@@ -18,10 +18,7 @@ INT_PTR CALLBACK UserGuide(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam
         {
             const char* userguideText =
                 "--General Guide--\r\n\r\n"
-                "     - Select the function you want from the drop down box and press the \"Start\" button\r\n"
-                "     - The Button will change to \"Stop\" to stop the current function from running.\r\n"
-                "     - If the program is not working for you right click and \"Run as Administrator\"\r\n"
-                "     - Currently only works for resolutions 3440x1440, 2560x1440, 1920x1080, 1920x1200, 1536x864\r\n\r\n"
+                "     - Select the function you want from the drop down box and press the \"Start\" button.  The Button will change to \"Stop\" to stop the current function from running.\r\n\r\n"
                 "--Auto Join Server--\r\n\r\n"
                 "     - Type the server number in the \"Input Server Number\" box and hit the \"Start\" button while on the main server selection screen.  The program will take over and automatically attempt to join a full server.  If this function is not working for you check the \"Backup Joiner\" box and re attempt.\r\n\r\n"
                 "--Auto Farmer--\r\n\r\n"
@@ -41,7 +38,7 @@ INT_PTR CALLBACK UserGuide(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam
                 "--Empty Crop Plots--\r\n\r\n"
                 "     - Have function started and open crop plot, will automatically take all from crop plot and put the fertilizer back.  Will also refill fertilizer if you have extra in your inventory.\r\n\r\n"
                 "--Auto Walk / Fly--\r\n\r\n"
-                "     - As name implies, will just automatically move you forward without pressing anything.\r\n\r\n";
+                "     - As name implies, will just automatically move you forward without pressing anything.  Check the \"Run Modifier\" box to change it to running forward automatically.\r\n\r\n";
 
 
             SetWindowTextA(hEdit, userguideText);

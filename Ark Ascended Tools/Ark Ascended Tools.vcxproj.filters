@@ -95,6 +95,9 @@
     <ClCompile Include="Update.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Troubleshoot.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Ark Ascended Tools.rc">

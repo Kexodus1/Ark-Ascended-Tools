@@ -14,11 +14,12 @@
 // Global variable to store the background brush
 extern HBRUSH hbrBackground;
 
+// Returns the current version of the application
 std::string GetCurrentVersion() {
-    // Return the current version of your application
-    return "v3.5.1";  // Replace this with the actual current version of your application
+    return "v3.6.0";
 }
 
+// Fetches the latest version string from a GitHub URL
 std::string GetLatestVersionFromGitHub() {
     HINTERNET hInternet = InternetOpenA("MyApp", INTERNET_OPEN_TYPE_DIRECT, NULL, NULL, 0);
     if (!hInternet) {
@@ -49,6 +50,7 @@ std::string GetLatestVersionFromGitHub() {
     return latestVersion;
 }
 
+// Fetches the changelog string from a GitHub URL
 std::string GetChangelogFromGitHub() {
     HINTERNET hInternet = InternetOpenA("MyApp", INTERNET_OPEN_TYPE_DIRECT, NULL, NULL, 0);
     if (!hInternet) {
@@ -77,6 +79,7 @@ std::string GetChangelogFromGitHub() {
     return changelog;
 }
 
+// Converts a UTF-8 string to a wide string (UTF-16)
 std::wstring ConvertToWideString(const std::string& str) {
     int size_needed = MultiByteToWideChar(CP_UTF8, 0, &str[0], (int)str.size(), NULL, 0);
     std::wstring wstrTo(size_needed, 0);
@@ -84,6 +87,7 @@ std::wstring ConvertToWideString(const std::string& str) {
     return wstrTo;
 }
 
+// Checks for updates and displays appropriate dialog boxes
 void CheckForUpdates(HINSTANCE hInst, HWND hWnd, HWND hDlg) {
     std::string latestVersion = GetLatestVersionFromGitHub();
     std::string currentVersion = GetCurrentVersion();
@@ -94,11 +98,11 @@ void CheckForUpdates(HINSTANCE hInst, HWND hWnd, HWND hDlg) {
     }
     else {
         // Show current version dialog
-        DialogBox(hInst, MAKEINTRESOURCE(IDD_CURRENT), hWnd, Current);
+        DialogBox(hInst, MAKEINTRESOURCE(IDD_CURRENTBOX), hWnd, Current);
     }
 }
 
-// Function to download a file from a URL
+// Downloads a file from a given URL to a specified path
 std::wstring DownloadFile(const std::wstring& version, const std::wstring& savePath) {
     std::wstring url = L"https://github.com/Kexodus1/Ark-Ascended-Tools/releases/download/";
     url += version + L"/Ark.Ascended.Tools." + version + L".zip";
@@ -114,6 +118,7 @@ std::wstring DownloadFile(const std::wstring& version, const std::wstring& saveP
     }
 }
 
+// Fetches the latest version, constructs the download URL, and downloads the update
 void DownloadAndUpdate() {
     std::string latestVersionStr = GetLatestVersionFromGitHub(); // Fetch latest version as string
     std::wstring latestVersion = ConvertToWideString(latestVersionStr); // Convert to wide string
@@ -131,7 +136,7 @@ void DownloadAndUpdate() {
     }
 }
 
-// Message handler for update box
+// Message handler for the update dialog box
 INT_PTR CALLBACK Update(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam) {
     UNREFERENCED_PARAMETER(lParam);
     switch (message) {
@@ -181,6 +186,7 @@ INT_PTR CALLBACK Update(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam) {
     return (INT_PTR)FALSE;
 }
 
+// Message handler for the current version dialog box
 INT_PTR CALLBACK Current(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam) {
     UNREFERENCED_PARAMETER(lParam);
     switch (message) {
