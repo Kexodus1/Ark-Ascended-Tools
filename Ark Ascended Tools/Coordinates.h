@@ -14,6 +14,11 @@ click4X, click4Y, click5X, click5Y, click6X, click6Y;
 extern int DDJC1X, DDJC1Y, DDJC2X, DDJC2Y, CAJC1X, CAJC1Y,
 CAJC2X, CAJC2Y, CAJ1X, CAJ1Y, CAJ2X, CAJ2Y, CAJ3X, CAJ3Y;
 
+// Declare the BYTE variables
+extern BYTE rMin, rMax;
+extern BYTE gMin, gMax;
+extern BYTE bMin, bMax;
+
 // Declare the function to set the coordinates
 void setCoordinates();
 void PerformMouseClick(int x, int y);

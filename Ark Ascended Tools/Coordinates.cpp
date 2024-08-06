@@ -24,6 +24,11 @@ void PerformMouseClick(int x, int y) {
     mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
 }
 
+// Define the range for Club Ark blob colors
+BYTE rMin = 0, rMax = 255;
+BYTE gMin = 0, gMax = 255;
+BYTE bMin = 0, bMax = 255;
+
 void setCoordinates() {
     // Get the current screen resolution
     int screenWidth = GetSystemMetrics(SM_CXSCREEN);
@@ -127,7 +132,7 @@ void setCoordinates() {
         click6Y = 756;
         DDJC1X = 2953;
         DDJC1Y = 421;
-        DDJC2X = 2450;
+        DDJC2X = 2375;
         DDJC2Y = 676;
         CAJC1X = 1786;
         CAJC1Y = 238;
@@ -139,6 +144,9 @@ void setCoordinates() {
         CAJ2Y = 788;
         CAJ3X = 2614;
         CAJ3Y = 197;
+        rMin = 0; rMax = 255;
+        gMin = 60; gMax = 255;
+        bMin = 105; bMax = 255;
     }
     else if (screenWidth == 2560 && screenHeight == 1440) {
         text1x = 314;
@@ -201,6 +209,9 @@ void setCoordinates() {
         CAJ2Y = 788;
         CAJ3X = 2174;
         CAJ3Y = 197;
+        rMin = 0; rMax = 255;
+        gMin = 60; gMax = 255;
+        bMin = 105; bMax = 255;
     }
     else if (screenWidth == 1920 && screenHeight == 1080) {
         text1x = 228;
@@ -251,8 +262,8 @@ void setCoordinates() {
         click6Y = 582;
         DDJC1X = 1561;
         DDJC1Y = 314;
-        DDJC2X = 1348;
-        DDJC2Y = 514;
+        DDJC2X = 1490;
+        DDJC2Y = 795;
         CAJC1X = 1041;
         CAJC1Y = 178;
         CAJC2X = 1542;
@@ -263,6 +274,9 @@ void setCoordinates() {
         CAJ2Y = 593;
         CAJ3X = 1629;
         CAJ3Y = 147;
+        rMin = 0; rMax = 255;
+        gMin = 85; gMax = 255;
+        bMin = 50; bMax = 255;
     }
     else if (screenWidth == 1920 && screenHeight == 1200) {
         text1x = 224;

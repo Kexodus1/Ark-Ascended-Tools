@@ -46,32 +46,26 @@ void ClubARK()
     // Set the thread priority to highest
     SetThreadPriority(GetCurrentThread(), THREAD_PRIORITY_HIGHEST);
 
-    // Define the range for colors
-    BYTE rMin = 0, rMax = 255;
-    BYTE gMin = 60, gMax = 255;
-    BYTE bMin = 60, bMax = 255;
-
-    // Define RGB Meaning
-
     while (true)
     {
         // Color of Alpha Pink
         COLORREF color = GetPixel(hdc, DDJC1X, DDJC1Y);
         if (color == RGB(255, 169, 152)) // color is FFA998
-        {
-            // Log the RGB values to a file
-            //FILE* logFile;
-            //errno_t err = fopen_s(&logFile, "rgb.txt", "a");
-            //if (err == 0 && logFile != NULL) {
-            //    fprintf(logFile, "Color at (%d, %d): R=%d, G=%d, B=%d\n", DDJC1X, DDJC1Y, red, green, blue);
-            //    fclose(logFile);
-            //}
-            // 
+        {             
             // Check color at DDJC1X, DDJC1Y (the blobs)
             COLORREF color = GetPixel(hdc, DDJC2X, DDJC2Y);
             BYTE red = GetRValue(color);
             BYTE green = GetGValue(color);
             BYTE blue = GetBValue(color);
+
+            // Log the RGB values to a file
+            //FILE* logFile;
+            //errno_t err = fopen_s(&logFile, "rgb.txt", "a");
+            //if (err == 0 && logFile != NULL) {
+            //    fprintf(logFile, "Color at (%d, %d): R=%d, G=%d, B=%d\n", DDJC2X, DDJC2Y, red, green, blue);
+            //    fclose(logFile);
+            //}
+
             // Check if the color is within the specified range
             if (isColorInRange(red, green, blue, rMin, rMax, gMin, gMax, bMin, bMax)) {
                 // Simulate spacebar key press

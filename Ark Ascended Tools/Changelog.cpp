@@ -17,6 +17,9 @@ INT_PTR CALLBACK ChangeLog(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam
         if (hEdit)
         {
             const char* changelogText =
+                "v4.0.1\r\n"
+                "     - Fix for \"Duck Duck Jump\" jumping on red blobs\r\n"
+                "       for 2560x1440 and 1920x1080 sometimes\r\n\r\n"
                 "v4.0.0\r\n"
                 "     - New features added \"AFK Club ARK\", \"Auto\r\n"
                 "       Fishing\", and \"Magic INI\"\r\n"

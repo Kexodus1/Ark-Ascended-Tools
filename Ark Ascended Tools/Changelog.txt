@@ -1,8 +1,4 @@
-New Version v4.0.0 is available
+New Version v4.0.1 is available
 
-- New features added "AFK Club Ark"
-   "Auto Fishing", and "Magic INI"
-- Consolidated menu items to reduce selections
-- Reworked "Drop Thief" code to "Auto Grabber"
-- Mod detection to "Auto Join Server"
-- Plus a lot more Additions / Changes
+- Fix for "Duck Duck Jump" jumping on red
+  blobs for 2560x1440 and 1920x1080
