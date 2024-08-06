@@ -74,13 +74,7 @@
     <ClCompile Include="MassBabyFeed.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="DropThief.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Timer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CropPlots.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="AutoWalk.cpp">
@@ -96,6 +90,18 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Troubleshoot.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ClubARK.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MagicINI.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AutoGrabber.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AutoFish.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

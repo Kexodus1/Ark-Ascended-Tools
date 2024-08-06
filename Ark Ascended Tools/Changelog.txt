@@ -1,6 +1,8 @@
-New Version v3.6.0 is available
+New Version v4.0.0 is available
 
-- New "Troubleshooting" under help menu
-- Added run checkbox to "Auto Walk / Fly"
-- Added support for 3840x2160 resolution
-- Code organization and optimization
+- New features added "AFK Club Ark"
+   "Auto Fishing", and "Magic INI"
+- Consolidated menu items to reduce selections
+- Reworked "Drop Thief" code to "Auto Grabber"
+- Mod detection to "Auto Join Server"
+- Plus a lot more Additions / Changes

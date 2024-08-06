@@ -11,6 +11,8 @@ okayx, okayy, servtx, servty, servjx, servjy;
 extern int color1x, color1y, color2x, color2y, color3x, color3y,
 click1X, click1Y, click2X, click2Y, click3X, click3Y,
 click4X, click4Y, click5X, click5Y, click6X, click6Y;
+extern int DDJC1X, DDJC1Y, DDJC2X, DDJC2Y, CAJC1X, CAJC1Y,
+CAJC2X, CAJC2Y, CAJ1X, CAJ1Y, CAJ2X, CAJ2Y, CAJ3X, CAJ3Y;
 
 // Declare the function to set the coordinates
 void setCoordinates();

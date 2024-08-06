@@ -15,6 +15,8 @@ int servtx = 0, servty = 0, servjx = 0, servjy = 0;
 int color1x = 0, color1y = 0, color2x = 0, color2y = 0, color3x = 0, color3y = 0,
 click1X = 0, click1Y = 0, click2X = 0, click2Y = 0, click3X = 0, click3Y = 0,
 click4X = 0, click4Y = 0, click5X = 0, click5Y = 0, click6X = 0, click6Y = 0;
+int DDJC1X = 0, DDJC1Y = 0, DDJC2X = 0, DDJC2Y = 0, CAJC1X = 0, CAJC1Y = 0, 
+CAJC2X = 0, CAJC2Y = 0, CAJ1X = 0, CAJ1Y = 0, CAJ2X = 0, CAJ2Y = 0, CAJ3X = 0, CAJ3Y = 0;
 
 void PerformMouseClick(int x, int y) {
     SetCursorPos(x, y);
@@ -123,6 +125,20 @@ void setCoordinates() {
         click5Y = 1173;
         click6X = 1142;
         click6Y = 756;
+        DDJC1X = 2953;
+        DDJC1Y = 421;
+        DDJC2X = 2450;
+        DDJC2Y = 676;
+        CAJC1X = 1786;
+        CAJC1Y = 238;
+        CAJC2X = 2509;
+        CAJC2Y = 168;
+        CAJ1X = 1019;
+        CAJ1Y = 392;
+        CAJ2X = 1126;
+        CAJ2Y = 788;
+        CAJ3X = 2614;
+        CAJ3Y = 197;
     }
     else if (screenWidth == 2560 && screenHeight == 1440) {
         text1x = 314;
@@ -171,6 +187,20 @@ void setCoordinates() {
         click5Y = 1172;
         click6X = 713;
         click6Y = 790;
+        DDJC1X = 2073;
+        DDJC1Y = 420;
+        DDJC2X = 1754;
+        DDJC2Y = 676;
+        CAJC1X = 1345;
+        CAJC1Y = 238;
+        CAJC2X = 2061;
+        CAJC2Y = 192;
+        CAJ1X = 665;
+        CAJ1Y = 393;
+        CAJ2X = 725;
+        CAJ2Y = 788;
+        CAJ3X = 2174;
+        CAJ3Y = 197;
     }
     else if (screenWidth == 1920 && screenHeight == 1080) {
         text1x = 228;
@@ -219,6 +249,20 @@ void setCoordinates() {
         click5Y = 877;
         click6X = 529;
         click6Y = 582;
+        DDJC1X = 1561;
+        DDJC1Y = 314;
+        DDJC2X = 1348;
+        DDJC2Y = 514;
+        CAJC1X = 1041;
+        CAJC1Y = 178;
+        CAJC2X = 1542;
+        CAJC2Y = 144;
+        CAJ1X = 516;
+        CAJ1Y = 294;
+        CAJ2X = 547;
+        CAJ2Y = 593;
+        CAJ3X = 1629;
+        CAJ3Y = 147;
     }
     else if (screenWidth == 1920 && screenHeight == 1200) {
         text1x = 224;

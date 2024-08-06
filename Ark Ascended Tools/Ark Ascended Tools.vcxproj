@@ -153,14 +153,16 @@
   <ItemGroup>
     <ClCompile Include="Ark Ascended Tools.cpp" />
     <ClCompile Include="AutoDropper.cpp" />
+    <ClCompile Include="AutoFish.cpp" />
+    <ClCompile Include="AutoGrabber.cpp" />
     <ClCompile Include="AutoJoiner.cpp" />
     <ClCompile Include="AutoWalk.cpp" />
     <ClCompile Include="BackupJoiner.cpp" />
     <ClCompile Include="AntiAFK.cpp" />
     <ClCompile Include="Changelog.cpp" />
+    <ClCompile Include="ClubARK.cpp" />
     <ClCompile Include="Coordinates.cpp" />
-    <ClCompile Include="CropPlots.cpp" />
-    <ClCompile Include="DropThief.cpp" />
+    <ClCompile Include="MagicINI.cpp" />
     <ClCompile Include="MassBabyFeed.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

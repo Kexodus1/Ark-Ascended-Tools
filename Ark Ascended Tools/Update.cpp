@@ -16,7 +16,7 @@ extern HBRUSH hbrBackground;
 
 // Returns the current version of the application
 std::string GetCurrentVersion() {
-    return "v3.6.0";
+    return "v4.0.0";
 }
 
 // Fetches the latest version string from a GitHub URL

@@ -1,6 +1,4 @@
 ﻿// Ark Ascended Tools.cpp : Defines the entry point for the application.
-//
-
 #include "pch.h"
 #include "framework.h"
 #include "resource.h"
@@ -22,9 +20,10 @@ bool isTimerRunning = false;
 UINT customHotkey = 0;
 UINT_PTR timerID = 0;
 HWND hDlg;
-HWND ServerN = NULL, BackupJN, AutoFarm = NULL, AFKM, AFKFD, AFKFDM, AFKFDI, Nanny = NULL, AutoRun;
+HWND ServerN = NULL, BackupJN, AutoFarm = NULL, AFKM, AFKFD, AFKFDM, AFKFDI, 
+Nanny = NULL, SoloNAN, AutoGrab, AutoRun;
 HWND TimerHR, TimerMN, TimerSC, hHUB, hHDB, hMUB, hMDB, hSUB, hSDB, TimerSND;
-HWND DevTool, MagicINI, ClubARK, AutoFish;
+HWND MagicINISel, MagicINIo, ClubARKGame, ClubARKDiff, AutoFishAFK, AutoFishCon;
 HWND hDropDown, hButton, hStaticRes, hStaticText;
 HINSTANCE hInst;                                // current instance
 WCHAR szTitle[MAX_LOADSTRING];                  // The title bar text
@@ -57,6 +56,7 @@ INT_PTR CALLBACK    ColorID(HWND, UINT, WPARAM, LPARAM);
 INT_PTR CALLBACK    About(HWND, UINT, WPARAM, LPARAM);
 INT_PTR CALLBACK    SettingsDlgProc(HWND, UINT, WPARAM, LPARAM);
 
+// WinMain
 int APIENTRY wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _In_ LPWSTR lpCmdLine, _In_ int nCmdShow)
 {
     UNREFERENCED_PARAMETER(hPrevInstance);
@@ -90,14 +90,10 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance
     return (int)msg.wParam;
 }
 
-//
-//  FUNCTION: MyRegisterClass()
-//
-//  PURPOSE: Registers the window class.
-//
+// Register the window class.
 ATOM MyRegisterClass(HINSTANCE hInstance)
 {
-    WNDCLASSEXW wcex;
+    WNDCLASSEXW wcex = { 0 }; // Zero-initialize the structure
 
     wcex.cbSize = sizeof(WNDCLASSEX);
 
@@ -116,17 +112,7 @@ ATOM MyRegisterClass(HINSTANCE hInstance)
     return RegisterClassExW(&wcex);
 }
 
-//
-//   FUNCTION: InitInstance(HINSTANCE, int)
-//
-//   PURPOSE: Saves instance handle and creates main window
-//
-//   COMMENTS:
-//
-//        In this function, we save the instance handle in a global variable and
-//        create and display the main program window.
-//
-
+// Initialize instance
 BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 {
     hInst = hInstance; // Store instance handle in our global variable
@@ -162,10 +148,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
     return TRUE;
 }
 
-// Function to check if a resolution is supported
-//
 // Code for Supported Resolution
-//
 int screenWidth = GetSystemMetrics(SM_CXSCREEN);
 int screenHeight = GetSystemMetrics(SM_CYSCREEN);
 
@@ -187,17 +170,7 @@ bool IsResolutionSupported(int width, int height) {
     return false;
 }
 
-
-// 
-//  FUNCTION: WndProc(HWND, UINT, WPARAM, LPARAM)
-//
-//  PURPOSE: Processes messages for the main window.
-//
-//  WM_COMMAND  - process the application menu
-//  WM_PAINT    - Paint the main window
-//  WM_DESTROY  - post a quit message and return
-//
-//
+// Window Procedure
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
     switch (message)
@@ -299,12 +272,12 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             {
                 // Start the selected function in a new thread
                 shouldContinueLoop = true;
-                int selectedIndex = SendMessage(hDropDown, CB_GETCURSEL, 0, 0);
+                int selectedIndex = static_cast<int>(SendMessage(hDropDown, CB_GETCURSEL, 0, 0));
                 if (selectedIndex != CB_ERR)
                 {
                     switch (selectedIndex)
                     {
-                    case 0:
+                    case 0: // Auto Join Server
                     {
                         bool isBackupChecked = SendMessage(BackupJN, BM_GETCHECK, 0, 0) == BST_CHECKED;
                         if (isBackupChecked)
@@ -313,7 +286,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
                                 while (shouldContinueLoop)
                                 {
                                     BackupJoiner(ServerN);
-                                    Sleep(100); // Adjust as needed
+                                    Sleep(100);
                                 }
                                 }).detach();
                         }
@@ -323,90 +296,94 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
                                 while (shouldContinueLoop)
                                 {
                                     AutoJoiner(ServerN);
-                                    Sleep(100); // Adjust as needed
+                                    Sleep(100);
                                 }
                                 }).detach();
                         }
                     }
                     break;
-                    case 1:
+                    case 1: // Auto Farmer
                         std::thread([=] {
                             while (shouldContinueLoop)
                             {
                                 AutoFarmer(AutoFarm);
-                                Sleep(100); // Adjust as needed
+                                Sleep(100);
                             }
                             }).detach();
                             break;
-                    case 2:
+                    case 2: // Auto Drop Items
                         std::thread([=] {
                             while (shouldContinueLoop)
                             {
                                 AutoDropper(AutoFarm);
-                                Sleep(100); // Adjust as needed
+                                Sleep(100);
                             }
                             }).detach();
                             break;
-                    case 3:
+                    case 3: // Anti AFK
                         std::thread([=] {
                             while (shouldContinueLoop)
                             {
                                 bool isAFKMChecked = SendMessage(AFKM, BM_GETCHECK, 0, 0) == BST_CHECKED;
                                 bool isAFKFDChecked = SendMessage(AFKFD, BM_GETCHECK, 0, 0) == BST_CHECKED;
                                 AntiAFK(isAFKMChecked, isAFKFDChecked);
-                                Sleep(100); // Adjust as needed
+                                Sleep(100);
                             }
                             }).detach();
                             break;
-                    case 4:
+                    case 4: // AFK Club Ark
                         std::thread([=] {
                             while (shouldContinueLoop)
                             {
-                                SoloNanny(Nanny);
-                                Sleep(100); // Adjust as needed
+                                ClubARK();
+                                Sleep(100);
                             }
                             }).detach();
                             break;
-                    case 5:
-                        std::thread([=] {
-                            while (shouldContinueLoop)
-                            {
-                                MassBabyFeed(Nanny);
-                                Sleep(100); // Adjust as needed
-                            }
-                            }).detach();
-                            break;
-                    case 6:
-                        std::thread([=] {
-                            while (shouldContinueLoop)
-                            {
-                                DropThief();
-                                Sleep(100); // Adjust as needed
-                            }
-                            }).detach();
-                            break;
-                    case 7: // Timer start button clicked
+                    case 5: // Mass Baby Feed
                     {
-                        // Assuming TimerHR, TimerMN, TimerSC are the IDs or handles of your edit controls
-                        int hours = GetDlgItemInt(hWnd, IDC_TIMER_HOUR, NULL, FALSE);
-                        int minutes = GetDlgItemInt(hWnd, IDC_TIMER_MINUTE, NULL, FALSE);
-                        int seconds = GetDlgItemInt(hWnd, IDC_TIMER_SECOND, NULL, FALSE);
-
-                        // Start the timer
-                        StartTimer(hWnd, hours, minutes, seconds);
-                        break;
+                        bool isSoloNAN = SendMessage(SoloNAN, BM_GETCHECK, 0, 0) == BST_CHECKED;
+                        if (isSoloNAN)
+                        {
+                            std::thread([=] {
+                                while (shouldContinueLoop)
+                                {
+                                    SoloNanny(Nanny);
+                                    Sleep(100); // Adjust as needed
+                                }
+                                }).detach();
+                        }
+                        else
+                        {
+                            std::thread([=] {
+                                while (shouldContinueLoop)
+                                {
+                                    MassBabyFeed(Nanny);
+                                    Sleep(100); // Adjust as needed
+                                }
+                                }).detach();
+                        }
                     }
                     break;
-                    case 8:
+                    case 6: // Auto Grabber
                         std::thread([=] {
                             while (shouldContinueLoop)
                             {
-                                CropPlots();
+                                AutoGrabber();
                                 Sleep(100); // Adjust as needed
                             }
                             }).detach();
                             break;
-                    case 9:
+                    case 7: // Auto Fishing
+                        std::thread([=] {
+                            while (shouldContinueLoop)
+                            {
+                                AutoFish();
+                                Sleep(100); // Adjust as needed
+                            }
+                            }).detach();
+                            break;
+                    case 8: // Auto Walk / Fly
                         std::thread([=] {
                             while (shouldContinueLoop)
                             {
@@ -415,6 +392,25 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
                             }
                             }).detach();
                             break;
+                    case 9: // Magic INI
+                        std::thread([=] {
+                            while (shouldContinueLoop)
+                            {
+                                MagicINI();
+                                Sleep(100); // Adjust as needed
+                            }
+                            }).detach();
+                            break;
+                    case 10: // Alarm / Timer
+                    {
+                        int hours = GetDlgItemInt(hWnd, IDC_TIMER_HOUR, NULL, FALSE);
+                        int minutes = GetDlgItemInt(hWnd, IDC_TIMER_MINUTE, NULL, FALSE);
+                        int seconds = GetDlgItemInt(hWnd, IDC_TIMER_SECOND, NULL, FALSE);
+                        // Start the timer
+                        StartTimer(hWnd, hours, minutes, seconds);
+                        break;
+                    }
+                    break;
                     }
                 }
                 // Update the button text to "Stop"
@@ -428,10 +424,11 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         else if (HIWORD(wParam) == CBN_SELCHANGE && (HWND)lParam == hDropDown)
         {
             // Drop-down selection changed
-            int selectedIndex = SendMessage(hDropDown, CB_GETCURSEL, 0, 0);
+            int selectedIndex = static_cast<int>(SendMessage(hDropDown, CB_GETCURSEL, 0, 0));
             if (selectedIndex != CB_ERR)
             {
                 // Hide all windows first
+                ShowWindow(hButton, SW_HIDE);
                 ShowWindow(ServerN, SW_HIDE);
                 ShowWindow(BackupJN, SW_HIDE);
                 ShowWindow(AutoFarm, SW_HIDE);
@@ -439,7 +436,16 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
                 ShowWindow(AFKFD, SW_HIDE);
                 ShowWindow(AFKFDM, SW_HIDE);
                 ShowWindow(AFKFDI, SW_HIDE);
+                ShowWindow(ClubARKGame, SW_HIDE);
+                ShowWindow(ClubARKDiff, SW_HIDE);
                 ShowWindow(Nanny, SW_HIDE);
+                ShowWindow(SoloNAN, SW_HIDE);
+                ShowWindow(AutoGrab, SW_HIDE);
+                ShowWindow(AutoRun, SW_HIDE);
+                ShowWindow(AutoFishCon, SW_HIDE);
+                ShowWindow(AutoFishAFK, SW_HIDE);
+                ShowWindow(MagicINISel, SW_HIDE);
+                ShowWindow(MagicINIo, SW_HIDE);
                 ShowWindow(TimerHR, SW_HIDE);
                 ShowWindow(TimerMN, SW_HIDE);
                 ShowWindow(TimerSC, SW_HIDE);
@@ -450,12 +456,6 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
                 ShowWindow(hSUB, SW_HIDE);
                 ShowWindow(hSDB, SW_HIDE);
                 ShowWindow(TimerSND, SW_HIDE);
-                ShowWindow(AutoRun, SW_HIDE);
-                ShowWindow(hButton, SW_HIDE);
-                ShowWindow(DevTool, SW_HIDE);
-                ShowWindow(MagicINI, SW_HIDE);
-                ShowWindow(ClubARK, SW_HIDE);
-                ShowWindow(AutoFish, SW_HIDE);
 
                 // Show windows based on the selected index
                 switch (selectedIndex)
@@ -477,16 +477,35 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
                     ShowWindow(AFKFDI, SW_SHOW);
                     ShowWindow(hButton, SW_SHOW);
                     break;
-                case 4: // Solo Nanny
+                case 4: // ClubARK
+                    ShowWindow(ClubARKGame, SW_SHOW);
+                    ShowWindow(ClubARKDiff, SW_SHOW);
+                    ShowWindow(hButton, SW_SHOW);
+                    break;
                 case 5: // Mass Baby Feed
                     ShowWindow(Nanny, SW_SHOW);
+                    ShowWindow(SoloNAN, SW_SHOW);
                     ShowWindow(hButton, SW_SHOW);
                     break;
-                case 6: // Drop Thief
-                case 8: // Crop plots
+                case 6: // AutoGrabber
+                    ShowWindow(AutoGrab, SW_SHOW);
+                    ShowWindow(hButton, SW_SHOW);
+                    break; 
+                case 7: // Auto Fishing
+                    ShowWindow(AutoFishCon, SW_SHOW);
+                    ShowWindow(AutoFishAFK, SW_SHOW);
                     ShowWindow(hButton, SW_SHOW);
                     break;
-                case 7: // Timer
+                case 8: // Auto Walk
+                    ShowWindow(AutoRun, SW_SHOW);
+                    ShowWindow(hButton, SW_SHOW);
+                    break;
+                case 9: // Magic INI
+                    ShowWindow(MagicINISel, SW_SHOW);
+                    ShowWindow(MagicINIo, SW_SHOW);
+                    ShowWindow(hButton, SW_SHOW);
+                    break;
+                case 10: // Timer
                     ShowWindow(TimerHR, SW_SHOW);
                     ShowWindow(TimerMN, SW_SHOW);
                     ShowWindow(TimerSC, SW_SHOW);
@@ -499,68 +518,9 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
                     ShowWindow(TimerSND, SW_SHOW);
                     ShowWindow(hButton, SW_SHOW);
                     break;
-                case 9: // Auto Walk
-                    ShowWindow(AutoRun, SW_SHOW);
-                    ShowWindow(hButton, SW_SHOW);
-                    break;
-                case 10: // Developer Tools
-                    ShowWindow(DevTool, SW_SHOW);
-                    int DevToolSel = SendMessage(DevTool, CB_GETCURSEL, 0, 0);
-                    switch (DevToolSel)
-                    {
-                    case 0: // "Magic INI" selected
-                        ShowWindow(MagicINI, SW_SHOW);
-                        ShowWindow(ClubARK, SW_HIDE);
-                        ShowWindow(AutoFish, SW_HIDE);
-                        break;
-                    case 1: // "Club ARK" selected
-                        ShowWindow(MagicINI, SW_HIDE);
-                        ShowWindow(ClubARK, SW_SHOW);
-                        ShowWindow(AutoFish, SW_HIDE);
-                        break;
-                    case 2: // "Auto Fishing" selected
-                        ShowWindow(MagicINI, SW_HIDE);
-                        ShowWindow(ClubARK, SW_HIDE);
-                        ShowWindow(AutoFish, SW_SHOW);
-                        break;
-                    default:
-                        ShowWindow(MagicINI, SW_HIDE);
-                        ShowWindow(ClubARK, SW_HIDE);
-                        ShowWindow(AutoFish, SW_HIDE);
-                        break;
-                    }
-                    break;
                 }
             }
         }
-            else if (HIWORD(wParam) == CBN_SELCHANGE && (HWND)lParam == DevTool)
-            {
-                // DevTool dropdown selection changed
-                int DevToolSel = SendMessage(DevTool, CB_GETCURSEL, 0, 0);
-                switch (DevToolSel)
-                {
-                case 0: // "Magic INI" selected
-                    ShowWindow(MagicINI, SW_SHOW);
-                    ShowWindow(ClubARK, SW_HIDE);
-                    ShowWindow(AutoFish, SW_HIDE);
-                    break;
-                case 1: // "Club ARK" selected
-                    ShowWindow(MagicINI, SW_HIDE);
-                    ShowWindow(ClubARK, SW_SHOW);
-                    ShowWindow(AutoFish, SW_HIDE);
-                    break;
-                case 2: // "Auto Fishing" selected
-                    ShowWindow(MagicINI, SW_HIDE);
-                    ShowWindow(ClubARK, SW_HIDE);
-                    ShowWindow(AutoFish, SW_SHOW);
-                    break;
-                default:
-                    ShowWindow(MagicINI, SW_HIDE);
-                    ShowWindow(ClubARK, SW_HIDE);
-                    ShowWindow(AutoFish, SW_HIDE);
-                    break;
-                }
-            }
         switch (LOWORD(wParam))
         {
         case IDM_COLORID:
@@ -607,26 +567,26 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             10, 10, 150, 300, hWnd, NULL, hInst, NULL);
 
         // Add items to the drop-down box
-        SendMessage(hDropDown, CB_ADDSTRING, 0, (LPARAM)L"Auto Join Server");
-        SendMessage(hDropDown, CB_ADDSTRING, 0, (LPARAM)L"Auto Farmer");
-        SendMessage(hDropDown, CB_ADDSTRING, 0, (LPARAM)L"Auto Drop Items");
-        SendMessage(hDropDown, CB_ADDSTRING, 0, (LPARAM)L"Anti AFK");
-        SendMessage(hDropDown, CB_ADDSTRING, 0, (LPARAM)L"Solo Nanny");
-        SendMessage(hDropDown, CB_ADDSTRING, 0, (LPARAM)L"Mass Baby Feed");
-        SendMessage(hDropDown, CB_ADDSTRING, 0, (LPARAM)L"Drop Thief");
-        SendMessage(hDropDown, CB_ADDSTRING, 0, (LPARAM)L"Alarm / Timer");
-        SendMessage(hDropDown, CB_ADDSTRING, 0, (LPARAM)L"Empty Crop Plots");
-        SendMessage(hDropDown, CB_ADDSTRING, 0, (LPARAM)L"Auto Walk / Fly");
-        SendMessage(hDropDown, CB_ADDSTRING, 0, (LPARAM)L"Developer Tools");
+        SendMessage(hDropDown, CB_ADDSTRING, 0, (LPARAM)L"Auto Join Server"); // Case 0
+        SendMessage(hDropDown, CB_ADDSTRING, 0, (LPARAM)L"Auto Farmer");      // Case 1
+        SendMessage(hDropDown, CB_ADDSTRING, 0, (LPARAM)L"Auto Drop Items");  // Case 2
+        SendMessage(hDropDown, CB_ADDSTRING, 0, (LPARAM)L"Anti AFK");         // Case 3
+        SendMessage(hDropDown, CB_ADDSTRING, 0, (LPARAM)L"AFK Club ARK");     // Case 4
+        SendMessage(hDropDown, CB_ADDSTRING, 0, (LPARAM)L"Mass Baby Feed");   // Case 5
+        SendMessage(hDropDown, CB_ADDSTRING, 0, (LPARAM)L"Auto Grabber");     // Case 6
+        SendMessage(hDropDown, CB_ADDSTRING, 0, (LPARAM)L"Auto Fishing");     // Case 7
+        SendMessage(hDropDown, CB_ADDSTRING, 0, (LPARAM)L"Auto Walk / Fly");  // Case 8
+        SendMessage(hDropDown, CB_ADDSTRING, 0, (LPARAM)L"Magic INI");        // Case 9
+        SendMessage(hDropDown, CB_ADDSTRING, 0, (LPARAM)L"Alarm / Timer");    // Case 10
 
         // Select "Auto Join Server" by default
         SendMessage(hDropDown, CB_SETCURSEL, 0, 0);
 
         // Create the ServerNumber edit box
         ServerN = CreateWindowEx(WS_EX_CLIENTEDGE, L"EDIT", L"Input Server Number", WS_CHILD | WS_VISIBLE,
-            10, 40, 145, 20, hWnd, NULL, hInst, NULL);
+            10, 40, 150, 20, hWnd, NULL, hInst, NULL);
         // Create Checkbox for Backup Joiner
-        BackupJN = CreateWindow(L"BUTTON", L"Backup Joiner", WS_VISIBLE | WS_CHILD | BS_AUTOCHECKBOX, 160, 41, 110, 20, hWnd, NULL, hInst, NULL);
+        BackupJN = CreateWindow(L"BUTTON", L"Backup Join", WS_VISIBLE | WS_CHILD | BS_AUTOCHECKBOX, 170, 41, 110, 20, hWnd, NULL, hInst, NULL);
 
         // Create the AutoFarm Edit Box
         AutoFarm = CreateWindowEx(WS_EX_CLIENTEDGE, L"EDIT", L"Stone,Flint,Thatch,Wood", WS_CHILD | WS_VISIBLE,
@@ -651,6 +611,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         SendMessage(Nanny, CB_ADDSTRING, 0, (LPARAM)L"Berry");
         SendMessage(Nanny, CB_ADDSTRING, 0, (LPARAM)L"Kibble");
         SendMessage(Nanny, CB_SETCURSEL, 0, 0);
+        // Create Checkbox for Solo Nanny
+        SoloNAN = CreateWindow(L"BUTTON", L"Solo Nanny", WS_VISIBLE | WS_CHILD | BS_AUTOCHECKBOX, 170, 42, 110, 20, hWnd, NULL, hInst, NULL);
 
         // Create the main timer display box
         TimerHR = CreateWindowEx(0, L"STATIC", L"00:", WS_VISIBLE | WS_CHILD, 20, 40, 20, 20, hWnd, (HMENU)IDC_TIMER_HOUR, hInst, NULL);
@@ -669,35 +631,46 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         // Create Checkbox for AutoWalk
         AutoRun = CreateWindow(L"BUTTON", L"Run Modifier", WS_VISIBLE | WS_CHILD | BS_AUTOCHECKBOX, 10, 41, 110, 20, hWnd, NULL, hInst, NULL);
 
-        // Create the DevTools drop-down box
-        DevTool = CreateWindowEx(WS_EX_CLIENTEDGE, L"COMBOBOX", L"", WS_CHILD | WS_VISIBLE | CBS_DROPDOWNLIST,
-            10, 40, 125, 200, hWnd, NULL, hInst, NULL);
-        // Add items to the drop-down box
-        SendMessage(DevTool, CB_ADDSTRING, 0, (LPARAM)L"Magic INI");
-        SendMessage(DevTool, CB_ADDSTRING, 0, (LPARAM)L"Club ARK");
-        SendMessage(DevTool, CB_ADDSTRING, 0, (LPARAM)L"Auto Fishing");
-        SendMessage(DevTool, CB_SETCURSEL, 0, 0);
-
         // Create the MagicINI drop-down box
-        MagicINI = CreateWindowEx(WS_EX_CLIENTEDGE, L"COMBOBOX", L"", WS_CHILD | WS_VISIBLE | CBS_DROPDOWNLIST,
-            145, 40, 125, 200, hWnd, NULL, hInst, NULL);
+        MagicINISel = CreateWindowEx(WS_EX_CLIENTEDGE, L"COMBOBOX", L"", WS_CHILD | WS_VISIBLE | CBS_DROPDOWNLIST,
+            10, 40, 150, 200, hWnd, NULL, hInst, NULL);
         // Add items to the drop-down box
-        SendMessage(MagicINI, CB_ADDSTRING, 0, (LPARAM)L"Clean Air");
-        SendMessage(MagicINI, CB_ADDSTRING, 0, (LPARAM)L"No Trees");
-        SendMessage(MagicINI, CB_ADDSTRING, 0, (LPARAM)L"Invisible Map");
-        SendMessage(MagicINI, CB_SETCURSEL, 0, 0);
+        SendMessage(MagicINISel, CB_ADDSTRING, 0, (LPARAM)L"Clean Air");
+        SendMessage(MagicINISel, CB_SETCURSEL, 0, 0);
+        // Create the MagicINI enable/disable box
+        MagicINIo = CreateWindowEx(WS_EX_CLIENTEDGE, L"COMBOBOX", L"", WS_CHILD | WS_VISIBLE | CBS_DROPDOWNLIST,
+            170, 40, 100, 200, hWnd, NULL, hInst, NULL);
+        // Add items to the drop-down box
+        SendMessage(MagicINIo, CB_ADDSTRING, 0, (LPARAM)L"Enable");
+        SendMessage(MagicINIo, CB_ADDSTRING, 0, (LPARAM)L"Disable");
+        SendMessage(MagicINIo, CB_SETCURSEL, 0, 0);
 
-        // Create the ClubARK drop-down box
-        ClubARK = CreateWindowEx(WS_EX_CLIENTEDGE, L"COMBOBOX", L"", WS_CHILD | WS_VISIBLE | CBS_DROPDOWNLIST,
-            145, 40, 125, 200, hWnd, NULL, hInst, NULL);
+        // Create the ClubARKGame drop-down box
+        ClubARKGame = CreateWindowEx(WS_EX_CLIENTEDGE, L"COMBOBOX", L"", WS_CHILD | WS_VISIBLE | CBS_DROPDOWNLIST,
+            10, 40, 150, 200, hWnd, NULL, hInst, NULL);
         // Add items to the drop-down box
-        SendMessage(ClubARK, CB_ADDSTRING, 0, (LPARAM)L"Train Heist");
-        SendMessage(ClubARK, CB_ADDSTRING, 0, (LPARAM)L"Whacka-Mole");
-        SendMessage(ClubARK, CB_ADDSTRING, 0, (LPARAM)L"Dueling");
-        SendMessage(ClubARK, CB_SETCURSEL, 0, 0);
+        SendMessage(ClubARKGame, CB_ADDSTRING, 0, (LPARAM)L"Duck Duck Jump");
+        SendMessage(ClubARKGame, CB_SETCURSEL, 0, 0);
+        // Create the ClubARKGame drop-down box
+        ClubARKDiff = CreateWindowEx(WS_EX_CLIENTEDGE, L"COMBOBOX", L"", WS_CHILD | WS_VISIBLE | CBS_DROPDOWNLIST,
+            170, 40, 100, 200, hWnd, NULL, hInst, NULL);
+        // Add items to the drop-down box
+        SendMessage(ClubARKDiff, CB_ADDSTRING, 0, (LPARAM)L"Alpha");
+        SendMessage(ClubARKDiff, CB_SETCURSEL, 0, 0);
 
         // Create the AutoFish checkbox
-        AutoFish = CreateWindow(L"BUTTON", L"Controller", WS_VISIBLE | WS_CHILD | BS_AUTOCHECKBOX, 145, 41, 110, 20, hWnd, NULL, hInst, NULL);
+        AutoFishAFK = CreateWindow(L"BUTTON", L"AFK", WS_VISIBLE | WS_CHILD | BS_AUTOCHECKBOX, 10, 41, 110, 20, hWnd, NULL, hInst, NULL);
+        AutoFishCon = CreateWindow(L"BUTTON", L"Controller", WS_VISIBLE | WS_CHILD | BS_AUTOCHECKBOX, 65, 41, 110, 20, hWnd, NULL, hInst, NULL);
+
+        // Create the AutoGrabber drop-down box
+        AutoGrab = CreateWindowEx(WS_EX_CLIENTEDGE, L"COMBOBOX", L"", WS_CHILD | WS_VISIBLE | CBS_DROPDOWNLIST,
+            10, 40, 150, 200, hWnd, NULL, hInst, NULL);
+        // Add items to the drop-down box
+        SendMessage(AutoGrab, CB_ADDSTRING, 0, (LPARAM)L"Air Drop");
+        SendMessage(AutoGrab, CB_ADDSTRING, 0, (LPARAM)L"Raptor Claus");
+        SendMessage(AutoGrab, CB_ADDSTRING, 0, (LPARAM)L"Death Bag");
+        SendMessage(AutoGrab, CB_ADDSTRING, 0, (LPARAM)L"Empty Crop Plots");
+        SendMessage(AutoGrab, CB_SETCURSEL, 0, 0);
 
         // Initially hide the boxes
         ShowWindow(AFKM, SW_HIDE);
@@ -705,7 +678,16 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         ShowWindow(AFKFDM, SW_HIDE);
         ShowWindow(AFKFDI, SW_HIDE);
         ShowWindow(AutoFarm, SW_HIDE);
+        ShowWindow(ClubARKGame, SW_HIDE);
+        ShowWindow(ClubARKDiff, SW_HIDE);
         ShowWindow(Nanny, SW_HIDE);
+        ShowWindow(SoloNAN, SW_HIDE);
+        ShowWindow(AutoGrab, SW_HIDE);
+        ShowWindow(AutoRun, SW_HIDE);
+        ShowWindow(AutoFishCon, SW_HIDE);
+        ShowWindow(AutoFishAFK, SW_HIDE);
+        ShowWindow(MagicINISel, SW_HIDE);
+        ShowWindow(MagicINIo, SW_HIDE);
         ShowWindow(TimerHR, SW_HIDE);
         ShowWindow(TimerMN, SW_HIDE);
         ShowWindow(TimerSC, SW_HIDE);
@@ -716,11 +698,6 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         ShowWindow(hSUB, SW_HIDE);
         ShowWindow(hSDB, SW_HIDE);
         ShowWindow(TimerSND, SW_HIDE);
-        ShowWindow(AutoRun, SW_HIDE);
-        ShowWindow(DevTool, SW_HIDE);
-        ShowWindow(MagicINI, SW_HIDE);
-        ShowWindow(ClubARK, SW_HIDE);
-        ShowWindow(AutoFish, SW_HIDE);
 
         // Update the static text control with the actual screen resolution
         RECT rcClient;
@@ -900,7 +877,7 @@ INT_PTR CALLBACK SettingsDlgProc(HWND hDlg, UINT message, WPARAM wParam, LPARAM 
 
     case WM_HSCROLL:
         if ((HWND)lParam == hSlider) {
-            int pos = SendMessage(hSlider, TBM_GETPOS, 0, 0);
+            int pos = static_cast<int>(SendMessage(hSlider, TBM_GETPOS, 0, 0));
             Settings::SetTransparencySetting(pos); // Update the transparency setting
             SetDlgItemInt(hDlg, IDC_TRANSPARENCY_EDIT, pos, FALSE);
 

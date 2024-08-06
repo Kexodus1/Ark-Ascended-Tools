@@ -44,7 +44,7 @@ void AutoJoiner(HWND ServerN)
             break; // Exit the loop immediately
         }
 
-        // Wait for pixel color to match
+        // Wait for pixel color to match 2nd Join
         while (GetPixel(GetDC(NULL), color2x, color2y) != RGB(135, 79, 23))
             Sleep(500);
 

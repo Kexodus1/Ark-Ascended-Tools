@@ -31,10 +31,12 @@ extern HWND AFKM, AFKFD, AFKFDM, AFKFDI;
 extern HWND ServerN;
 extern HWND AutoFarm;
 extern HWND Nanny;
+extern HWND AutoGrab;
+extern HWND AutoRun;
+extern HWND MagicINISel, MagicINIo;
 extern HWND TimerHR, TimerMN, TimerSC;
 extern HWND hHUB, hHDB, hMUB, hMDB, hSUB, hSDB;
 extern HWND TimerSND;
-extern HWND AutoRun;
 extern std::atomic<bool> shouldContinueLoop;
 extern std::atomic<bool> functionsRunning;
 extern UINT_PTR TimerID;
@@ -47,9 +49,11 @@ void AutoDropper(HWND AutoFarm);
 void AntiAFK(bool isAFKMChecked, bool isAFKFDChecked);
 void SoloNanny(HWND Nanny);
 void MassBabyFeed(HWND Nanny);
-void DropThief();
+void AutoGrabber();
 void Timer();
-void CropPlots();
 void AutoWalk();
+void AutoFish();
+void MagicINI();
+void ClubARK();
 
 #endif // Features_H
