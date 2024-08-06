@@ -5,10 +5,7 @@ Tools to automate Ark Survival Ascended
 Ark Ascended Tools User Guide
 ==========================
 --General Guide--<BR><BR>
-     - Select the function you want from the drop down box and press the "Start" button<BR>
-     - The Button will change to "Stop" to stop the current function from running.<BR>
-     - If the program is not working for you right click and "Run as Administrator"<BR>
-     - Currently only works for resolutions 3440x1440, 2560x1440, 1920x1080, 1920x1200, 1536x864<BR><BR>
+     - Select the function you want from the drop down box and press the "Start" button.  The Button will change to "Stop" to stop the current function from running.<BR><BR>
 
 --Auto Join Server--<BR><BR>
      - Type the server number in the "Input Server Number" box and hit the "Start" button while on the main server selection screen.  The program will take over and automatically attempt to join a full server.  If this function is not working for you check the "Backup Joiner" box and re attempt.<BR><BR>
@@ -38,10 +35,16 @@ Ark Ascended Tools User Guide
      - Have function started and open crop plot, will automatically take all from crop plot and put the fertilizer back.  Will also refill fertilizer if you have extra in your inventory.<BR><BR>
 
 --Auto Walk / Fly--<BR><BR>
-     - As name implies, will just automatically move you forward without pressing anything.<BR><BR>
+     - As name implies, will just automatically move you forward without pressing anything.  Check the "Run Modifier" box to change it to running forward automatically.<BR><BR>
      
 CHANGELOG
 ==========================
+v3.6.0<BR>
+     - New "Troubleshooting" under help menu<BR>
+     - Added run checkbox to "Auto Walk / Fly"<BR>
+     - Added support for 3840x2160 resolution<BR>
+     - Code organization and optimization<BR><BR>
+     
 v3.5.1<BR>
      - Minor fix for updater downloading exe not zip<BR><BR>
      
