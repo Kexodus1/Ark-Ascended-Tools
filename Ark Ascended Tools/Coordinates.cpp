@@ -275,7 +275,7 @@ void setCoordinates() {
         CAJ3X = 1629;
         CAJ3Y = 147;
         rMin = 0; rMax = 255;
-        gMin = 85; gMax = 255;
+        gMin = 80; gMax = 255;
         bMin = 50; bMax = 255;
     }
     else if (screenWidth == 1920 && screenHeight == 1200) {

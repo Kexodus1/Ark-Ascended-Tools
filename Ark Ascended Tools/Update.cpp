@@ -16,7 +16,7 @@ extern HBRUSH hbrBackground;
 
 // Returns the current version of the application
 std::string GetCurrentVersion() {
-    return "v4.0.1";
+    return "v4.0.2";
 }
 
 // Fetches the latest version string from a GitHub URL
@@ -34,7 +34,7 @@ std::string GetLatestVersionFromGitHub() {
         return "";
     }
 
-    char buffer[256];
+    char buffer[256] = { 0 };
     DWORD bytesRead;
     std::string latestVersion;
     while (InternetReadFile(hConnect, buffer, sizeof(buffer), &bytesRead) && bytesRead > 0) {
@@ -65,7 +65,7 @@ std::string GetChangelogFromGitHub() {
         return "";
     }
 
-    char buffer[1024];
+    char buffer[1024] = { 0 };
     DWORD bytesRead;
     std::string changelog;
     while (InternetReadFile(hConnect, buffer, sizeof(buffer), &bytesRead) && bytesRead > 0) {

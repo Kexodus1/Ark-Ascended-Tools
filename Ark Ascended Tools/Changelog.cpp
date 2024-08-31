@@ -17,6 +17,11 @@ INT_PTR CALLBACK ChangeLog(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam
         if (hEdit)
         {
             const char* changelogText =
+                "v4.0.2\r\n"
+                "     - Added troubleshooting for \"AFK Club ARK\"\r\n"
+                "     - Added extra menu check for \"AFK Club ARK\"\r\n"
+                "     - Minor adjustments to 1920x1080 for \"AFK Club\r\n"
+                "       ARK\"\r\n\r\n"
                 "v4.0.1\r\n"
                 "     - Fix for \"Duck Duck Jump\" jumping on red blobs\r\n"
                 "       for 2560x1440 and 1920x1080 sometimes\r\n\r\n"

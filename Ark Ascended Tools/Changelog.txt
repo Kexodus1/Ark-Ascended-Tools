@@ -1,4 +1,5 @@
-New Version v4.0.1 is available
+New Version v4.0.2 is available
 
-- Fix for "Duck Duck Jump" jumping on red
-  blobs for 2560x1440 and 1920x1080
+- Added troubleshooting for "AFK Club ARK"
+- Added extra menu check for "AFK Club ARK"
+- Minor adjustments to 1920x1080 for "AFK Club ARK"
