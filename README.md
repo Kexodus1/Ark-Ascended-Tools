@@ -55,6 +55,16 @@ Ark Ascended Tools User Guide
      
 CHANGELOG
 ==========================
+v4.0.2<BR>
+     - Added troubleshooting for "AFK Club ARK"<BR>
+     - Added extra menu check for "AFK Club ARK"<BR>
+     - Minor adjustments to 1920x1080 for "AFK Club<BR>
+       ARK"<BR><BR>
+
+v4.0.1<BR>
+     - Fix for "Duck Duck Jump" jumping on red blobs<BR>
+       for 2560x1440 and 1920x1080 sometimes<BR><BR>
+
 v4.0.0<BR>
      - New features added "AFK Club ARK", "Auto<BR>
        Fishing", and "Magic INI"<BR>
