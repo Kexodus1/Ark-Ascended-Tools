@@ -59,12 +59,12 @@ void ClubARK()
             BYTE blue = GetBValue(color);
 
             // Log the RGB values to a file
-            FILE* logFile;
-            errno_t err = fopen_s(&logFile, "rgb.txt", "a");
-            if (err == 0 && logFile != NULL) {
-                fprintf(logFile, "Color at (%d, %d): R=%d, G=%d, B=%d\n", DDJC2X, DDJC2Y, red, green, blue);
-                fclose(logFile);
-            }
+            //FILE* logFile;
+            //errno_t err = fopen_s(&logFile, "rgb.txt", "a");
+            //if (err == 0 && logFile != NULL) {
+            //    fprintf(logFile, "Color at (%d, %d): R=%d, G=%d, B=%d\n", DDJC2X, DDJC2Y, red, green, blue);
+            //    fclose(logFile);
+            //}
 
             // Check if the color is within the specified range
             if (isColorInRange(red, green, blue, rMin, rMax, gMin, gMax, bMin, bMax)) 

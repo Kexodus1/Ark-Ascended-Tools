@@ -17,6 +17,9 @@ INT_PTR CALLBACK ChangeLog(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam
         if (hEdit)
         {
             const char* changelogText =
+                "v4.0.3\r\n"
+                "     - Minor changes to User Guide\r\n"
+                "     - Minor fix to disable debug mode\r\n\r\n"
                 "v4.0.2\r\n"
                 "     - Added troubleshooting for \"AFK Club ARK\"\r\n"
                 "     - Added extra menu check for \"AFK Club ARK\"\r\n"

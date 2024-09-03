@@ -1,5 +1,4 @@
 New Version v4.0.2 is available
 
-- Added troubleshooting for "AFK Club ARK"
-- Added extra menu check for "AFK Club ARK"
-- Minor adjustments to 1920x1080 for "AFK Club ARK"
+- Minor changes to User Guide
+- Minor fix to disable debug mode
