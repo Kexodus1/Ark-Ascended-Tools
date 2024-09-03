@@ -55,6 +55,10 @@ Ark Ascended Tools User Guide
      
 CHANGELOG
 ==========================
+v4.0.3<BR>
+     - Minor changes to User Guide<BR>
+     - Minor fix to disable debug mode<BR><BR>
+     
 v4.0.2<BR>
      - Added troubleshooting for "AFK Club ARK"<BR>
      - Added extra menu check for "AFK Club ARK"<BR>
