@@ -55,6 +55,9 @@ Ark Ascended Tools User Guide
      
 CHANGELOG
 ==========================
+v4.0.4<BR>
+     - Added support for 3840x1080 resolution<BR><BR>
+     
 v4.0.3<BR>
      - Minor changes to User Guide<BR>
      - Minor fix to disable debug mode<BR><BR>
