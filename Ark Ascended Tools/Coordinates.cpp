@@ -1,10 +1,8 @@
 #include "pch.h"
 #include "Coordinates.h"
 
-// Define the extern variables
-// inventory color BCF4FF RGB(188, 244, 255). 
-// 
-//       
+// Extern variables
+// inventory color #BCF4FF RGB(188, 244, 255).      
 int text1x = 0, text1y = 0, text2x = 0, text2y = 0;
 int xfer1x = 0, xfer1y = 0, xfer2x = 0, xfer2y = 0;
 int closex = 0, closey = 0, drop1x = 0, drop1y = 0;
@@ -18,6 +16,7 @@ click4X = 0, click4Y = 0, click5X = 0, click5Y = 0, click6X = 0, click6Y = 0;
 int DDJC1X = 0, DDJC1Y = 0, DDJC2X = 0, DDJC2Y = 0, CAJC1X = 0, CAJC1Y = 0, 
 CAJC2X = 0, CAJC2Y = 0, CAJ1X = 0, CAJ1Y = 0, CAJ2X = 0, CAJ2Y = 0, CAJ3X = 0, CAJ3Y = 0;
 
+// Basic Mouse click
 void PerformMouseClick(int x, int y) {
     SetCursorPos(x, y);
     mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
@@ -36,390 +35,254 @@ void setCoordinates() {
 
     // Check the current screen resolution and set the coordinates accordingly
     if (screenWidth == 3840 && screenHeight == 2160) {
-        text1x = 467;
-        text1y = 397;
-        text2x = 2532;
-        text2y = 394;
-        xfer1x = 717;
-        xfer1y = 395;
-        xfer2x = 2753;
-        xfer2y = 395;
-        closex = 3597;
-        closey = 133;
-        drop1x = 810;
-        drop1y = 397;
-        drop2x = 2852;
-        drop2y = 397;
-        blackx = 3469;
-        blacky = 141;
-        invcolx = 2542;
-        invcoly = 269;
-        xferdropx = 2855;
-        xferdropy = 393;
-        dropcolorx = 3329;
-        dropcolory = 275;
-        promptx = 1880;
-        prompty = 730;
-        okayx = 1700;
-        okayy = 1460;
-        color1x = 657;
-        color1y = 438;
-        color2x = 950;
-        color2y = 1864;
-        color3x = 1960;
-        color3y = 725;
-        servnx = 3229;
-        servny = 383;
-        servtx = 1926;
-        servty = 650;
-        servjx = 3423;
-        servjy = 1888;
-        click3X = 1050;
-        click3Y = 1864;
-        click4X = 2123;
-        click4Y = 1457;
-        click5X = 337;
-        click5Y = 1763;
-        click6X = 1050;
-        click6Y = 1108;
+        // 3840x2160
+        // Inventory Coords
+        text1x = 467;       text1y = 397;       // Player Inventory Text Box
+        text2x = 2532;      text2y = 394;       // Dino Inventory Text Box
+        xfer1x = 717;       xfer1y = 395;       // Player Xfer All Button
+        xfer2x = 2753;      xfer2y = 395;       // Dino Xfer All Button
+        closex = 3597;      closey = 133;       // Close (x) Button top right Inv
+        drop1x = 810;       drop1y = 397;       // Player Drop All Button
+        drop2x = 2852;      drop2y = 397;       // Dino Drop All Button
+        blackx = 3469;      blacky = 141;       // Black Weight Box top right
+        invcolx = 2542;     invcoly = 269;      // Inventory open color check
+        xferdropx = 2855;   xferdropy = 393;    // Air Drop Xfer All Button
+        dropcolorx = 3329;  dropcolory = 275;   // Air Drop color check
+        promptx = 1880;     prompty = 730;      // Menu Transitions color check
+        okayx = 1700;       okayy = 1460;       // Menu Transitions okay button
+        // Auto join Server Coords
+        color1x = 657;      color1y = 438;      // Old AutoJoin menu color check (Not used anymore)
+        color2x = 950;      color2y = 1864;     // Join server popup color check
+        color3x = 1960;     color3y = 725;      // Connection Failed color check
+        servnx = 3229;      servny = 383;       // Server Number text box
+        servtx = 1926;      servty = 650;       // Top Server click
+        servjx = 3423;      servjy = 1888;      // Bottom right Join button click
+        click3X = 1050;     click3Y = 1864;     // Join server popup box
+        click4X = 2123;     click4Y = 1457;     // Cancel on Connection failed screen
+        click5X = 337;      click5Y = 1763;     // Back button on server list
+        click6X = 1050;     click6Y = 1108;     // Join server list button
+        // AFK Club ARK Coords
+        DDJC1X = 3107;      DDJC1Y = 630;       // Alpha Color detection
+        DDJC2X = 2586;      DDJC2Y = 1030;      // Color location of blobs
+        CAJC1X = 2231;      CAJC1Y = 359;       // Color of White Mission Board Bar
+        CAJC2X = 3086;      CAJC2Y = 292;       // Color of Yellow Join
+        CAJ1X = 1076;       CAJ1Y = 591;        // MiniGames Click 
+        CAJ2X = 1181;       CAJ2Y = 1194;       // Duck Duck Jump Alpha Click
+        CAJ3X = 3257;       CAJ3Y = 295;        // Join Game Click
+        rMin = 0;           rMax = 255;         // Duck Duck Jump red blob color to jump
+        gMin = 110;         gMax = 255;         // Duck Duck Jump green blob color to jump
+        bMin = 90;          bMax = 255;         // Duck Duck Jump blue blob color to jump
     }
     else if (screenWidth == 3840 && screenHeight == 1080) {
-        text1x = 1200;
-        text1y = 197;
-        text2x = 2223;
-        text2y = 195;
-        xfer1x = 1315;
-        xfer1y = 196;
-        xfer2x = 2339;
-        xfer2y = 196;
-        closex = 2758;
-        closey = 68;
-        drop1x = 1367;
-        drop1y = 198;
-        drop2x = 2386;
-        drop2y = 195;
-        blackx = 3658;
-        blacky = 67;
-        invcolx = 2231;
-        invcoly = 135;
-        xferdropx = 2388;
-        xferdropy = 197;
-        dropcolorx = 2650;
-        dropcolory = 136;
-        promptx = 1899;
-        prompty = 354;
-        okayx = 1813;
-        okayy = 728;
-        color1x = 657;
-        color1y = 438;
-        color2x = 1492;
-        color2y = 932;
-        color3x = 2007;
-        color3y = 363;
-        servnx = 2616;
-        servny = 191;
-        servtx = 1862;
-        servty = 327;
-        servjx = 2606;
-        servjy = 944;
-        click3X = 1492;
-        click3Y = 932;
-        click4X = 2025;
-        click4Y = 728;
-        click5X = 1126;
-        click5Y = 881;
-        click6X = 1460;
-        click6Y = 559;
+        // 3840x1080
+        // Inventory Coords
+        text1x = 1200;      text1y = 197;       // Player Inventory Text Box
+        text2x = 2223;      text2y = 195;       // Dino Inventory Text Box
+        xfer1x = 1315;      xfer1y = 196;       // Player Xfer All Button
+        xfer2x = 2339;      xfer2y = 196;       // Dino Xfer All Button
+        closex = 2758;      closey = 68;        // Close (x) Button top right Inv
+        drop1x = 1367;      drop1y = 198;       // Player Drop All Button
+        drop2x = 2386;      drop2y = 195;       // Dino Drop All Button
+        blackx = 3658;      blacky = 67;        // Black Weight Box top right
+        invcolx = 2231;     invcoly = 135;      // Inventory open color check
+        xferdropx = 2388;   xferdropy = 197;    // Air Drop Xfer All Button
+        dropcolorx = 2650;  dropcolory = 136;   // Air Drop color check
+        promptx = 1899;     prompty = 354;      // Menu Transitions color check
+        okayx = 1813;       okayy = 728;        // Menu Transitions okay button
+        // Auto join Server Coords
+        color1x = 657;      color1y = 438;      // Old AutoJoin menu color check (Not used anymore)
+        color2x = 1492;     color2y = 932;      // Join server popup color check
+        color3x = 1990;     color3y = 357;      // Connection Failed color check
+        servnx = 2616;      servny = 191;       // Server Number text box
+        servtx = 1862;      servty = 327;       // Top Server click
+        servjx = 2606;      servjy = 944;       // Bottom right Join button click
+        click3X = 1492;     click3Y = 932;      // Join server popup box
+        click4X = 2025;     click4Y = 728;      // Cancel on Connection failed screen
+        click5X = 1126;     click5Y = 881;      // Back button on server list
+        click6X = 1485;     click6Y = 552;      // Join server list button
+        // AFK Club ARK Coords
+        DDJC1X = 3481;      DDJC1Y = 315;       // Alpha Color detection
+        DDJC2X = 2506;      DDJC2Y = 492;       // Color location of blobs
+        CAJC1X = 2073;      CAJC1Y = 179;       // Color of White Mission Board Bar
+        CAJC2X = 2502;      CAJC2Y = 143;       // Color of Yellow Join
+        CAJ1X = 1401;       CAJ1Y = 293;        // MiniGames Click 
+        CAJ2X = 1509;       CAJ2Y = 593;        // Duck Duck Jump Alpha Click
+        CAJ3X = 2589;       CAJ3Y = 145;        // Join Game Click
+        rMin = 0;           rMax = 255;         // Duck Duck Jump red blob color to jump
+        gMin = 110;         gMax = 255;         // Duck Duck Jump green blob color to jump
+        bMin = 70;          bMax = 255;         // Duck Duck Jump blue blob color to jump
     }
     else if (screenWidth == 3440 && screenHeight == 1440) {
-        text1x = 773;
-        text1y = 262;
-        text2x = 2131;
-        text2y = 265;
-        xfer1x = 920;
-        xfer1y = 263;
-        xfer2x = 2286;
-        xfer2y = 261;
-        closex = 2837;
-        closey = 89;
-        drop1x = 2131;
-        drop1y = 265;
-        drop2x = 2343;
-        drop2y = 261;
-        blackx = 3199;
-        blacky = 85;
-        invcolx = 2070;
-        invcoly = 180;
-        xferdropx = 2349;
-        xferdropy = 263;
-        dropcolorx = 2659;
-        dropcolory = 182;
-        promptx = 1603;
-        prompty = 487;
-        okayx = 1565;
-        okayy = 971;
-        color1x = 657;
-        color1y = 438;
-        color2x = 1072;
-        color2y = 1246;
-        color3x = 1641;
-        color3y = 486;
-        servnx = 2608;
-        servny = 261;
-        servtx = 1633;
-        servty = 435;
-        servjx = 2725;
-        servjy = 1261;
-        click3X = 1082;
-        click3Y = 1245;
-        click4X = 1866;
-        click4Y = 971;
-        click5X = 664;
-        click5Y = 1173;
-        click6X = 1142;
-        click6Y = 756;
-        DDJC1X = 2953;
-        DDJC1Y = 421;
-        DDJC2X = 2375;
-        DDJC2Y = 676;
-        CAJC1X = 1786;
-        CAJC1Y = 238;
-        CAJC2X = 2509;
-        CAJC2Y = 168;
-        CAJ1X = 1019;
-        CAJ1Y = 392;
-        CAJ2X = 1126;
-        CAJ2Y = 788;
-        CAJ3X = 2614;
-        CAJ3Y = 197;
-        rMin = 0; rMax = 255;
-        gMin = 60; gMax = 255;
-        bMin = 105; bMax = 255;
+        // 3440x1440
+        // Inventory Coords
+        text1x = 773;       text1y = 262;       // Player Inventory Text Box
+        text2x = 2131;      text2y = 265;       // Dino Inventory Text Box
+        xfer1x = 920;       xfer1y = 263;       // Player Xfer All Button
+        xfer2x = 2286;      xfer2y = 261;       // Dino Xfer All Button
+        closex = 2837;      closey = 89;        // Close (x) Button top right Inv
+        drop1x = 2131;      drop1y = 265;       // Player Drop All Button
+        drop2x = 2343;      drop2y = 261;       // Dino Drop All Button
+        blackx = 3199;      blacky = 85;        // Black Weight Box top right
+        invcolx = 2070;     invcoly = 180;      // Inventory open color check
+        xferdropx = 2349;   xferdropy = 263;    // Air Drop Xfer All Button
+        dropcolorx = 2659;  dropcolory = 182;   // Air Drop color check
+        promptx = 1603;     prompty = 487;      // Menu Transitions color check
+        okayx = 1565;       okayy = 971;        // Menu Transitions okay button
+        // Auto join Server Coords
+        color1x = 657;      color1y = 438;      // Old AutoJoin menu color check (Not used anymore)
+        color2x = 1072;     color2y = 1246;     // Join server popup color check
+        color3x = 1641;     color3y = 486;      // Connection Failed color check
+        servnx = 2608;      servny = 261;       // Server Number text box
+        servtx = 1633;      servty = 435;       // Top Server click
+        servjx = 2725;      servjy = 1261;      // Bottom right Join button click
+        click3X = 1082;     click3Y = 1245;     // Join server popup box
+        click4X = 1866;     click4Y = 971;      // Cancel on Connection failed screen
+        click5X = 664;      click5Y = 1173;     // Back button on server list
+        click6X = 1142;     click6Y = 756;      // Join server list button
+        // AFK Club ARK Coords
+        DDJC1X = 2953;      DDJC1Y = 421;       // Alpha Color detection
+        DDJC2X = 2375;      DDJC2Y = 676;       // Color location of blobs
+        CAJC1X = 1786;      CAJC1Y = 238;       // Color of White Mission Board Bar
+        CAJC2X = 2509;      CAJC2Y = 168;       // Color of Yellow Join
+        CAJ1X = 1019;       CAJ1Y = 392;        // MiniGames Click 
+        CAJ2X = 1126;       CAJ2Y = 788;        // Duck Duck Jump Alpha Click
+        CAJ3X = 2614;       CAJ3Y = 197;        // Join Game Click
+        rMin = 0;           rMax = 255;         // Duck Duck Jump red blob color to jump
+        gMin = 60;          gMax = 255;         // Duck Duck Jump green blob color to jump
+        bMin = 105;         bMax = 255;         // Duck Duck Jump blue blob color to jump
     }
     else if (screenWidth == 2560 && screenHeight == 1440) {
-        text1x = 314;
-        text1y = 262;
-        text2x = 1698;
-        text2y = 266;
-        xfer1x = 479;
-        xfer1y = 262;
-        xfer2x = 1835;
-        xfer2y = 260;
-        closex = 2400;
-        closey = 84;
-        drop1x = 541;
-        drop1y = 263;
-        drop2x = 1907;
-        drop2y = 265;
-        blackx = 2316;
-        blacky = 89;
-        invcolx = 1631;
-        invcoly = 182;
-        xferdropx = 1907;
-        xferdropy = 266;
-        dropcolorx = 2217;
-        dropcolory = 184;
-        promptx = 1162;
-        prompty = 487;
-        okayx = 1134;
-        okayy = 968;
-        color1x = 219;
-        color1y = 438;
-        color2x = 632;
-        color2y = 1241;
-        color3x = 1177;
-        color3y = 482;
-        servnx = 2139;
-        servny = 262;
-        servtx = 1286;
-        servty = 434;
-        servjx = 2269;
-        servjy = 1258;
-        click3X = 619;
-        click3Y = 1247;
-        click4X = 1398;
-        click4Y = 973;
-        click5X = 222;
-        click5Y = 1172;
-        click6X = 713;
-        click6Y = 790;
-        DDJC1X = 2073;
-        DDJC1Y = 420;
-        DDJC2X = 1754;
-        DDJC2Y = 676;
-        CAJC1X = 1345;
-        CAJC1Y = 238;
-        CAJC2X = 2061;
-        CAJC2Y = 192;
-        CAJ1X = 665;
-        CAJ1Y = 393;
-        CAJ2X = 725;
-        CAJ2Y = 788;
-        CAJ3X = 2174;
-        CAJ3Y = 197;
-        rMin = 0; rMax = 255;
-        gMin = 60; gMax = 255;
-        bMin = 105; bMax = 255;
+        // 2560x1440
+        // Inventory Coords
+        text1x = 314;       text1y = 262;       // Player Inventory Text Box
+        text2x = 1698;      text2y = 266;       // Dino Inventory Text Box
+        xfer1x = 479;       xfer1y = 262;       // Player Xfer All Button
+        xfer2x = 1835;      xfer2y = 260;       // Dino Xfer All Button
+        closex = 2400;      closey = 84;        // Close (x) Button top right Inv
+        drop1x = 541;       drop1y = 263;       // Player Drop All Button
+        drop2x = 1907;      drop2y = 265;       // Dino Drop All Button
+        blackx = 2316;      blacky = 89;        // Black Weight Box top right
+        invcolx = 1631;     invcoly = 182;      // Inventory open color check
+        xferdropx = 1907;   xferdropy = 266;    // Air Drop Xfer All Button
+        dropcolorx = 2217;  dropcolory = 184;   // Air Drop color check
+        promptx = 1162;     prompty = 487;      // Menu Transitions color check
+        okayx = 1134;       okayy = 968;        // Menu Transitions okay button
+        // Auto join Server Coords
+        color1x = 219;      color1y = 438;      // Old AutoJoin menu color check (Not used anymore)
+        color2x = 632;      color2y = 1241;     // Join server popup color check
+        color3x = 1177;     color3y = 482;      // Connection Failed color check
+        servnx = 2139;      servny = 262;       // Server Number text box
+        servtx = 1286;      servty = 434;       // Top Server click
+        servjx = 2269;      servjy = 1258;      // Bottom right Join button click
+        click3X = 619;      click3Y = 1247;     // Join server popup box
+        click4X = 1398;     click4Y = 973;      // Cancel on Connection failed screen
+        click5X = 222;      click5Y = 1172;     // Back button on server list
+        click6X = 713;      click6Y = 790;      // Join server list button
+        // AFK Club ARK Coords
+        DDJC1X = 2073;      DDJC1Y = 420;       // Alpha Color detection
+        DDJC2X = 1754;      DDJC2Y = 676;       // Color location of blobs
+        CAJC1X = 1345;      CAJC1Y = 238;       // Color of White Mission Board Bar
+        CAJC2X = 2061;      CAJC2Y = 192;       // Color of Yellow Join
+        CAJ1X = 665;        CAJ1Y = 393;        // MiniGames Click 
+        CAJ2X = 725;        CAJ2Y = 788;        // Duck Duck Jump Alpha Click
+        CAJ3X = 2174;       CAJ3Y = 197;        // Join Game Click
+        rMin = 0;           rMax = 255;         // Duck Duck Jump red blob color to jump
+        gMin = 60;          gMax = 255;         // Duck Duck Jump green blob color to jump
+        bMin = 105;         bMax = 255;         // Duck Duck Jump blue blob color to jump
     }
     else if (screenWidth == 1920 && screenHeight == 1080) {
-        text1x = 228;
-        text1y = 197;
-        text2x = 1272;
-        text2y = 197;
-        xfer1x = 357;
-        xfer1y = 198;
-        xfer2x = 1376;
-        xfer2y = 192;
-        closex = 1795;
-        closey = 63;
-        drop1x = 407;
-        drop1y = 197;
-        drop2x = 1426;
-        drop2y = 197;
-        blackx = 1738;
-        blacky = 66;
-        invcolx = 1222;
-        invcoly = 135;
-        xferdropx = 1425;
-        xferdropy = 197;
-        dropcolorx = 1665;
-        dropcolory = 136;
-        promptx = 869;
-        prompty = 365;
-        okayx = 856;
-        okayy = 726;
-        color1x = 759;
-        color1y = 203;
-        color2x = 476;
-        color2y = 932;
-        color3x = 937;
-        color3y = 369;
-        servnx = 1608;
-        servny = 194;
-        servtx = 954;
-        servty = 326;
-        servjx = 1709;
-        servjy = 943;
-        click3X = 469;
-        click3Y = 933;
-        click4X = 1070;
-        click4Y = 729;
-        click5X = 169;
-        click5Y = 877;
-        click6X = 529;
-        click6Y = 582;
-        DDJC1X = 1561;
-        DDJC1Y = 314;
-        DDJC2X = 1490;
-        DDJC2Y = 795;
-        CAJC1X = 1041;
-        CAJC1Y = 178;
-        CAJC2X = 1542;
-        CAJC2Y = 144;
-        CAJ1X = 516;
-        CAJ1Y = 294;
-        CAJ2X = 547;
-        CAJ2Y = 593;
-        CAJ3X = 1629;
-        CAJ3Y = 147;
-        rMin = 0; rMax = 255;
-        gMin = 80; gMax = 255;
-        bMin = 50; bMax = 255;
+        // 1920x1080
+        // Inventory Coords
+        text1x = 228;       text1y = 197;       // Player Inventory Text Box
+        text2x = 1272;      text2y = 197;       // Dino Inventory Text Box
+        xfer1x = 357;       xfer1y = 198;       // Player Xfer All Button
+        xfer2x = 1376;      xfer2y = 192;       // Dino Xfer All Button
+        closex = 1795;      closey = 63;        // Close (x) Button top right Inv
+        drop1x = 407;       drop1y = 197;       // Player Drop All Button
+        drop2x = 1426;      drop2y = 197;       // Dino Drop All Button
+        blackx = 1738;      blacky = 66;        // Black Weight Box top right
+        invcolx = 1222;     invcoly = 135;      // Inventory open color check
+        xferdropx = 1425;   xferdropy = 197;    // Air Drop Xfer All Button
+        dropcolorx = 1665;  dropcolory = 136;   // Air Drop color check
+        promptx = 869;      prompty = 365;      // Menu Transitions color check
+        okayx = 856;        okayy = 726;        // Menu Transitions okay button
+        // Auto join Server Coords
+        color1x = 759;      color1y = 203;      // Old AutoJoin menu color check (Not used anymore)
+        color2x = 476;      color2y = 932;      // Join server popup color check
+        color3x = 937;      color3y = 369;      // Connection Failed color check
+        servnx = 1608;      servny = 194;       // Server Number text box
+        servtx = 954;       servty = 326;       // Top Server click
+        servjx = 1709;      servjy = 943;       // Bottom right Join button click
+        click3X = 469;      click3Y = 933;      // Join server popup box
+        click4X = 1070;     click4Y = 729;      // Cancel on Connection failed screen
+        click5X = 169;      click5Y = 877;      // Back button on server list
+        click6X = 529;      click6Y = 582;      // Join server list button
+        // AFK Club ARK Coords
+        DDJC1X = 1561;      DDJC1Y = 314;       // Alpha Color detection
+        DDJC2X = 1325;      DDJC2Y = 515;       // Color location of blobs
+        CAJC1X = 1041;      CAJC1Y = 178;       // Color of White Mission Board Bar
+        CAJC2X = 1542;      CAJC2Y = 144;       // Color of Yellow Join
+        CAJ1X = 516;        CAJ1Y = 294;        // MiniGames Click 
+        CAJ2X = 547;        CAJ2Y = 593;        // Duck Duck Jump Alpha Click
+        CAJ3X = 1629;       CAJ3Y = 147;        // Join Game Click
+        rMin = 0;           rMax = 255;         // Duck Duck Jump red blob color to jump
+        gMin = 150;         gMax = 255;         // Duck Duck Jump green blob color to jump
+        bMin = 95;          bMax = 255;         // Duck Duck Jump blue blob color to jump
     }
     else if (screenWidth == 1920 && screenHeight == 1200) {
-        text1x = 224;
-        text1y = 258;
-        text2x = 1267;
-        text2y = 261;
-        xfer1x = 356;
-        xfer1y = 256;
-        xfer2x = 1374;
-        xfer2y = 258;
-        closex = 1796;
-        closey = 131;
-        drop1x = 406;
-        drop1y = 254;
-        drop2x = 1422;
-        drop2y = 258;
-        blackx = 1718;
-        blacky = 75;
-        invcolx = 1222;
-        invcoly = 195;
-        xferdropx = 1425;
-        xferdropy = 258;
-        dropcolorx = 1665;
-        dropcolory = 196;
-        promptx = 861;
-        prompty = 405;
-        okayx = 838;
-        okayy = 813;
-        color1x = 164;
-        color1y = 389;
-        color2x = 421;
-        color2y = 1031;
-        color3x = 892;
-        color3y = 406;
-        servnx = 1602;
-        servny = 257;
-        servtx = 937;
-        servty = 388;
-        servjx = 1718;
-        servjy = 1005;
-        click3X = 478;
-        click3Y = 1034;
-        click4X = 1069;
-        click4Y = 806;
-        click5X = 170;
-        click5Y = 937;
-        click6X = 524;
-        click6Y = 647;
+        // 1920x1200
+        // Inventory Coords
+        text1x = 224;       text1y = 258;       // Player Inventory Text Box
+        text2x = 1267;      text2y = 261;       // Dino Inventory Text Box
+        xfer1x = 356;       xfer1y = 256;       // Player Xfer All Button
+        xfer2x = 1374;      xfer2y = 258;       // Dino Xfer All Button
+        closex = 1796;      closey = 131;       // Close (x) Button top right Inv
+        drop1x = 406;       drop1y = 254;       // Player Drop All Button
+        drop2x = 1422;      drop2y = 258;       // Dino Drop All Button
+        blackx = 1718;      blacky = 75;        // Black Weight Box top right
+        invcolx = 1222;     invcoly = 195;      // Inventory open color check
+        xferdropx = 1425;   xferdropy = 258;    // Air Drop Xfer All Button
+        dropcolorx = 1665;  dropcolory = 196;   // Air Drop color check
+        promptx = 861;      prompty = 405;      // Menu Transitions color check
+        okayx = 838;        okayy = 813;        // Menu Transitions okay button
+        // Auto join Server Coords
+        color1x = 164;      color1y = 389;      // Old AutoJoin menu color check (Not used anymore)
+        color2x = 421;      color2y = 1031;     // Join server popup color check
+        color3x = 892;      color3y = 406;      // Connection Failed color check
+        servnx = 1602;      servny = 257;       // Server Number text box
+        servtx = 937;       servty = 388;       // Top Server click
+        servjx = 1718;      servjy = 1005;      // Bottom right Join button click
+        click3X = 478;      click3Y = 1034;     // Join server popup box
+        click4X = 1069;     click4Y = 806;      // Cancel on Connection failed screen
+        click5X = 170;      click5Y = 937;      // Back button on server list
+        click6X = 524;      click6Y = 647;      // Join server list button
     }
     else if (screenWidth == 1536 && screenHeight == 864) {
-        text1x = 183;
-        text1y = 158;
-        text2x = 1028;
-        text2y = 162;
-        xfer1x = 283;
-        xfer1y = 158;
-        xfer2x = 1103;
-        xfer2y = 157;
-        closex = 1439;
-        closey = 50;
-        drop1x = 323;
-        drop1y = 156;
-        drop2x = 1142;
-        drop2y = 159;
-        blackx = 1390;
-        blacky = 55;
-        invcolx = 978;
-        invcoly = 108;
-        xferdropx = 1141;
-        xferdropy = 157;
-        dropcolorx = 1333;
-        dropcolory = 109;
-        promptx = 696;
-        prompty = 292;
-        okayx = 680;
-        okayy = 580;
-        color1x = 775;
-        color1y = 262;
-        color2x = 387;
-        color2y = 744;
-        color3x = 710;
-        color3y = 294;
-        servnx = 1279;
-        servny = 156;
-        servtx = 726;
-        servty = 265;
-        servjx = 1362;
-        servjy = 754;
-        click3X = 425;
-        click3Y = 745;
-        click4X = 857;
-        click4Y = 582;
-        click5X = 139;
-        click5Y = 703;
-        click6X = 421;
-        click6Y = 454;
+        // 1536x864
+        // Inventory Coords
+        text1x = 183;       text1y = 158;       // Player Inventory Text Box
+        text2x = 1028;      text2y = 162;       // Dino Inventory Text Box
+        xfer1x = 283;       xfer1y = 158;       // Player Xfer All Button
+        xfer2x = 1103;      xfer2y = 157;       // Dino Xfer All Button
+        closex = 1439;      closey = 50;        // Close (x) Button top right Inv
+        drop1x = 323;       drop1y = 156;       // Player Drop All Button
+        drop2x = 1142;      drop2y = 159;       // Dino Drop All Button
+        blackx = 1390;      blacky = 55;        // Black Weight Box top right
+        invcolx = 978;      invcoly = 108;      // Inventory open color check
+        xferdropx = 1141;   xferdropy = 157;    // Air Drop Xfer All Button
+        dropcolorx = 1333;  dropcolory = 109;   // Air Drop color check
+        promptx = 696;      prompty = 292;      // Menu Transitions color check
+        okayx = 680;        okayy = 580;        // Menu Transitions okay button
+        // Auto join Server Coords
+        color1x = 775;      color1y = 262;      // Old AutoJoin menu color check (Not used anymore)
+        color2x = 387;      color2y = 744;      // Join server popup color check
+        color3x = 710;      color3y = 294;      // Connection Failed color check
+        servnx = 1279;      servny = 156;       // Server Number text box
+        servtx = 726;       servty = 265;       // Top Server click
+        servjx = 1362;      servjy = 754;       // Bottom right Join button click
+        click3X = 425;      click3Y = 745;      // Join server popup box
+        click4X = 857;      click4Y = 582;      // Cancel on Connection failed screen
+        click5X = 139;      click5Y = 703;      // Back button on server list
+        click6X = 421;      click6Y = 454;      // Join server list button
     }
 }

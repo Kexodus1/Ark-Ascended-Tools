@@ -3,8 +3,8 @@
 #include <windows.h> // Required for Sleep, SetCursorPos, and mouse_event
 #include "Coordinates.h"
 
-// Function to check if a color is within a specified RGB range
-bool isColorInRange(BYTE red, BYTE green, BYTE blue, BYTE rMin, BYTE rMax, BYTE gMin, BYTE gMax, BYTE bMin, BYTE bMax) {
+// Function to check if Jump Jump Blobs in RGB range
+bool isBLOBColorRange(BYTE red, BYTE green, BYTE blue, BYTE rMin, BYTE rMax, BYTE gMin, BYTE gMax, BYTE bMin, BYTE bMax) {
     return (red >= rMin && red <= rMax) && (green >= gMin && green <= gMax) && (blue >= bMin && blue <= bMax);
 }
 
@@ -52,7 +52,7 @@ void ClubARK()
         COLORREF color = GetPixel(hdc, DDJC1X, DDJC1Y);
         if (color == RGB(255, 169, 152)) // color is FFA998
         {             
-            // Check color at DDJC1X, DDJC1Y (the blobs)
+            // Check color at DDJC2X, DDJC2Y (the blobs)
             COLORREF color = GetPixel(hdc, DDJC2X, DDJC2Y);
             BYTE red = GetRValue(color);
             BYTE green = GetGValue(color);
@@ -66,8 +66,8 @@ void ClubARK()
             //    fclose(logFile);
             //}
 
-            // Check if the color is within the specified range
-            if (isColorInRange(red, green, blue, rMin, rMax, gMin, gMax, bMin, bMax)) 
+            // Check if the BLOB color is within the specified range
+            if (isBLOBColorRange(red, green, blue, rMin, rMax, gMin, gMax, bMin, bMax)) 
             {
                 // Simulate spacebar key press
                 keybd_event(VK_SPACE, 0, 0, 0); // Press spacebar
@@ -95,7 +95,7 @@ void ClubARK()
             keybd_event('E', 0, 0, 0); // Press 'E'
             Sleep(100); // Wait 100 milliseconds
             keybd_event('E', 0, KEYEVENTF_KEYUP, 0); // Release 'E'
-            Sleep(500); // Wait 100 milliseconds
+            Sleep(1000); // Wait 1000 milliseconds
 
             if (!shouldContinueLoop)
             {
@@ -107,7 +107,7 @@ void ClubARK()
             if (color == RGB(255, 255, 255)) // color is FFFFFF
             {
 
-                // Wait for pixel color to match White Bar (Origional Code)
+                // Wait for pixel color to match White Bar (Original Code)
                 // while (GetPixel(hdc, CAJC1X, CAJC1Y) != RGB(255, 255, 255))
                 Sleep(500); // Wait 500 milliseconds
 

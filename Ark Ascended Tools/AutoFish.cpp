@@ -9,6 +9,7 @@ void AutoFish()
 
     while (true)
     {
+        //Future Implementation of AutoFish (Depending on if they rework fishing)
         Sleep(1000);
         if (!shouldContinueLoop) {
             break; // Exit the loop immediately

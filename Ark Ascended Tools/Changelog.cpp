@@ -17,6 +17,14 @@ INT_PTR CALLBACK ChangeLog(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam
         if (hEdit)
         {
             const char* changelogText =
+                "v4.1.0\r\n"
+                "     - Added AZERTY support to \"Magic INI\"\r\n"
+                "     - Added support for 3840x2160 and 3840x1080\r\n"
+                "       resolutions to \"AFK Club ARK\"\r\n"
+                "     - Minor fix for 3840x1080 \"Auto Join Server\"\r\n"
+                "     - Further adjustments to 1920x1080 for \"AFK\r\n"
+                "       Club ARK\" (Should be more consistent)\r\n"
+                "     - Refactored / labeled coordinates code\r\n\r\n"
                 "v4.0.4\r\n"
                 "     - Added support for 3840x1080 resolution\r\n\r\n"
                 "v4.0.3\r\n"

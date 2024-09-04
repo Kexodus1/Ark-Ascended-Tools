@@ -3,39 +3,54 @@
 #include <windows.h>
 #include <vector>
 
-void SendKey(WORD vk, bool shift = false) {
-    std::vector<INPUT> inputs(shift ? 4 : 2);
+// Function to detect if the current layout is AZERTY
+bool IsAZERTY() {
+    HKL layout = GetKeyboardLayout(0);
+    return LOWORD(layout) == MAKELANGID(LANG_FRENCH, SUBLANG_FRENCH);
+}
+
+void SendKey(WORD vk, bool shift = false, bool altGr = false) {
+    std::vector<INPUT> inputs;
+
+    if (altGr) {
+        inputs.push_back(INPUT{ INPUT_KEYBOARD, {VK_CONTROL, 0} });
+        inputs.push_back(INPUT{ INPUT_KEYBOARD, {VK_MENU, 0} });
+    }
 
     if (shift) {
-        inputs[0].type = INPUT_KEYBOARD;
-        inputs[0].ki.wVk = VK_SHIFT;
-        inputs[0].ki.dwFlags = 0;
-        inputs[1].type = INPUT_KEYBOARD;
-        inputs[1].ki.wVk = vk;
-        inputs[1].ki.dwFlags = 0;
-        inputs[2].type = INPUT_KEYBOARD;
-        inputs[2].ki.wVk = vk;
-        inputs[2].ki.dwFlags = KEYEVENTF_KEYUP;
-        inputs[3].type = INPUT_KEYBOARD;
-        inputs[3].ki.wVk = VK_SHIFT;
-        inputs[3].ki.dwFlags = KEYEVENTF_KEYUP;
+        inputs.push_back(INPUT{ INPUT_KEYBOARD, {VK_SHIFT, 0} });
     }
-    else {
-        inputs[0].type = INPUT_KEYBOARD;
-        inputs[0].ki.wVk = vk;
-        inputs[0].ki.dwFlags = 0;
-        inputs[1].type = INPUT_KEYBOARD;
-        inputs[1].ki.wVk = vk;
-        inputs[1].ki.dwFlags = KEYEVENTF_KEYUP;
+
+    inputs.push_back(INPUT{ INPUT_KEYBOARD, {vk, 0} });
+    inputs.push_back(INPUT{ INPUT_KEYBOARD, {vk, KEYEVENTF_KEYUP} });
+
+    if (shift) {
+        inputs.push_back(INPUT{ INPUT_KEYBOARD, {VK_SHIFT, KEYEVENTF_KEYUP} });
+    }
+
+    if (altGr) {
+        inputs.push_back(INPUT{ INPUT_KEYBOARD, {VK_MENU, KEYEVENTF_KEYUP} });
+        inputs.push_back(INPUT{ INPUT_KEYBOARD, {VK_CONTROL, KEYEVENTF_KEYUP} });
     }
 
     SendInput(static_cast<UINT>(inputs.size()), inputs.data(), sizeof(INPUT));
 }
 
 void TypeString(const char* str) {
-    for (const char* p = str; *p; p++) 
-    {
+    for (const char* p = str; *p; p++) {
+        bool isAzerty = IsAZERTY();
         SHORT vk = VkKeyScanA(*p);
+
+        if (*p == '|') {
+            if (isAzerty) {
+                SendKey(0x36, false, true); // AltGr + 6 for AZERTY
+            }
+            else {
+                SendKey(0xDC, true); // Shift + \ on US QWERTY
+            }
+            continue;
+        }
+
         if (vk == -1) continue; // Skip characters that can't be mapped
 
         bool shiftState = HIBYTE(vk) & 1;
