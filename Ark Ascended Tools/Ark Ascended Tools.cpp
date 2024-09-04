@@ -155,6 +155,7 @@ int screenHeight = GetSystemMetrics(SM_CYSCREEN);
 bool IsResolutionSupported(int width, int height) {
     std::vector<std::pair<int, int>> supportedResolutions = {
         {3840, 2160},
+        {3840, 1080},
         {3440, 1440},
         {2560, 1440},
         {1920, 1080},

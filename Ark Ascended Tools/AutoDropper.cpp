@@ -58,7 +58,7 @@ void AutoDropper(HWND AutoFarm)
                 break; // Exit the loop immediately
             }
 
-            // Check color at promptx, prompty
+            // Check color at promptx, prompty #C1F5FF
             COLORREF color = GetPixel(GetDC(NULL), promptx, prompty);
             if (color == RGB(193, 245, 255)) // Assuming red color is RGB(255, 0, 0)
             {

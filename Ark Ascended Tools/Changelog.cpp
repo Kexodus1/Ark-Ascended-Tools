@@ -17,6 +17,8 @@ INT_PTR CALLBACK ChangeLog(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam
         if (hEdit)
         {
             const char* changelogText =
+                "v4.0.4\r\n"
+                "     - Added support for 3840x1080 resolution\r\n\r\n"
                 "v4.0.3\r\n"
                 "     - Minor changes to User Guide\r\n"
                 "     - Minor fix to disable debug mode\r\n\r\n"

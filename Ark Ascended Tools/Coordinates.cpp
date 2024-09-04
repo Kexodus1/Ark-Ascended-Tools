@@ -83,6 +83,54 @@ void setCoordinates() {
         click6X = 1050;
         click6Y = 1108;
     }
+    else if (screenWidth == 3840 && screenHeight == 1080) {
+        text1x = 1200;
+        text1y = 197;
+        text2x = 2223;
+        text2y = 195;
+        xfer1x = 1315;
+        xfer1y = 196;
+        xfer2x = 2339;
+        xfer2y = 196;
+        closex = 2758;
+        closey = 68;
+        drop1x = 1367;
+        drop1y = 198;
+        drop2x = 2386;
+        drop2y = 195;
+        blackx = 3658;
+        blacky = 67;
+        invcolx = 2231;
+        invcoly = 135;
+        xferdropx = 2388;
+        xferdropy = 197;
+        dropcolorx = 2650;
+        dropcolory = 136;
+        promptx = 1899;
+        prompty = 354;
+        okayx = 1813;
+        okayy = 728;
+        color1x = 657;
+        color1y = 438;
+        color2x = 1492;
+        color2y = 932;
+        color3x = 2007;
+        color3y = 363;
+        servnx = 2616;
+        servny = 191;
+        servtx = 1862;
+        servty = 327;
+        servjx = 2606;
+        servjy = 944;
+        click3X = 1492;
+        click3Y = 932;
+        click4X = 2025;
+        click4Y = 728;
+        click5X = 1126;
+        click5Y = 881;
+        click6X = 1460;
+        click6Y = 559;
+    }
     else if (screenWidth == 3440 && screenHeight == 1440) {
         text1x = 773;
         text1y = 262;
