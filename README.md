@@ -55,6 +55,15 @@ Ark Ascended Tools User Guide
      
 CHANGELOG
 ==========================
+v4.1.0<BR>
+     - Added AZERTY support to "Magic INI"<BR>
+     - Added support for 3840x2160 and 3840x1080<BR>
+       resolutions to "AFK Club ARK"<BR>
+     - Minor fix for 3840x1080 "Auto Join Server"<BR>
+     - Further adjustments to 1920x1080 for "AFK<BR>
+       Club ARK" (Should be more consistent)<BR>
+     - Refactored / labeled coordinates code<BR><BR>
+     
 v4.0.4<BR>
      - Added support for 3840x1080 resolution<BR><BR>
      
