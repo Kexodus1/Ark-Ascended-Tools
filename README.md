@@ -13,20 +13,19 @@ Table of Contents
 ======================================
 - [About](#about)
 - [Installation](#installation)<BR>
-- [Ark Ascended Tools User Guide](#ark-ascended-tools-user-guide)<BR>
-- [Troubleshooting Common Issues](#troubleshooting-common-issues)<BR>
-- [Troubleshooting AFK Club ARK](#troubleshooting-afk-club-ark)<BR>
+- [User Guide](#user-guide)<BR>
+- [Troubleshooting](#troubleshooting)<BR>
 - [Changelog](#changelog)<BR><BR>
 
 About
 =====================================
-Ark Ascended Tools is a set of functions for users to streamline their Ark experience for better efficiency and multitasking.  With this program you can reduce manual input for repetitive tasks and even AFK on other tasks within Ark.  Please continue reading for better understanding of the key features and how to use them.<BR><BR>
+Ark Ascended Tools is a set of functions for users to streamline their Ark experience for better efficiency and multitasking.  With this program you can reduce manual input for repetitive tasks and even AFK on other tasks within Ark.  Please read the [user guide](#user-guide) for better understanding of the key features and how to use them.<BR><BR>
 
 Installation
 =====================================
 Download the latest zipped version from <a href="https://github.com/Kexodus1/Ark-Ascended-Tools/releases">releases</a> and unzip the executable.  Run the Ark Ascended Tools executable to perform various functions within Ark.  The program has a check for updates in the help menu that will download the latest zip when available.  Windows security may flag the file as virus when downloading sometimes; goto virus and threat protection and allow the program.<BR><BR>
 
-Ark Ascended Tools User Guide
+User Guide
 ==========================
 - General Guide<BR>
    - There is a delay on most functions when you start them to be able to click the ark program before the function starts.  It is better to start each function using the hotkey while ARK is the active window.  Select the function you want from the drop down box and press the "Start" button (Hotkey "F4").  The Button will change to "Stop" to stop the current function from running.<BR><BR>
@@ -44,7 +43,7 @@ Ark Ascended Tools User Guide
    - Anti AFK will automatically move left(A) and right(D) periodically while going prone(X) if the "Move" checkbox is checked to prevent getting kicked from server.  If the "Eat / Drink" checkbox is checked it will automatically eat and drink with 9 and 0 on the keyboard.  You may input time in minutes to automatically eat and drink, default is 60 minutes.  You may use both "Move" and "Eat / Drink" together or separately.<BR><BR>
 
 - AFK Club ARK<BR>
-   - Will automatically farm club ark points without user input.  It is best to start at the far left mission board so you don't accidentally try to trade a player.  You can either walk up to the mission board or join selected game then start the program.  Currently only supports one game but backend code established to easily add future games.  Duck Duck Jump uses "E" for accessing mission board and "Spacebar" / "C" for the game. (Currently only works for 3440x1440, 2560x1440, and 1920x1080)<BR><BR>
+   - Will automatically farm club ark points without user input.  It is best to start at the far left mission board so you don't accidentally try to trade a player.  You can either walk up to the mission board or join selected game then start the program.  Currently only supports one game but backend code established to easily add future games.  Duck Duck Jump uses "E" for accessing mission board and "Spacebar" / "C" for the game. (Currently only works for 3840x2160, 3840x1080, 3440x1440, 2560x1440, and 1920x1080)<BR><BR>
 
 - Mass Baby Feed<BR>
    - This will automatically upon opening baby Dino inventory refresh the food and close the inventory, allowing you to quickly go around and feed multiple baby Dino's.  Select which food type from drop down to feed the babies when you open inventory.  If "Solo Nanny" is check marked it will allow you to AFK inside a single baby's inventory and refresh the selected food from the dropdown every 1 minute.  Make sure you have appropriate food in your inventory.<BR><BR>
@@ -64,7 +63,7 @@ Ark Ascended Tools User Guide
 - Alarm / Timer<BR>
    - Set the HR:MIN:SEC then start the timer for it to count down.  Will play a sound when it reaches zero if the checkbox is selected.<BR><BR>
 
-Troubleshooting Common Issues
+Troubleshooting
 =================================
 
    - My resolution is not showing correctly:<BR>
@@ -91,12 +90,6 @@ Troubleshooting Common Issues
        3440x1440, 2560x1440, 1920x1080, 1920x1200,
        and 1536x864 are supported.<BR><BR>
 
-   - I have a different issue not listed:
-        - You can always contact me on discord or fill out a new issue on github Ark-Ascended-Tools/issues. Contact info in "About"<BR><BR>
-        
-Troubleshooting AFK Club ARK
-===============================
-
    - Club ARK is not working for me:<BR>
         - Currently only resolutions 3840x2160, 3840x1080, 3440x1440, 2560x1440, and 1920x1080 are supported.<BR><BR>
 
@@ -110,6 +103,9 @@ Troubleshooting AFK Club ARK
          - 50 FOV (the FOV is critical and can be slightly
            increased to jump slower or decreased to jump
            faster)<BR><BR>
+
+   - I have a different issue not listed:
+        - Pleasse head over to <A href="https://github.com/Kexodus1/Ark-Ascended-Tools/issues">issues</A> and submit a new issue.<BR><BR>
      
 Changelog
 ==========================
