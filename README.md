@@ -1,13 +1,20 @@
 <p align="center">
-   <img width="60%" height="60%" src="https://github.com/Kexodus1/Ark-Ascended-Tools/blob/master/AscendedToolsLogo.png">
+   <img width="60%" height="60%" src="https://github.com/Kexodus1/Ark-Ascended-Tools/blob/master/AscendedToolsLogo.png"><BR>
+   <img src="https://img.shields.io/badge/Maintained%3F-Yes-green">
+   <A href="https://github.com/Kexodus1/Ark-Ascended-Tools/releases"><img src="https://img.shields.io/github/v/release/Kexodus1/Ark-Ascended-Tools"></A>
+   <A href="https://github.com/Kexodus1/Ark-Ascended-Tools/commits/master/"><img src="https://img.shields.io/github/commit-activity/m/Kexodus1/Ark-Ascended-Tools"></A>
+   <A href="https://github.com/Kexodus1/Ark-Ascended-Tools/issues"><img src="https://img.shields.io/github/issues/Kexodus1/Ark-Ascended-Tools"></A>
+   <A href="https://github.com/Kexodus1/Ark-Ascended-Tools/issues?q=is%3Aissue+is%3Aclosed"><img src="https://img.shields.io/github/issues-closed/Kexodus1/Ark-Ascended-Tools"></A>
+   <A href="https://github.com/Kexodus1/Ark-Ascended-Tools/tree/master/Ark%20Ascended%20Tools"><img src="https://img.shields.io/github/languages/code-size/Kexodus1/Ark-Ascended-Tools"></A>
+   <A hred="https://github.com/Kexodus1/Ark-Ascended-Tools/releases"><img src="https://img.shields.io/github/downloads/Kexodus1/Ark-Ascended-Tools/total"></A>
 </p>
 
 Table of Contents
 ======================================
--[Ark Ascended Tools User Guide](#ark-ascended-tools-user-guide)<BR>
--[Troubleshooting Common Issues](#troubleshooting-common-issues)<BR>
--[Troubleshooting AFK Club ARK](#troubleshooting-afk-club-ark)<BR>
--[Changelog](#changelog)
+- [Ark Ascended Tools User Guide](#ark-ascended-tools-user-guide)<BR>
+- [Troubleshooting Common Issues](#troubleshooting-common-issues)<BR>
+- [Troubleshooting AFK Club ARK](#troubleshooting-afk-club-ark)<BR>
+- [Changelog](#changelog)
 
 Ark Ascended Tools User Guide
 ==========================
