@@ -11,10 +11,20 @@
 
 Table of Contents
 ======================================
+- [About](#about)
+- [Installation](#installation)<BR>
 - [Ark Ascended Tools User Guide](#ark-ascended-tools-user-guide)<BR>
 - [Troubleshooting Common Issues](#troubleshooting-common-issues)<BR>
 - [Troubleshooting AFK Club ARK](#troubleshooting-afk-club-ark)<BR>
-- [Changelog](#changelog)
+- [Changelog](#changelog)<BR><BR>
+
+About
+=====================================
+Ark Ascended Tools is a set of functions for users to streamline their Ark experience for better efficiency and multitasking.  With this program you can reduce manual input for repetitive tasks and even AFK on other tasks within Ark.  Please continue reading for better understanding of the key features and how to use them.<BR><BR>
+
+Installation
+=====================================
+Download the latest zipped version from <a href="https://github.com/Kexodus1/Ark-Ascended-Tools/releases">releases</a> and unzip the executable.  Run the Ark Ascended Tools executable to perform various functions within Ark.  The program has a check for updates in the help menu that will download the latest zip when available.  Windows security may flag the file as virus when downloading sometimes; goto virus and threat protection and allow the program.<BR><BR>
 
 Ark Ascended Tools User Guide
 ==========================
@@ -101,7 +111,7 @@ Troubleshooting AFK Club ARK
            increased to jump slower or decreased to jump
            faster)<BR><BR>
      
-CHANGELOG
+Changelog
 ==========================
 v4.1.0<BR>
    - Added AZERTY support to "Magic INI"<BR>
