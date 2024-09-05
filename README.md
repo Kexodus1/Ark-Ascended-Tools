@@ -32,10 +32,10 @@ Ark Ascended Tools User Guide
 - Mass Baby Feed<BR>
    - This will automatically upon opening baby Dino inventory refresh the food and close the inventory, allowing you to quickly go around and feed multiple baby Dino's.  Select which food type from drop down to feed the babies when you open inventory.  If "Solo Nanny" is check marked it will allow you to AFK inside a single baby's inventory and refresh the selected food from the dropdown every 1 minute.  Make sure you have appropriate food in your inventory.<BR><BR>
 
-- Auto Grabber--<BR>
+- Auto Grabber<BR>
    - Depending on which function you have selected from the dropdown when you start this feature.  "Air Drop", "Raptor Claus", "Death Bag", or "Empty Crop plots" will quickly grab the items when you open the inventory, taking all instantly, then closing the inventory instantly. "Empty Crop Plots" will automatically put fertilizer back before closing inventory.  Any extra fertilizer in inventory will top the crop plot up.<BR><BR>
 
-- Auto Fishing--<BR>
+- Auto Fishing<BR>
    - Added this feature incase they rework fishing in the future.  Will automatically reel in fish when started.  If on controller checkmark the controller box and it will go off of controller prompts.  Selecting AFK will automatically cast and reel in.<BR><BR>
 
 - Auto Walk / Fly<BR>
