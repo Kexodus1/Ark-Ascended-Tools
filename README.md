@@ -6,7 +6,7 @@
    <A href="https://github.com/Kexodus1/Ark-Ascended-Tools/issues"><img src="https://img.shields.io/github/issues/Kexodus1/Ark-Ascended-Tools"></A>
    <A href="https://github.com/Kexodus1/Ark-Ascended-Tools/issues?q=is%3Aissue+is%3Aclosed"><img src="https://img.shields.io/github/issues-closed/Kexodus1/Ark-Ascended-Tools"></A>
    <A href="https://github.com/Kexodus1/Ark-Ascended-Tools/tree/master/Ark%20Ascended%20Tools"><img src="https://img.shields.io/github/languages/code-size/Kexodus1/Ark-Ascended-Tools"></A>
-   <A hred="https://github.com/Kexodus1/Ark-Ascended-Tools/releases"><img src="https://img.shields.io/github/downloads/Kexodus1/Ark-Ascended-Tools/total"></A>
+   <A href="https://github.com/Kexodus1/Ark-Ascended-Tools/releases"><img src="https://img.shields.io/github/downloads/Kexodus1/Ark-Ascended-Tools/total"></A>
 </p>
 
 Table of Contents
