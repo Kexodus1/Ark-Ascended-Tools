@@ -190,7 +190,7 @@ v2.6.0<BR>
 
 v2.5.1<BR>
    - Fixed Auto Joiner for 1920x1080 and 1536x864<BR>
-   - Added small sleep delay for Backup Joiner<BR>
+   - Added small sleep delay for Backup Joiner<BR><BR>
 
 v2.5.0<BR>
    - Adjusted Auto Joiner / Backup Joiner to compensate for button movement on join screen<BR>
