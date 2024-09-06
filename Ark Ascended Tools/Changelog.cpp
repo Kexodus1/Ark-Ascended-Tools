@@ -17,6 +17,9 @@ INT_PTR CALLBACK ChangeLog(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam
         if (hEdit)
         {
             const char* changelogText =
+                "v4.1.1\r\n"
+                "     - Fix for \"Auto Join Server\" mod screen or\r\n"
+                "       connection failed detection\r\n\r\n"
                 "v4.1.0\r\n"
                 "     - Added AZERTY support to \"Magic INI\"\r\n"
                 "     - Added support for 3840x2160 and 3840x1080\r\n"

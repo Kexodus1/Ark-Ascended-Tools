@@ -1,7 +1,4 @@
-New Version v4.1.0 is available
-- Added AZERTY support to "Magic INI"
-- Added support for 3840x2160 and 3840x1080
-  resolutions to "AFK Club ARK"
-- Minor fix for 3840x1080 "Auto Join Server"
-- Further adjustments to 1920x1080 for "AFK
-  Club ARK" (Should be more consistent)
+New Version v4.1.1 is available
+
+- Fix for "Auto Join Server" mod screen or
+  connection failed detection
