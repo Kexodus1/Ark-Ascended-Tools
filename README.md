@@ -109,6 +109,9 @@ Troubleshooting
      
 Changelog
 ==========================
+v4.1.1<BR>
+   - Fix for "Auto Join Server" mod screen or connection failed detection<BR><BR>
+   
 v4.1.0<BR>
    - Added AZERTY support to "Magic INI"<BR>
    - Added support for 3840x2160 and 3840x1080 resolutions to "AFK Club ARK"<BR>
