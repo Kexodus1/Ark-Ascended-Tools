@@ -109,6 +109,14 @@ Troubleshooting
      
 Changelog
 ==========================
+v4.2.0<BR>
+   - Major changes to "Auto Join Server" code<BR>
+   - Added server full failed detection<BR>
+   - Fixed joining server sometimes stopping<BR>
+   - "Auto Join Server" should now be hands free<BR>
+      - (will continue to monitor, update, and fix)<BR>
+   - Sped up timings to "Backup Join" code<BR><BR>
+     
 v4.1.1<BR>
    - Fix for "Auto Join Server" mod screen or connection failed detection<BR><BR>
    
