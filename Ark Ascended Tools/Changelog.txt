@@ -1,4 +1,7 @@
-New Version v4.1.1 is available
-
-- Fix for "Auto Join Server" mod screen or
-  connection failed detection
+New Version v4.2.0 is available
+- Major changes to "Auto Join Server" code
+- Added server full failed detection
+- Fixed joining server sometimes stopping
+- "Auto Join Server" should now be hands free
+  (will continue to monitor, update, and fix)
+- Sped up timings to "Backup Join" code

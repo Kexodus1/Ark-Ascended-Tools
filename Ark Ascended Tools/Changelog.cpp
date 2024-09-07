@@ -17,6 +17,13 @@ INT_PTR CALLBACK ChangeLog(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam
         if (hEdit)
         {
             const char* changelogText =
+                "v4.2.0\r\n"
+                "     - Major changes to \"Auto Join Server\" code\r\n"
+                "     - Added server full failed detection\r\n"
+                "     - Fixed joining server sometimes stopping\r\n"
+                "     - \"Auto Join Server\" should now be hands free\r\n"
+                "       (will continue to monitor, update, and fix)\r\n"
+                "     - Sped up timings to \"Backup Join\" code\r\n\r\n"
                 "v4.1.1\r\n"
                 "     - Fix for \"Auto Join Server\" mod screen or\r\n"
                 "       connection failed detection\r\n\r\n"

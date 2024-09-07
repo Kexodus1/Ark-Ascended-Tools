@@ -12,7 +12,8 @@ int dropcolorx = 0, dropcolory = 0, servnx = 0, servny = 0, okayx = 0, okayy = 0
 int servtx = 0, servty = 0, servjx = 0, servjy = 0;
 int color1x = 0, color1y = 0, color2x = 0, color2y = 0, color3x = 0, color3y = 0,
 click1X = 0, click1Y = 0, click2X = 0, click2Y = 0, click3X = 0, click3Y = 0,
-click4X = 0, click4Y = 0, click5X = 0, click5Y = 0, click6X = 0, click6Y = 0;
+click4X = 0, click4Y = 0, click5X = 0, click5Y = 0, click6X = 0, click6Y = 0,
+fullfX = 0, fullfY = 0, startX = 0, startY = 0;
 int DDJC1X = 0, DDJC1Y = 0, DDJC2X = 0, DDJC2Y = 0, CAJC1X = 0, CAJC1Y = 0, 
 CAJC2X = 0, CAJC2Y = 0, CAJ1X = 0, CAJ1Y = 0, CAJ2X = 0, CAJ2Y = 0, CAJ3X = 0, CAJ3Y = 0;
 
@@ -51,16 +52,18 @@ void setCoordinates() {
         promptx = 1880;     prompty = 730;      // Menu Transitions color check
         okayx = 1700;       okayy = 1460;       // Menu Transitions okay button
         // Auto join Server Coords
-        color1x = 657;      color1y = 438;      // Old AutoJoin menu color check (Not used anymore)
+        color1x = 1796;     color1y = 840;      // Server full popup color check (M)
         color2x = 950;      color2y = 1864;     // Join server popup color check
-        color3x = 1960;     color3y = 725;      // Connection Failed color check
+        color3x = 2022;     color3y = 696;      // Connection Failed color check (F)
         servnx = 3229;      servny = 383;       // Server Number text box
-        servtx = 1926;      servty = 650;       // Top Server click
+        servtx = 1747;      servty = 654;       // Top Server click \ color check
         servjx = 3423;      servjy = 1888;      // Bottom right Join button click
         click3X = 1050;     click3Y = 1864;     // Join server popup box
         click4X = 2123;     click4Y = 1457;     // Cancel on Connection failed screen
         click5X = 337;      click5Y = 1763;     // Back button on server list
         click6X = 1050;     click6Y = 1108;     // Join server list button
+        fullfX = 1906;      fullfY = 1461;      // Server Full Fail popup accept
+        startX = 1915;      startY = 1717;      // Ark Main Menu Start Button
         // AFK Club ARK Coords
         DDJC1X = 3107;      DDJC1Y = 630;       // Alpha Color detection
         DDJC2X = 2586;      DDJC2Y = 1030;      // Color location of blobs
@@ -90,16 +93,18 @@ void setCoordinates() {
         promptx = 1899;     prompty = 354;      // Menu Transitions color check
         okayx = 1813;       okayy = 728;        // Menu Transitions okay button
         // Auto join Server Coords
-        color1x = 657;      color1y = 438;      // Old AutoJoin menu color check (Not used anymore)
+        color1x = 1857;     color1y = 421;      // Server full popup color check (M)
         color2x = 1492;     color2y = 932;      // Join server popup color check
-        color3x = 1990;     color3y = 357;      // Connection Failed color check
+        color3x = 1970;     color3y = 348;      // Connection Failed color check (F)
         servnx = 2616;      servny = 191;       // Server Number text box
-        servtx = 1862;      servty = 327;       // Top Server click
+        servtx = 1862;      servty = 327;       // Top Server click \ color check
         servjx = 2606;      servjy = 944;       // Bottom right Join button click
         click3X = 1492;     click3Y = 932;      // Join server popup box
         click4X = 2025;     click4Y = 728;      // Cancel on Connection failed screen
         click5X = 1126;     click5Y = 881;      // Back button on server list
         click6X = 1485;     click6Y = 552;      // Join server list button
+        fullfX = 1911;      fullfY = 728;       // Server Full Fail popup accept
+        startX = 1909;      startY = 855;       // Ark Main Menu Start Button
         // AFK Club ARK Coords
         DDJC1X = 3481;      DDJC1Y = 315;       // Alpha Color detection
         DDJC2X = 2506;      DDJC2Y = 492;       // Color location of blobs
@@ -129,16 +134,18 @@ void setCoordinates() {
         promptx = 1603;     prompty = 487;      // Menu Transitions color check
         okayx = 1565;       okayy = 971;        // Menu Transitions okay button
         // Auto join Server Coords
-        color1x = 657;      color1y = 438;      // Old AutoJoin menu color check (Not used anymore)
+        color1x = 1638;     color1y = 558;      // Server full popup color check (M)
         color2x = 1072;     color2y = 1246;     // Join server popup color check
-        color3x = 1641;     color3y = 486;      // Connection Failed color check
+        color3x = 1786;     color3y = 463;      // Connection Failed color check (F)
         servnx = 2608;      servny = 261;       // Server Number text box
-        servtx = 1633;      servty = 435;       // Top Server click
+        servtx = 1633;      servty = 435;       // Top Server click \ color check
         servjx = 2725;      servjy = 1261;      // Bottom right Join button click
         click3X = 1082;     click3Y = 1245;     // Join server popup box
         click4X = 1866;     click4Y = 971;      // Cancel on Connection failed screen
         click5X = 664;      click5Y = 1173;     // Back button on server list
         click6X = 1142;     click6Y = 756;      // Join server list button
+        fullfX = 1709;      fullfY = 973;       // Server Full Fail popup accept
+        startX = 1707;      startY = 1140;      // Ark Main Menu Start Button
         // AFK Club ARK Coords
         DDJC1X = 2953;      DDJC1Y = 421;       // Alpha Color detection
         DDJC2X = 2375;      DDJC2Y = 676;       // Color location of blobs
@@ -168,16 +175,18 @@ void setCoordinates() {
         promptx = 1162;     prompty = 487;      // Menu Transitions color check
         okayx = 1134;       okayy = 968;        // Menu Transitions okay button
         // Auto join Server Coords
-        color1x = 219;      color1y = 438;      // Old AutoJoin menu color check (Not used anymore)
+        color1x = 1198;     color1y = 561;      // Server full popup color check (M)
         color2x = 632;      color2y = 1241;     // Join server popup color check
-        color3x = 1177;     color3y = 482;      // Connection Failed color check
+        color3x = 1345;     color3y = 463;      // Connection Failed color check (F)
         servnx = 2139;      servny = 262;       // Server Number text box
-        servtx = 1286;      servty = 434;       // Top Server click
+        servtx = 1197;      servty = 438;       // Top Server click \ color check
         servjx = 2269;      servjy = 1258;      // Bottom right Join button click
         click3X = 619;      click3Y = 1247;     // Join server popup box
         click4X = 1398;     click4Y = 973;      // Cancel on Connection failed screen
         click5X = 222;      click5Y = 1172;     // Back button on server list
         click6X = 713;      click6Y = 790;      // Join server list button
+        fullfX = 1268;      fullfY = 969;       // Server Full Fail popup accept
+        startX = 1265;      startY = 1144;      // Ark Main Menu Start Button
         // AFK Club ARK Coords
         DDJC1X = 2073;      DDJC1Y = 420;       // Alpha Color detection
         DDJC2X = 1754;      DDJC2Y = 676;       // Color location of blobs
@@ -207,16 +216,18 @@ void setCoordinates() {
         promptx = 869;      prompty = 365;      // Menu Transitions color check
         okayx = 856;        okayy = 726;        // Menu Transitions okay button
         // Auto join Server Coords
-        color1x = 759;      color1y = 203;      // Old AutoJoin menu color check (Not used anymore)
+        color1x = 896;      color1y = 420;      // Server full popup color check (M)
         color2x = 476;      color2y = 932;      // Join server popup color check
-        color3x = 937;      color3y = 369;      // Connection Failed color check
+        color3x = 1011;     color3y = 348;      // Connection Failed color check (F)
         servnx = 1608;      servny = 194;       // Server Number text box
-        servtx = 954;       servty = 326;       // Top Server click
+        servtx = 874;       servty = 329;       // Top Server click \ color check
         servjx = 1709;      servjy = 943;       // Bottom right Join button click
         click3X = 469;      click3Y = 933;      // Join server popup box
         click4X = 1070;     click4Y = 729;      // Cancel on Connection failed screen
         click5X = 169;      click5Y = 877;      // Back button on server list
         click6X = 529;      click6Y = 582;      // Join server list button
+        fullfX = 954;       fullfY = 728;       // Server Full Fail popup accept
+        startX = 954;       startY = 859;       // Ark Main Menu Start Button
         // AFK Club ARK Coords
         DDJC1X = 1561;      DDJC1Y = 314;       // Alpha Color detection
         DDJC2X = 1325;      DDJC2Y = 515;       // Color location of blobs
@@ -246,16 +257,18 @@ void setCoordinates() {
         promptx = 861;      prompty = 405;      // Menu Transitions color check
         okayx = 838;        okayy = 813;        // Menu Transitions okay button
         // Auto join Server Coords
-        color1x = 164;      color1y = 389;      // Old AutoJoin menu color check (Not used anymore)
+        color1x = 891;      color1y = 465;      // Server full popup color check (M)
         color2x = 421;      color2y = 1031;     // Join server popup color check
-        color3x = 892;      color3y = 406;      // Connection Failed color check
+        color3x = 1014;     color3y = 386;      // Connection Failed color check (F)
         servnx = 1602;      servny = 257;       // Server Number text box
-        servtx = 937;       servty = 388;       // Top Server click
+        servtx = 897;       servty = 386;       // Top Server click \ color check
         servjx = 1718;      servjy = 1005;      // Bottom right Join button click
         click3X = 478;      click3Y = 1034;     // Join server popup box
         click4X = 1069;     click4Y = 806;      // Cancel on Connection failed screen
         click5X = 170;      click5Y = 937;      // Back button on server list
         click6X = 524;      click6Y = 647;      // Join server list button
+        fullfX =  953;      fullfY = 812;       // Server Full Fail popup accept
+        startX = 948;       startY = 922;       // Ark Main Menu Start Button
     }
     else if (screenWidth == 1536 && screenHeight == 864) {
         // 1536x864
@@ -274,15 +287,17 @@ void setCoordinates() {
         promptx = 696;      prompty = 292;      // Menu Transitions color check
         okayx = 680;        okayy = 580;        // Menu Transitions okay button
         // Auto join Server Coords
-        color1x = 775;      color1y = 262;      // Old AutoJoin menu color check (Not used anymore)
+        color1x = 717;      color1y = 336;      // Server full popup color check (M)
         color2x = 387;      color2y = 744;      // Join server popup color check
-        color3x = 710;      color3y = 294;      // Connection Failed color check
+        color3x = 808;      color3y = 279;      // Connection Failed color check (F)
         servnx = 1279;      servny = 156;       // Server Number text box
-        servtx = 726;       servty = 265;       // Top Server click
+        servtx = 714;       servty = 262;       // Top Server click \ color check
         servjx = 1362;      servjy = 754;       // Bottom right Join button click
         click3X = 425;      click3Y = 745;      // Join server popup box
         click4X = 857;      click4Y = 582;      // Cancel on Connection failed screen
         click5X = 139;      click5Y = 703;      // Back button on server list
         click6X = 421;      click6Y = 454;      // Join server list button
+        fullfX = 761;       fullfY = 582;       // Server Full Fail popup accept
+        startX = 759;       startY = 688;       // Ark Main Menu Start Button
     }
 }

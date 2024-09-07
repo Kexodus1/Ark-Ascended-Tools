@@ -40,7 +40,7 @@ INT_PTR CALLBACK UserGuide(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam
                 "                          ----------------------\r\n"
                 "                          --AFK Club ARK--\r\n"
                 "                          ----------------------\r\n\r\n"
-                "     - Will automatically farm club ark points without user input.  It is best to start at the far left mission board so you don't accidentally try to trade a player.  You can either walk up to the mission board or join selected game then start the program.  Currently only supports one game but backend code established to easily add future games.  Duck Duck Jump uses \"E\" for accessing mission board and \"Spacebar\" / \"C\" for the game. (Currently only works for 3440x1440, 2560x1440, and 1920x1080)\r\n\r\n"
+                "     - Will automatically farm club ark points without user input.  It is best to start at the far left mission board so you don't accidentally try to trade a player.  You can either walk up to the mission board or join selected game then start the program.  Currently only supports one game but backend code established to easily add future games.  Duck Duck Jump uses \"E\" for accessing mission board and \"Spacebar\" / \"C\" for the game. (Currently only works for 3840x2160, 3840x1080, 3440x1440, 2560x1440, and 1920x1080)\r\n\r\n"
                 "                        --------------------------\r\n"
                 "                        --Mass Baby Feed--\r\n"
                 "                        --------------------------\r\n\r\n"

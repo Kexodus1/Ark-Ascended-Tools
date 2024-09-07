@@ -21,7 +21,7 @@ void BackupJoiner(HWND ServerN)
             GetWindowText(ServerN, selectedValue, 256);
             // Type the selected value
             typeText(selectedValue);
-            Sleep(500); // Wait for the text input
+            Sleep(1000); // Wait for the text input
 
             if (!shouldContinueLoop) {
                 break; // Exit the loop immediately
@@ -43,8 +43,8 @@ void BackupJoiner(HWND ServerN)
                 break; // Exit the loop immediately
             }
 
-            // Wait 200ms
-            Sleep(4500);
+            // Wait 2500ms
+            Sleep(2500);
 
             if (!shouldContinueLoop) {
                 break; // Exit the loop immediately
@@ -57,8 +57,8 @@ void BackupJoiner(HWND ServerN)
                 break; // Exit the loop immediately
             }
 
-            // Wait 200ms
-            Sleep(8500);
+            // Wait 3500ms
+            Sleep(3500);
 
             if (!shouldContinueLoop) {
                 break; // Exit the loop immediately
