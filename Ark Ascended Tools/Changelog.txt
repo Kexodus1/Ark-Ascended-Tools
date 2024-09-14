@@ -1,7 +1,7 @@
-New Version v4.2.0 is available
-- Major changes to "Auto Join Server" code
-- Added server full failed detection
-- Fixed joining server sometimes stopping
-- "Auto Join Server" should now be hands free
-  (will continue to monitor, update, and fix)
-- Sped up timings to "Backup Join" code
+New Version v4.3.0 is available
+
+- Added server list check to "Auto Join Server"
+- Fix to color checks to allow a wider gamma
+- Adjusted timings on "Air Drop" for Abberation
+- Added Abberation Day/Night times to menu
+- And more minor fixes/changes check changelog

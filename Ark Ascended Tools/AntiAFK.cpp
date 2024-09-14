@@ -70,7 +70,7 @@ void AntiAFK(bool isAFKMChecked, bool isAFKFDChecked)
 
         if (isAFKFDChecked)
         {
-            // Get the value entered into AFKFDM (assuming it's an edit control)
+            // Get the value entered into AFKFDM
             wchar_t afkfdmText[50];
             GetWindowText(AFKFDM, afkfdmText, 50);
             int AFKFDMValue = _wtoi(afkfdmText); // Convert to integer
@@ -94,9 +94,9 @@ void AntiAFK(bool isAFKMChecked, bool isAFKFDChecked)
                 }
 
                 // Simulate '9' key press
-                keybd_event('9', 0, 0, 0); // Press 'X'
+                keybd_event('9', 0, 0, 0); // Press '9'
                 Sleep(50); // Wait 50 milliseconds
-                keybd_event('9', 0, KEYEVENTF_KEYUP, 0); // Release 'X'
+                keybd_event('9', 0, KEYEVENTF_KEYUP, 0); // Release '9'
                 Sleep(500); // Wait 500 milliseconds
 
                 if (!shouldContinueLoop) {
@@ -104,9 +104,9 @@ void AntiAFK(bool isAFKMChecked, bool isAFKFDChecked)
                 }
 
                 // Simulate '0' key press
-                keybd_event('0', 0, 0, 0); // Press 'X'
+                keybd_event('0', 0, 0, 0); // Press '0'
                 Sleep(50); // Wait 50 milliseconds
-                keybd_event('0', 0, KEYEVENTF_KEYUP, 0); // Release 'X'
+                keybd_event('0', 0, KEYEVENTF_KEYUP, 0); // Release '0'
                 Sleep(500); // Wait 500 milliseconds
 
                 if (!shouldContinueLoop) {

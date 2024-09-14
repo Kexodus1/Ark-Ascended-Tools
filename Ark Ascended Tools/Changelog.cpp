@@ -17,6 +17,14 @@ INT_PTR CALLBACK ChangeLog(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam
         if (hEdit)
         {
             const char* changelogText =
+                "v4.3.0\r\n"
+                "     - Added server list check to \"Auto Join Server\"\r\n"
+                "     - Fix to color checks to allow a wider gamma\r\n"
+                "     - Adjusted timings on \"Air Drop\" for Abberation\r\n"
+                "     - Added Abberation Day/Night times to menu\r\n"
+                "     - Minor fixes to conversion of some integers\r\n"
+                "     - Minor adjustments to \"Auto Join Server\"\r\n"
+                "     - Reverted \"Backup Join\" timings for mod screen\r\n\r\n"
                 "v4.2.0\r\n"
                 "     - Major changes to \"Auto Join Server\" code\r\n"
                 "     - Added server full failed detection\r\n"

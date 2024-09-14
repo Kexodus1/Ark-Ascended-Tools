@@ -43,8 +43,8 @@ void BackupJoiner(HWND ServerN)
                 break; // Exit the loop immediately
             }
 
-            // Wait 2500ms
-            Sleep(2500);
+            // Wait 4500ms
+            Sleep(4500);
 
             if (!shouldContinueLoop) {
                 break; // Exit the loop immediately
@@ -57,8 +57,8 @@ void BackupJoiner(HWND ServerN)
                 break; // Exit the loop immediately
             }
 
-            // Wait 3500ms
-            Sleep(3500);
+            // Wait 8500ms
+            Sleep(8500);
 
             if (!shouldContinueLoop) {
                 break; // Exit the loop immediately
@@ -71,7 +71,7 @@ void BackupJoiner(HWND ServerN)
                 break; // Exit the loop immediately
             }
 
-            // Wait 200ms
+            // Wait 1000ms
             Sleep(1000);
 
             if (!shouldContinueLoop) {
@@ -85,7 +85,7 @@ void BackupJoiner(HWND ServerN)
                 break; // Exit the loop immediately
             }
 
-            // Wait 200ms
+            // Wait 1500ms
             Sleep(1500);
 
             if (!shouldContinueLoop) {

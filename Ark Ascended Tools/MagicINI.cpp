@@ -65,15 +65,17 @@ void MagicINI()
     while (true)
     {
         // Get the selected item from the MagicINISel drop-down box
-        int selIndex = SendMessage(MagicINISel, CB_GETCURSEL, 0, 0);
-        WCHAR selItem[256] = {0};
-        SendMessage(MagicINISel, CB_GETLBTEXT, selIndex, (LPARAM)selItem);
-        selItem[255] = 0; // Ensure null-termination
+        LRESULT selIndex = SendMessage(MagicINISel, CB_GETCURSEL, 0, 0); // Store result in LRESULT
+        WCHAR selItem[256] = { 0 };
+        if (selIndex != CB_ERR) { // Ensure valid index
+            SendMessage(MagicINISel, CB_GETLBTEXT, (int)selIndex, (LPARAM)selItem); // Cast selIndex to int
+            selItem[255] = 0; // Ensure null-termination
+        }
 
         // Get the selected item from the MagicINIo drop-down box
-        int ioIndex = SendMessage(MagicINIo, CB_GETCURSEL, 0, 0);
-        WCHAR ioItem[256] = {0};
-        SendMessage(MagicINIo, CB_GETLBTEXT, ioIndex, (LPARAM)ioItem);
+        LRESULT ioIndex = SendMessage(MagicINIo, CB_GETCURSEL, 0, 0); // Store result in LRESULT
+        WCHAR ioItem[256] = { 0 };
+        SendMessage(MagicINIo, CB_GETLBTEXT, (int)ioIndex, (LPARAM)ioItem); // Cast ioIndex to int
         ioItem[255] = 0; // Ensure null-termination
 
         // Implement the functionality based on the selected items

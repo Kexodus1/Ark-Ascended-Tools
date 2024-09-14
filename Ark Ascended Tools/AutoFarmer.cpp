@@ -19,7 +19,6 @@ void AutoFarmer(HWND AutoFarm)
 {
     setCoordinates(); // Set the coordinates based on the screen resolution
 
-    HDC hdc = GetDC(NULL);
     int clickInterval = 2500;
     int colorCheckInterval = 20000;
     int elapsedTime = 0;
@@ -44,8 +43,8 @@ void AutoFarmer(HWND AutoFarm)
         if (elapsedTime >= colorCheckInterval) {
             elapsedTime = 0;
 
-            // Check color
-            COLORREF color = GetPixel(hdc, blackx, blacky);
+            // Check color of Black Weight
+            COLORREF color = GetPixelColor(blackx, blacky);
             if (color == RGB(0, 0, 0)) 
             {
                 // Stop the clicking
@@ -102,8 +101,8 @@ void AutoFarmer(HWND AutoFarm)
                     }
 
                     // Check color at promptx, prompty
-                    COLORREF color = GetPixel(GetDC(NULL), promptx, prompty);
-                    if (color == RGB(193, 245, 255)) // Assuming red color is RGB(255, 0, 0)
+                    COLORREF color = GetPixelColor(promptx, prompty);
+                    if (IsColorWithinTolerance(color, RGB(193, 245, 255), 30)) // Popup Prompt color
                     {
                         PerformMouseClick(okayx, okayy);
                         Sleep(200);
@@ -135,6 +134,4 @@ void AutoFarmer(HWND AutoFarm)
             }
         }
     }
-
-    ReleaseDC(NULL, hdc);
 }

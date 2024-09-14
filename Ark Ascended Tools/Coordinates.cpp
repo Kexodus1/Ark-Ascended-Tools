@@ -13,15 +13,39 @@ int servtx = 0, servty = 0, servjx = 0, servjy = 0;
 int color1x = 0, color1y = 0, color2x = 0, color2y = 0, color3x = 0, color3y = 0,
 click1X = 0, click1Y = 0, click2X = 0, click2Y = 0, click3X = 0, click3Y = 0,
 click4X = 0, click4Y = 0, click5X = 0, click5Y = 0, click6X = 0, click6Y = 0,
-fullfX = 0, fullfY = 0, startX = 0, startY = 0;
+fullfX = 0, fullfY = 0, startX = 0, startY = 0, servlcX = 0, servlcY = 0;
 int DDJC1X = 0, DDJC1Y = 0, DDJC2X = 0, DDJC2Y = 0, CAJC1X = 0, CAJC1Y = 0, 
 CAJC2X = 0, CAJC2Y = 0, CAJ1X = 0, CAJ1Y = 0, CAJ2X = 0, CAJ2Y = 0, CAJ3X = 0, CAJ3Y = 0;
+int tolerance = 15;
 
 // Basic Mouse click
 void PerformMouseClick(int x, int y) {
     SetCursorPos(x, y);
     mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
     mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
+}
+
+// Color Tolerances to allow variance
+bool IsColorWithinTolerance(COLORREF pixelColor, COLORREF targetColor, int tolerance) {
+    int targetR = GetRValue(targetColor);
+    int targetG = GetGValue(targetColor);
+    int targetB = GetBValue(targetColor);
+
+    int pixelR = GetRValue(pixelColor);
+    int pixelG = GetGValue(pixelColor);
+    int pixelB = GetBValue(pixelColor);
+
+    return (abs(pixelR - targetR) <= tolerance &&
+        abs(pixelG - targetG) <= tolerance &&
+        abs(pixelB - targetB) <= tolerance);
+}
+
+// Function to get the color of a pixel at specific coordinates
+COLORREF GetPixelColor(int x, int y) {
+    HDC hdcScreen = GetDC(NULL); // Get the device context of the screen
+    COLORREF color = GetPixel(hdcScreen, x, y); // Get the color at the pixel
+    ReleaseDC(NULL, hdcScreen); // Release the device context
+    return color;
 }
 
 // Define the range for Club Ark blob colors
@@ -55,6 +79,7 @@ void setCoordinates() {
         color1x = 1796;     color1y = 840;      // Server full popup color check (M)
         color2x = 950;      color2y = 1864;     // Join server popup color check
         color3x = 2022;     color3y = 696;      // Connection Failed color check (F)
+        servlcX = 1519;     servlcY = 375;      // White server list color check (A)
         servnx = 3229;      servny = 383;       // Server Number text box
         servtx = 1747;      servty = 654;       // Top Server click \ color check
         servjx = 3423;      servjy = 1888;      // Bottom right Join button click
@@ -96,6 +121,7 @@ void setCoordinates() {
         color1x = 1857;     color1y = 421;      // Server full popup color check (M)
         color2x = 1492;     color2y = 932;      // Join server popup color check
         color3x = 1970;     color3y = 348;      // Connection Failed color check (F)
+        servlcX = 1721;     servlcY = 187;      // White server list color check (A)
         servnx = 2616;      servny = 191;       // Server Number text box
         servtx = 1862;      servty = 327;       // Top Server click \ color check
         servjx = 2606;      servjy = 944;       // Bottom right Join button click
@@ -137,6 +163,7 @@ void setCoordinates() {
         color1x = 1638;     color1y = 558;      // Server full popup color check (M)
         color2x = 1072;     color2y = 1246;     // Join server popup color check
         color3x = 1786;     color3y = 463;      // Connection Failed color check (F)
+        servlcX = 1453;     servlcY = 248;      // White server list color check (A)
         servnx = 2608;      servny = 261;       // Server Number text box
         servtx = 1633;      servty = 435;       // Top Server click \ color check
         servjx = 2725;      servjy = 1261;      // Bottom right Join button click
@@ -178,6 +205,7 @@ void setCoordinates() {
         color1x = 1198;     color1y = 561;      // Server full popup color check (M)
         color2x = 632;      color2y = 1241;     // Join server popup color check
         color3x = 1345;     color3y = 463;      // Connection Failed color check (F)
+        servlcX = 1014;     servlcY = 245;      // White server list color check (A)
         servnx = 2139;      servny = 262;       // Server Number text box
         servtx = 1197;      servty = 438;       // Top Server click \ color check
         servjx = 2269;      servjy = 1258;      // Bottom right Join button click
@@ -219,8 +247,9 @@ void setCoordinates() {
         color1x = 896;      color1y = 420;      // Server full popup color check (M)
         color2x = 476;      color2y = 932;      // Join server popup color check
         color3x = 1011;     color3y = 348;      // Connection Failed color check (F)
+        servlcX = 762;      servlcY = 186;      // White server list color check (A)
         servnx = 1608;      servny = 194;       // Server Number text box
-        servtx = 874;       servty = 329;       // Top Server click \ color check
+        servtx = 730;       servty = 312;       // Top Server click \ color check
         servjx = 1709;      servjy = 943;       // Bottom right Join button click
         click3X = 469;      click3Y = 933;      // Join server popup box
         click4X = 1070;     click4Y = 729;      // Cancel on Connection failed screen
@@ -260,6 +289,7 @@ void setCoordinates() {
         color1x = 891;      color1y = 465;      // Server full popup color check (M)
         color2x = 421;      color2y = 1031;     // Join server popup color check
         color3x = 1014;     color3y = 386;      // Connection Failed color check (F)
+        servlcX = 760;      servlcY = 245;      // White server list color check (A)
         servnx = 1602;      servny = 257;       // Server Number text box
         servtx = 897;       servty = 386;       // Top Server click \ color check
         servjx = 1718;      servjy = 1005;      // Bottom right Join button click
@@ -290,6 +320,7 @@ void setCoordinates() {
         color1x = 717;      color1y = 336;      // Server full popup color check (M)
         color2x = 387;      color2y = 744;      // Join server popup color check
         color3x = 808;      color3y = 279;      // Connection Failed color check (F)
+        servlcX = 603;      servlcY = 146;      // White server list color check (A)
         servnx = 1279;      servny = 156;       // Server Number text box
         servtx = 714;       servty = 262;       // Top Server click \ color check
         servjx = 1362;      servjy = 754;       // Bottom right Join button click

@@ -42,6 +42,10 @@
 #define IDM_TROUBLE                     1022
 #define IDD_TROUBLEBOX                  1023
 #define IDC_TROUBLE					    1024
+#define IDM_ABBTIME                     1025
+#define IDD_ABBTIMEBOX                  1026
+#define IDC_ABBTIMENW					1027
+#define IDC_ABBTIMESW					1028
 #define IDC_STATIC                      -1
 
 // Next default values for new objects

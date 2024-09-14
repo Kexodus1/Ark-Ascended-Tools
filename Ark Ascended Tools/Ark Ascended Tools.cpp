@@ -21,7 +21,7 @@ UINT customHotkey = 0;
 UINT_PTR timerID = 0;
 HWND hDlg;
 HWND ServerN = NULL, BackupJN, AutoFarm = NULL, AFKM, AFKFD, AFKFDM, AFKFDI, 
-Nanny = NULL, SoloNAN, AutoGrab, AutoRun;
+Nanny = NULL, SoloNAN, AutoGrab, AutoGrabSel, AutoRun;
 HWND TimerHR, TimerMN, TimerSC, hHUB, hHDB, hMUB, hMDB, hSUB, hSDB, TimerSND;
 HWND MagicINISel, MagicINIo, ClubARKGame, ClubARKDiff, AutoFishAFK, AutoFishCon;
 HWND hDropDown, hButton, hStaticRes, hStaticText;
@@ -53,6 +53,7 @@ ATOM                MyRegisterClass(HINSTANCE hInstance);
 BOOL                InitInstance(HINSTANCE, int);
 LRESULT CALLBACK    WndProc(HWND, UINT, WPARAM, LPARAM);
 INT_PTR CALLBACK    ColorID(HWND, UINT, WPARAM, LPARAM);
+INT_PTR CALLBACK    AbbTime(HWND, UINT, WPARAM, LPARAM);
 INT_PTR CALLBACK    About(HWND, UINT, WPARAM, LPARAM);
 INT_PTR CALLBACK    SettingsDlgProc(HWND, UINT, WPARAM, LPARAM);
 
@@ -144,7 +145,6 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
     SetWindowLong(hWnd, GWL_EXSTYLE, GetWindowLong(hWnd, GWL_EXSTYLE) | WS_EX_LAYERED);
     SetLayeredWindowAttributes(hWnd, RGB(0, 0, 0), transparency, LWA_ALPHA);
 
-
     return TRUE;
 }
 
@@ -176,6 +176,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
     switch (message)
     {
+
     case WM_UPDATE_TRANSPARENCY:
     {
         int transparency = (int)wParam;
@@ -222,7 +223,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
     }
     case WM_HOTKEY:
     {
-        if (wParam == 1)
+        if (wParam == 1) // Hotkey F4
         {
             // Simulate a button click
             SendMessage(hButton, BM_CLICK, 0, 0);
@@ -428,83 +429,56 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             int selectedIndex = static_cast<int>(SendMessage(hDropDown, CB_GETCURSEL, 0, 0));
             if (selectedIndex != CB_ERR)
             {
-                // Hide all windows first
-                ShowWindow(hButton, SW_HIDE);
-                ShowWindow(ServerN, SW_HIDE);
-                ShowWindow(BackupJN, SW_HIDE);
-                ShowWindow(AutoFarm, SW_HIDE);
-                ShowWindow(AFKM, SW_HIDE);
-                ShowWindow(AFKFD, SW_HIDE);
-                ShowWindow(AFKFDM, SW_HIDE);
-                ShowWindow(AFKFDI, SW_HIDE);
-                ShowWindow(ClubARKGame, SW_HIDE);
-                ShowWindow(ClubARKDiff, SW_HIDE);
-                ShowWindow(Nanny, SW_HIDE);
-                ShowWindow(SoloNAN, SW_HIDE);
-                ShowWindow(AutoGrab, SW_HIDE);
-                ShowWindow(AutoRun, SW_HIDE);
-                ShowWindow(AutoFishCon, SW_HIDE);
-                ShowWindow(AutoFishAFK, SW_HIDE);
-                ShowWindow(MagicINISel, SW_HIDE);
-                ShowWindow(MagicINIo, SW_HIDE);
-                ShowWindow(TimerHR, SW_HIDE);
-                ShowWindow(TimerMN, SW_HIDE);
-                ShowWindow(TimerSC, SW_HIDE);
-                ShowWindow(hHUB, SW_HIDE);
-                ShowWindow(hHDB, SW_HIDE);
-                ShowWindow(hMUB, SW_HIDE);
-                ShowWindow(hMDB, SW_HIDE);
-                ShowWindow(hSUB, SW_HIDE);
-                ShowWindow(hSDB, SW_HIDE);
-                ShowWindow(TimerSND, SW_HIDE);
-
+                // Array of all windows to hide
+                HWND windowsToHide[] = {
+                    ServerN, BackupJN, AutoFarm, AFKM, AFKFD, AFKFDM, AFKFDI, ClubARKGame,
+                    ClubARKDiff, Nanny, SoloNAN, AutoGrab, AutoRun, AutoFishCon, AutoFishAFK,
+                    MagicINISel, MagicINIo, TimerHR, TimerMN, TimerSC, hHUB, hHDB, hMUB, hMDB, hSUB,
+                    hSDB, TimerSND
+                };
+                // Hide all windows in the array
+                for (HWND hwnd : windowsToHide)
+                {
+                    ShowWindow(hwnd, SW_HIDE);
+                }
                 // Show windows based on the selected index
                 switch (selectedIndex)
                 {
                 case 0: // Auto Joiner
                     ShowWindow(ServerN, SW_SHOW);
                     ShowWindow(BackupJN, SW_SHOW);
-                    ShowWindow(hButton, SW_SHOW);
                     break;
                 case 1: // Auto Farmer
                 case 2: // Auto Drop Items
                     ShowWindow(AutoFarm, SW_SHOW);
-                    ShowWindow(hButton, SW_SHOW);
                     break;
                 case 3: // Anti AFK
                     ShowWindow(AFKM, SW_SHOW);
                     ShowWindow(AFKFD, SW_SHOW);
                     ShowWindow(AFKFDM, SW_SHOW);
                     ShowWindow(AFKFDI, SW_SHOW);
-                    ShowWindow(hButton, SW_SHOW);
                     break;
                 case 4: // ClubARK
                     ShowWindow(ClubARKGame, SW_SHOW);
                     ShowWindow(ClubARKDiff, SW_SHOW);
-                    ShowWindow(hButton, SW_SHOW);
                     break;
                 case 5: // Mass Baby Feed
                     ShowWindow(Nanny, SW_SHOW);
                     ShowWindow(SoloNAN, SW_SHOW);
-                    ShowWindow(hButton, SW_SHOW);
                     break;
                 case 6: // AutoGrabber
                     ShowWindow(AutoGrab, SW_SHOW);
-                    ShowWindow(hButton, SW_SHOW);
                     break; 
                 case 7: // Auto Fishing
                     ShowWindow(AutoFishCon, SW_SHOW);
                     ShowWindow(AutoFishAFK, SW_SHOW);
-                    ShowWindow(hButton, SW_SHOW);
                     break;
                 case 8: // Auto Walk
                     ShowWindow(AutoRun, SW_SHOW);
-                    ShowWindow(hButton, SW_SHOW);
                     break;
                 case 9: // Magic INI
                     ShowWindow(MagicINISel, SW_SHOW);
                     ShowWindow(MagicINIo, SW_SHOW);
-                    ShowWindow(hButton, SW_SHOW);
                     break;
                 case 10: // Timer
                     ShowWindow(TimerHR, SW_SHOW);
@@ -517,7 +491,6 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
                     ShowWindow(hSUB, SW_SHOW);
                     ShowWindow(hSDB, SW_SHOW);
                     ShowWindow(TimerSND, SW_SHOW);
-                    ShowWindow(hButton, SW_SHOW);
                     break;
                 }
             }
@@ -526,6 +499,9 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         {
         case IDM_COLORID:
             DialogBox(hInst, MAKEINTRESOURCE(IDD_COLORIDBOX), hWnd, ColorID);
+            break;
+        case IDM_ABBTIME:
+            DialogBox(hInst, MAKEINTRESOURCE(IDD_ABBTIMEBOX), hWnd, AbbTime);
             break;
         case IDM_SETTINGS:
             DialogBox(hInst, MAKEINTRESOURCE(IDD_SETTINGSBOX), hWnd, SettingsDlgProc);
@@ -744,6 +720,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
     case WM_DESTROY:
         // Unregister the hotkey
         UnregisterHotKey(hWnd, 1);
+        UnregisterHotKey(hWnd, 2);
         // Stop the functions
         shouldContinueLoop = false;
         // Clean up created resources
@@ -800,6 +777,75 @@ INT_PTR CALLBACK ColorID(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam)
     }
     }
 
+    return (INT_PTR)FALSE;
+}
+
+// Message handler for the Abb Surface Times dialog box
+INT_PTR CALLBACK AbbTime(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam) 
+{
+    UNREFERENCED_PARAMETER(lParam);
+    switch (message) {
+    case WM_INITDIALOG:
+    {
+        HWND hStaticNW = GetDlgItem(hDlg, IDC_ABBTIMENW);
+        if (hStaticNW)
+        {
+            const char* AbbTimeNWText =
+                "NORTHWEST/EAST\r\n"
+                "50%d=50%n 0-3\r\n"
+                "06:51 - 18:51\r\n"
+                "90%d>10%n 4-6\r\n"
+                "02:27 - 23:08\r\n"
+                "10%d<90%n 7-9\r\n"
+                "11:08 - 14:16\r\n";
+            SetWindowTextA(hStaticNW, AbbTimeNWText);
+        }
+
+        HWND hStaticSW = GetDlgItem(hDlg, IDC_ABBTIMESW);
+        if (hStaticSW)
+        {
+            const char* AbbTimeSWText =
+                "SOUTHWEST\r\n"
+                "50%d=50%n 0-3\r\n"
+                "08:01 - 18:51\r\n"
+                "90%d>10%n 4-6\r\n"
+                "04:19 - 23:08\r\n"
+                "10%d<90%n 7-9\r\n"
+                "11:23 - 14:16\r\n";
+            SetWindowTextA(hStaticSW, AbbTimeSWText);
+        }
+
+        // Recreate the background brush and set the background color
+        HBRUSH hbrBackground = CreateSolidBrush(RGB(0, 0, 0));
+        SetClassLongPtr(hDlg, GCLP_HBRBACKGROUND, (LONG_PTR)hbrBackground);
+
+        return TRUE;
+    }
+    case WM_COMMAND:
+        if (LOWORD(wParam) == IDOK || LOWORD(wParam) == IDCANCEL)
+        {
+            EndDialog(hDlg, LOWORD(wParam));
+            return (INT_PTR)TRUE;
+        }
+        break;
+
+    case WM_CTLCOLORDLG:
+    {
+        HDC hdcDlg = (HDC)wParam;
+        SetTextColor(hdcDlg, RGB(255, 255, 255)); // Set text color to white
+        SetBkColor(hdcDlg, RGB(0, 0, 0)); // Set background color to black
+        return (INT_PTR)hbrBackground;
+    }
+    break;
+    case WM_CTLCOLORSTATIC:
+    {
+        HDC hdcStatic = (HDC)wParam;
+        SetTextColor(hdcStatic, RGB(255, 255, 255)); // Set text color to white
+        SetBkColor(hdcStatic, RGB(0, 0, 0));         // Set background color to black
+        return (INT_PTR)hbrBackground;
+    }
+    break;
+    }
     return (INT_PTR)FALSE;
 }
 

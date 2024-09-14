@@ -10,7 +10,7 @@ void SoloNanny(HWND Nanny)
 
     while (true)
     {
-        while (GetPixel(GetDC(NULL), invcolx, invcoly) != RGB(188, 244, 255))
+        while (!IsColorWithinTolerance(GetPixelColor(invcolx, invcoly), RGB(188, 244, 255), 30))
             Sleep(500);
 
         if (!shouldContinueLoop) {
@@ -56,8 +56,8 @@ void SoloNanny(HWND Nanny)
         }
 
         // Check color at promptx, prompty
-        COLORREF color = GetPixel(GetDC(NULL), promptx, prompty);
-        if (color == RGB(193, 245, 255)) // Assuming red color is RGB(255, 0, 0)
+        COLORREF color = GetPixelColor(promptx, prompty);
+        if (IsColorWithinTolerance(color, RGB(193, 245, 255), 30)) // Popup Prompt color
         {
             PerformMouseClick(okayx, okayy);
 

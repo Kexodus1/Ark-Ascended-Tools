@@ -31,7 +31,7 @@ extern HWND AFKM, AFKFD, AFKFDM, AFKFDI;
 extern HWND ServerN;
 extern HWND AutoFarm;
 extern HWND Nanny;
-extern HWND AutoGrab;
+extern HWND AutoGrab, AutoGrabSel;
 extern HWND AutoRun;
 extern HWND MagicINISel, MagicINIo;
 extern HWND TimerHR, TimerMN, TimerSC;
