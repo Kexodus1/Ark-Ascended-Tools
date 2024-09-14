@@ -110,6 +110,15 @@ Troubleshooting
      
 Changelog
 ==========================
+v4.3.0<BR>
+   - Added server list check to "Auto Join Server"<BR>
+   - Fix to color checks to allow a wider gamma<BR>
+   - Adjusted timings on "Air Drop" for Abberation<BR>
+   - Added Abberation Day/Night times to menu<BR>
+   - Minor fixes to conversion of some integers<BR>
+   - Minor adjustments to "Auto Join Server"<BR>
+   - Reverted "Backup Join" timings for mod screen<BR><BR>
+     
 v4.2.0<BR>
    - Major changes to "Auto Join Server" code<BR>
    - Added server full failed detection<BR>
