@@ -37,6 +37,9 @@ User Guide
 - Auto Farmer<BR>
    - This function is for a tribemate or alt account while being a rider on a farming Dino.  This will automatically left click every 2.5 seconds.  Once Dino becomes black weighted the function will automatically drop items listed in the box below.  Please separate these items by a comma(,).<BR><BR>
 
+- Auto Clicker<BR>
+   - Select the key you would like it to press and input a time in milliseconds to press the key.  Wherever the mouse is located when it is started is were it will press the key.  Has a 3 second delay until it starts.<BR><BR>
+
 - Auto Drop Items<BR>
    - While activated anytime you open the Dino's inventory it will type the inputed items in the text box one by one and drop all of each item.  Please separate these items by a comma(,).  Example: Doing a meat run and typing "Prime,Hide,Chitin,Keratin" into the box, this would drop these items every time you open the Dino's inventory.<BR><BR>
 
@@ -44,7 +47,7 @@ User Guide
    - Anti AFK will automatically move left(A) and right(D) periodically while going prone(X) if the "Move" checkbox is checked to prevent getting kicked from server.  If the "Eat / Drink" checkbox is checked it will automatically eat and drink with 9 and 0 on the keyboard.  You may input time in minutes to automatically eat and drink, default is 60 minutes.  You may use both "Move" and "Eat / Drink" together or separately.<BR><BR>
 
 - AFK Club ARK<BR>
-   - Will automatically farm club ark points without user input.  It is best to start at the far left mission board so you don't accidentally try to trade a player.  You can either walk up to the mission board or join selected game then start the program.  Currently only supports one game but backend code established to easily add future games.  Duck Duck Jump uses "E" for accessing mission board and "Spacebar" / "C" for the game. (Currently only works for 3840x2160, 3840x1080, 3440x1440, 2560x1440, and 1920x1080)<BR><BR>
+   - Will automatically farm club ark points without user input.  Make sure you make a tribe then start the program, will join the mission from player inventory.   Duck Duck Jump uses "TAB" for accessing player inventory and "Spacebar" / "C" for the game.  Currently only supports one game but backend code established to easily add future games.  (Currently only works for 3840x2160, 3840x1080, 3440x1440, 2560x1440, and 1920x1080)<BR><BR>
 
 - Mass Baby Feed<BR>
    - This will automatically upon opening baby Dino inventory refresh the food and close the inventory, allowing you to quickly go around and feed multiple baby Dino's.  Select which food type from drop down to feed the babies when you open inventory.  If "Solo Nanny" is check marked it will allow you to AFK inside a single baby's inventory and refresh the selected food from the dropdown every 1 minute.  Make sure you have appropriate food in your inventory.<BR><BR>
@@ -63,6 +66,12 @@ User Guide
 
 - Alarm / Timer<BR>
    - Set the HR:MIN:SEC then start the timer for it to count down.  Will play a sound when it reaches zero if the checkbox is selected.<BR><BR>
+
+- XP Party (BETA)<BR>
+   - Start the program while hovering over item to craft, will automatically craft item.<BR>
+   - If "Broth / Chili" checked will automatically use Broth of Enlightenment every 20 minutes from hotbar 1 and Focal Chili every 15 minutes from hotbar 2.<BR>
+   - If "Eat / Drink" checked will automatically eat every 55 minutes from hotbar 9 and drink every 25 minutes from hotbar 0.<BR>
+   - (3440x1440 ONLY) Start "Toilet Buff" while seated on toilet.  Will automatically open inventory, que drawing paper, close inventory, punch air, poop with numpad +, eat / drink (need food in slots 5-7 and drink in 8-0), and reopen inventory when paper gets low and reque.(Do not check "Eat / Drink" with this)(REQUIRES BOB'S TALL TALES)<BR><BR>
 
 Troubleshooting
 =================================
@@ -100,6 +109,7 @@ Troubleshooting
          - DLSS: Ultra Performance<BR>
          - Resolution Scaling 80%<BR>
          - Default Gamma: 2.2<BR>
+         - VSYNC: Off<BR>
         2. Camera Settings:<BR>
          - 50 FOV (the FOV is critical and can be slightly
            increased to jump slower or decreased to jump
@@ -110,6 +120,12 @@ Troubleshooting
      
 Changelog
 ==========================
+v4.4.0<BR>
+   - New features "Auto Clicker" and "XP Party"<BR>
+   - Changed "AFK Club ARK" to start from Inv<BR>
+   - Sped up "Air Drop" timings for consistency<BR>
+   - Updated "User Guide" to reflect changes<BR><BR>
+     
 v4.3.0<BR>
    - Added server list check to "Auto Join Server"<BR>
    - Fix to color checks to allow a wider gamma<BR>
