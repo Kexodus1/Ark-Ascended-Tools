@@ -30,6 +30,7 @@ extern HWND hButton;
 extern HWND AFKM, AFKFD, AFKFDM, AFKFDI;
 extern HWND ServerN;
 extern HWND AutoFarm;
+extern HWND ACKey, ACInt;
 extern HWND Nanny;
 extern HWND AutoGrab, AutoGrabSel;
 extern HWND AutoRun;
@@ -45,6 +46,7 @@ void typeText(const std::wstring& text);
 void AutoJoiner(HWND ServerN);
 void BackupJoiner(HWND ServerN);
 void AutoFarmer(HWND AutoFarm);
+void AutoClicker();
 void AutoDropper(HWND AutoFarm);
 void AntiAFK(bool isAFKMChecked, bool isAFKFDChecked);
 void SoloNanny(HWND Nanny);
@@ -55,5 +57,6 @@ void AutoWalk();
 void AutoFish();
 void MagicINI();
 void ClubARK();
+void XPParty(bool isXPSoupChecked, bool isXPEaDrChecked, bool isXPToiletChecked);
 
 #endif // Features_H

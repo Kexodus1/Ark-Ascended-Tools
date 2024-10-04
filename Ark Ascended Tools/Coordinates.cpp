@@ -15,7 +15,9 @@ click1X = 0, click1Y = 0, click2X = 0, click2Y = 0, click3X = 0, click3Y = 0,
 click4X = 0, click4Y = 0, click5X = 0, click5Y = 0, click6X = 0, click6Y = 0,
 fullfX = 0, fullfY = 0, startX = 0, startY = 0, servlcX = 0, servlcY = 0;
 int DDJC1X = 0, DDJC1Y = 0, DDJC2X = 0, DDJC2Y = 0, CAJC1X = 0, CAJC1Y = 0, 
-CAJC2X = 0, CAJC2Y = 0, CAJ1X = 0, CAJ1Y = 0, CAJ2X = 0, CAJ2Y = 0, CAJ3X = 0, CAJ3Y = 0;
+CAJC2X = 0, CAJC2Y = 0, CAJ1X = 0, CAJ1Y = 0, CAJ2X = 0, CAJ2Y = 0, CAJ3X = 0, CAJ3Y = 0,
+InvMiX = 0, InvMiY = 0;
+int PLInvX = 0, PLInvY = 0, PInvCX = 0, PInvCY = 0, PslotX = 0, PslotY = 0;
 int tolerance = 15;
 
 // Basic Mouse click
@@ -93,6 +95,7 @@ void setCoordinates() {
         DDJC1X = 3107;      DDJC1Y = 630;       // Alpha Color detection
         DDJC2X = 2586;      DDJC2Y = 1030;      // Color location of blobs
         CAJC1X = 2231;      CAJC1Y = 359;       // Color of White Mission Board Bar
+        InvMiX = 1861;      InvMiY = 150;       // Inventory Mission Click
         CAJC2X = 3086;      CAJC2Y = 292;       // Color of Yellow Join
         CAJ1X = 1076;       CAJ1Y = 591;        // MiniGames Click 
         CAJ2X = 1181;       CAJ2Y = 1194;       // Duck Duck Jump Alpha Click
@@ -135,6 +138,7 @@ void setCoordinates() {
         DDJC1X = 3481;      DDJC1Y = 315;       // Alpha Color detection
         DDJC2X = 2506;      DDJC2Y = 492;       // Color location of blobs
         CAJC1X = 2073;      CAJC1Y = 179;       // Color of White Mission Board Bar
+        InvMiX = 1894;      InvMiY = 73;        // Inventory Mission Click
         CAJC2X = 2502;      CAJC2Y = 143;       // Color of Yellow Join
         CAJ1X = 1401;       CAJ1Y = 293;        // MiniGames Click 
         CAJ2X = 1509;       CAJ2Y = 593;        // Duck Duck Jump Alpha Click
@@ -159,6 +163,10 @@ void setCoordinates() {
         dropcolorx = 2659;  dropcolory = 182;   // Air Drop color check
         promptx = 1603;     prompty = 487;      // Menu Transitions color check
         okayx = 1565;       okayy = 971;        // Menu Transitions okay button
+        // XP Party
+        PLInvX = 1460;      PLInvY = 226;       // Player Inventory white bar under You
+        PInvCX = 1318;      PInvCY = 181;       // Player Inventory crafting button
+        PslotX = 732;       PslotY = 374;       // Player Inventory 1st crafting slot
         // Auto join Server Coords
         color1x = 1638;     color1y = 558;      // Server full popup color check (M)
         color2x = 1072;     color2y = 1246;     // Join server popup color check
@@ -177,6 +185,7 @@ void setCoordinates() {
         DDJC1X = 2953;      DDJC1Y = 421;       // Alpha Color detection
         DDJC2X = 2375;      DDJC2Y = 676;       // Color location of blobs
         CAJC1X = 1786;      CAJC1Y = 238;       // Color of White Mission Board Bar
+        InvMiX = 1683;      InvMiY = 103;       // Inventory Mission Click
         CAJC2X = 2509;      CAJC2Y = 168;       // Color of Yellow Join
         CAJ1X = 1019;       CAJ1Y = 392;        // MiniGames Click 
         CAJ2X = 1126;       CAJ2Y = 788;        // Duck Duck Jump Alpha Click
@@ -219,6 +228,7 @@ void setCoordinates() {
         DDJC1X = 2073;      DDJC1Y = 420;       // Alpha Color detection
         DDJC2X = 1754;      DDJC2Y = 676;       // Color location of blobs
         CAJC1X = 1345;      CAJC1Y = 238;       // Color of White Mission Board Bar
+        InvMiX = 1243;      InvMiY = 103;       // Inventory Mission Click
         CAJC2X = 2061;      CAJC2Y = 192;       // Color of Yellow Join
         CAJ1X = 665;        CAJ1Y = 393;        // MiniGames Click 
         CAJ2X = 725;        CAJ2Y = 788;        // Duck Duck Jump Alpha Click
@@ -261,6 +271,7 @@ void setCoordinates() {
         DDJC1X = 1561;      DDJC1Y = 314;       // Alpha Color detection
         DDJC2X = 1325;      DDJC2Y = 515;       // Color location of blobs
         CAJC1X = 1041;      CAJC1Y = 178;       // Color of White Mission Board Bar
+        InvMiX = 931;       InvMiY = 77;        // Inventory Mission Click
         CAJC2X = 1542;      CAJC2Y = 144;       // Color of Yellow Join
         CAJ1X = 516;        CAJ1Y = 294;        // MiniGames Click 
         CAJ2X = 547;        CAJ2Y = 593;        // Duck Duck Jump Alpha Click

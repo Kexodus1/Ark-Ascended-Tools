@@ -1,7 +1,6 @@
-New Version v4.3.0 is available
+New Version v4.4.0 is available
 
-- Added server list check to "Auto Join Server"
-- Fix to color checks to allow a wider gamma
-- Adjusted timings on "Air Drop" for Abberation
-- Added Abberation Day/Night times to menu
-- And more minor fixes/changes check changelog
+- New features "Auto Clicker" and "XP Party"
+- Changed "AFK Club ARK" to start from Inv
+- Sped up "Air Drop" timings for consistency
+- Updated "User Guide" to reflect changes

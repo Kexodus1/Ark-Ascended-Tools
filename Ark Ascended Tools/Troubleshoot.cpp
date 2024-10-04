@@ -53,6 +53,7 @@ INT_PTR CALLBACK Trouble(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam)
                 "         - DLSS: Ultra Performance\r\n"
                 "         - Resolution Scaling 80%\r\n"
                 "         - Default Gamma: 2.2\r\n"
+                "         - VSYNC: Off\r\n"
                 "     2. Camera Settings:\r\n"
                 "         - 50 FOV (the FOV is critical and can be slightly\r\n"
                 "           increased to jump slower or decreased to jump\r\n"

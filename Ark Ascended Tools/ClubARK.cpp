@@ -91,11 +91,20 @@ void ClubARK()
                  break; // Exit the loop immediately
             }
 
-            // Simulate 'E' key press
-            keybd_event('E', 0, 0, 0); // Press 'E'
+            // Open Inventory w/ TAB
+            keybd_event(VK_TAB, 0, 0, 0); // Press 'TAB'
             Sleep(100); // Wait 100 milliseconds
-            keybd_event('E', 0, KEYEVENTF_KEYUP, 0); // Release 'E'
+            keybd_event(VK_TAB, 0, KEYEVENTF_KEYUP, 0); // Release 'TAB'
             Sleep(1000); // Wait 1000 milliseconds
+
+            if (!shouldContinueLoop)
+            {
+                break; // Exit the loop immediately
+            }
+
+            // Inventory Mission Button
+            PerformMouseClick(InvMiX, InvMiY);
+            Sleep(500); // Wait 500 milliseconds
 
             if (!shouldContinueLoop)
             {

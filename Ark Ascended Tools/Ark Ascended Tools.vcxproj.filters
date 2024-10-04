@@ -104,6 +104,12 @@
     <ClCompile Include="AutoFish.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="XPParty.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AutoClick.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Ark Ascended Tools.rc">

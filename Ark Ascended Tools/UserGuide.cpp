@@ -29,6 +29,10 @@ INT_PTR CALLBACK UserGuide(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam
                 "                          --Auto Farmer--\r\n"
                 "                          --------------------\r\n\r\n"
                 "     - This function is for a tribemate or alt account while being a rider on a farming Dino.  This will automatically left click every 2.5 seconds.  Once Dino becomes black weighted the function will automatically drop items listed in the box below.  Please separate these items by a comma(,).\r\n\r\n"
+                "                           -------------------\r\n"
+                "                           --Auto Clicker--\r\n"
+                "                           -------------------\r\n\r\n"
+                "     - Select the key you would like it to press and input a time in milliseconds to press the key.  Wherever the mouse is located when it is started is were it will press the key.  Has a 3 second delay until it starts.\r\n\r\n"
                 "                        --------------------------\r\n"
                 "                        --Auto Drop Items--\r\n"
                 "                        --------------------------\r\n\r\n"
@@ -40,7 +44,7 @@ INT_PTR CALLBACK UserGuide(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam
                 "                          ----------------------\r\n"
                 "                          --AFK Club ARK--\r\n"
                 "                          ----------------------\r\n\r\n"
-                "     - Will automatically farm club ark points without user input.  It is best to start at the far left mission board so you don't accidentally try to trade a player.  You can either walk up to the mission board or join selected game then start the program.  Currently only supports one game but backend code established to easily add future games.  Duck Duck Jump uses \"E\" for accessing mission board and \"Spacebar\" / \"C\" for the game. (Currently only works for 3840x2160, 3840x1080, 3440x1440, 2560x1440, and 1920x1080)\r\n\r\n"
+                "     - Will automatically farm club ark points without user input.  Make sure you make a tribe then start the program, will join the mission from player inventory.   Duck Duck Jump uses \"TAB\" for accessing player inventory and \"Spacebar\" / \"C\" for the game.  Currently only supports one game but backend code established to easily add future games.  (Currently only works for 3840x2160, 3840x1080, 3440x1440, 2560x1440, and 1920x1080)\r\n\r\n"
                 "                        --------------------------\r\n"
                 "                        --Mass Baby Feed--\r\n"
                 "                        --------------------------\r\n\r\n"
@@ -64,7 +68,14 @@ INT_PTR CALLBACK UserGuide(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam
                 "                          ----------------------\r\n"
                 "                          --Alarm / Timer--\r\n"
                 "                          ----------------------\r\n\r\n"
-                "     - Set the HR:MIN:SEC then start the timer for it to count down.  Will play a sound when it reaches zero if the checkbox is selected.\r\n\r\n";
+                "     - Set the HR:MIN:SEC then start the timer for it to count down.  Will play a sound when it reaches zero if the checkbox is selected.\r\n\r\n"
+                "                             ---------------\r\n"
+                "                             --XP Party--\r\n"
+                "                             ---------------\r\n\r\n"
+                "     - Start the program while hovering over item to craft, will automatically craft item.\r\n"
+                "     - If \"Broth / Chili\" checked will automatically use Broth of Enlightenment every 20 minutes from hotbar 1 and Focal Chili every 15 minutes from hotbar 2.\r\n"
+                "     - If \"Eat / Drink\" checked will automatically eat every 55 minutes from hotbar 9 and drink every 25 minutes from hotbar 0.\r\n"
+                "     - (3440x1440 ONLY) Start \"Toilet Buff\" while seated on toilet.  Will automatically open inventory, que drawing paper, close inventory, punch air, poop with numpad +, eat / drink (need food in slots 5-7 and drink in 8-0), and reopen inventory when paper gets low and reque. (Do not check \"Eat / Drink\" with this)(REQUIRES BOB'S TALL TALES)\r\n\r\n";
             SetWindowTextA(hEdit, userguideText);
         }
 

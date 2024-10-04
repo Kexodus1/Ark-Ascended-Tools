@@ -42,7 +42,7 @@ void AutoGrabber()
                 }
 
                 PerformMouseClick(closex, closey);
-                Sleep(20000);
+                Sleep(10000);
 
                 if (!shouldContinueLoop) {
                     break; // Exit the loop immediately

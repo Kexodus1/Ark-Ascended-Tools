@@ -152,6 +152,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Ark Ascended Tools.cpp" />
+    <ClCompile Include="AutoClick.cpp" />
     <ClCompile Include="AutoDropper.cpp" />
     <ClCompile Include="AutoFish.cpp" />
     <ClCompile Include="AutoGrabber.cpp" />
@@ -176,6 +177,7 @@
     <ClCompile Include="Troubleshoot.cpp" />
     <ClCompile Include="Update.cpp" />
     <ClCompile Include="UserGuide.cpp" />
+    <ClCompile Include="XPParty.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Ark Ascended Tools.rc" />

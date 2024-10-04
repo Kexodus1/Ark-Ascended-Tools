@@ -17,6 +17,11 @@ INT_PTR CALLBACK ChangeLog(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam
         if (hEdit)
         {
             const char* changelogText =
+                "v4.4.0\r\n"
+                "     - New features \"Auto Clicker\" and \"XP Party\"\r\n"
+                "     - Changed \"AFK Club ARK\" to start from Inv\r\n"
+                "     - Sped up \"Air Drop\" timings for consistency\r\n"
+                "     - Updated \"User Guide\" to reflect changes\r\n\r\n"
                 "v4.3.0\r\n"
                 "     - Added server list check to \"Auto Join Server\"\r\n"
                 "     - Fix to color checks to allow a wider gamma\r\n"
