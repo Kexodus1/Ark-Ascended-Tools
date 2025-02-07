@@ -12,6 +12,10 @@ extern HINSTANCE hInst;
 int TimerHours = 0;
 int TimerMinutes = 0;
 int TimerSeconds = 0;
+// Global variables for initial timer values
+int InitialHours = 0;
+int InitialMinutes = 0;
+int InitialSeconds = 0;
 UINT_PTR TimerID = 0; // Timer ID for tracking the timer
 
 // Button Clicks for Timer up/down
@@ -108,6 +112,15 @@ void CALLBACK TimerProc(HWND hWnd, UINT message, UINT_PTR idTimer, DWORD dwTime)
                 // Wait for threads to terminate
                 Sleep(100);
                 functionsRunning = false;
+
+                // Reset the UI to the original values
+                swprintf_s(timerText, L"%02d", InitialHours);
+                SetDlgItemText(hWnd, IDC_TIMER_HOUR, timerText);
+                swprintf_s(timerText, L"%02d", InitialMinutes);
+                SetDlgItemText(hWnd, IDC_TIMER_MINUTE, timerText);
+                swprintf_s(timerText, L"%02d", InitialSeconds);
+                SetDlgItemText(hWnd, IDC_TIMER_SECOND, timerText);
+                
                 // Update UI: Change button text to "Start"
                 SetWindowText(hButton, L"Start - F4");
                 // Redraw the button to update its appearance
@@ -125,6 +138,11 @@ void CALLBACK TimerProc(HWND hWnd, UINT message, UINT_PTR idTimer, DWORD dwTime)
 
 void StartTimer(HWND hWnd, int hours, int minutes, int seconds) 
 {
+    //Store initial timer values
+    InitialHours = hours;
+    InitialMinutes = minutes;
+    InitialSeconds = seconds;
+    
     // Set initial timer values
     TimerHours = hours;
     TimerMinutes = minutes;
