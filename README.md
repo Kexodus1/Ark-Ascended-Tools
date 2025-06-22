@@ -34,29 +34,50 @@ User Guide
 - Auto Join Server<BR>
    - Type the server number in the "Input Server Number" box and hit the "Start" button while on the main server selection screen.  The program will take over and automatically attempt to join a full server.  If this function is not working for you check the "Backup Joiner" box and re attempt.<BR><BR>
 
-- Auto Farmer<BR>
-   - This function is for a tribemate or alt account while being a rider on a farming Dino.  This will automatically left click every 2.5 seconds.  Once Dino becomes black weighted the function will automatically drop items listed in the box below.  Please separate these items by a comma(,).<BR><BR>
-
 - Auto Clicker<BR>
-   - Select the key you would like it to press and input a time in milliseconds to press the key.  Wherever the mouse is located when it is started is were it will press the key.  Has a 3 second delay until it starts.<BR><BR>
-
-- Auto Drop Items<BR>
-   - While activated anytime you open the Dino's inventory it will type the inputed items in the text box one by one and drop all of each item.  Please separate these items by a comma(,).  Example: Doing a meat run and typing "Prime,Hide,Chitin,Keratin" into the box, this would drop these items every time you open the Dino's inventory.<BR><BR>
+   - Select the key you would like it to press and input a time in milliseconds to press the key.  Wherever the mouse is located when it is started is were it will press the key.  Selecting Set Position checkbox will click at specified position from settings.<BR><BR>
 
 - Anti AFK<BR>
-   - Anti AFK will automatically move left(A) and right(D) periodically while going prone(X) if the "Move" checkbox is checked to prevent getting kicked from server.  If the "Eat / Drink" checkbox is checked it will automatically eat and drink with 9 and 0 on the keyboard.  You may input time in minutes to automatically eat and drink, default is 60 minutes.  You may use both "Move" and "Eat / Drink" together or separately.<BR><BR>
+   - Anti AFK will automatically open and close a door, please place a door in front of player.  If the "Eat / Drink" checkbox is checked it will automatically eat and drink with specified hotkeys in settings.  You may input time in minutes to automatically eat and drink, default is 60 minutes.<BR><BR>
 
 - AFK Club ARK<BR>
-   - Will automatically farm club ark points without user input.  Make sure you make a tribe then start the program, will join the mission from player inventory.   Duck Duck Jump uses "TAB" for accessing player inventory and "Spacebar" / "C" for the game.  Currently only supports one game but backend code established to easily add future games.  (Currently only works for 3840x2160, 3840x1080, 3440x1440, 2560x1440, and 1920x1080)<BR><BR>
+   - Doed Dodge<BR>
+      - Will automatically run around the wall while jumping to complete Doed Dodge.  Adjust turn radius in settings to turn slower or faster.<BR><BR>
+   - Duck Duck Jump<BR>
+      - Duck Duck Jump uses specified hotkey for accessing player inventory and "Spacebar" / "S" for the game.  Gamma adjustment and FOV adjustment from settings will change how Duck Duck Jump performs.<BR><BR>
 
-- Mass Baby Feed<BR>
-   - This will automatically upon opening baby Dino inventory refresh the food and close the inventory, allowing you to quickly go around and feed multiple baby Dino's.  Select which food type from drop down to feed the babies when you open inventory.  If "Solo Nanny" is check marked it will allow you to AFK inside a single baby's inventory and refresh the selected food from the dropdown every 1 minute.  Make sure you have appropriate food in your inventory.<BR><BR>
+- Farming Tools<BR>
+   - Auto Farmer<BR>
+      - This function is for a tribemate or alt account while being a rider on a farming Dino.  This will automatically left click every 2.5 seconds.  Once Dino becomes black weighted the function will automatically drop items listed in the box below.  Please separate these items by a comma(,).<BR><BR>
+   - Auto Dropper<BR>
+      - While activated anytime you open the Dino's inventory it will type the inputed items in the text box one by one and drop all of each item.  Please separate these items by a comma(,).  Example: Doing a meat run and typing "Prime,Hide,Chitin,Keratin" into the box, this would drop these items every time you open the Dino's inventory.<BR><BR>
 
+- Breeder Tools<BR>
+   - Solo Nanny<BR>
+      - Allows you to AFK inside a single baby's inventory and refresh the selected food from the dropdown every 1 minute.  Make sure you have appropriate food in your inventory.<BR><BR>
+   - Mass Baby Feed<BR>
+      - This will automatically upon opening baby Dino inventory refresh the food and close the inventory, allowing you to quickly go around and feed multiple baby Dino's.  Select which food type from drop down to feed the babies when you open inventory.<BR><BR>
+   - Fert Egg Dropper<BR>
+      - Will automatically open inventory and drop fertilized eggs then slightly move backwards.  Adjust how far apart you want the eggs in the spacing box.  Looking down at the ground before starting allows the eggs to be in a straight line.<BR><BR>
 - Auto Grabber<BR>
-   - Depending on which function you have selected from the dropdown when you start this feature.  "Air Drop", "Raptor Claus", "Death Bag", or "Empty Crop plots" will quickly grab the items when you open the inventory, taking all instantly, then closing the inventory instantly. "Empty Crop Plots" will automatically put fertilizer back before closing inventory.  Any extra fertilizer in inventory will top the crop plot up.<BR><BR>
+   - Air Drop<BR>
+      - When active will automatically take items from drop and close immediately upon opening drop inventory.  You may leave it active if opening drops around map and will perform at every drop you open.  Perfect for places like abberation where time is of the essence.<BR><BR>
+   - Raptor Claus<BR>
+      - While active when you open a raptor claus present will immediately take the items mashing transfer all to ensure you get the present.<BR><BR>
+   - Empty Snails<BR>
+      - Takes all paste when snail inventory is opened, if poly is checkmarked will also take poly from the snail and close inventory.<BR><BR>
+   - Empty Crop Plots<BR>
+      - If yoiu don't have the robot this is a great feature, automatically takes all from crop plot when opened and will transfer the feertilizer bacck.  Fill your inventory with fertilizer to top off the crop plots with fertilizer as well.<BR><BR>
+   - Auto Fishing<BR>
+      - Will automatically reel in fish when started.  If on controller checkmark the controller box and it will go off of controller prompts.  Selecting AFK will automatically cast and reel in.<BR><BR>
 
-- Auto Fishing<BR>
-   - Added this feature incase they rework fishing in the future.  Will automatically reel in fish when started.  If on controller checkmark the controller box and it will go off of controller prompts.  Selecting AFK will automatically cast and reel in.<BR><BR>
+- PVP Tools<BR>
+   - Death Bag Grab<BR>
+      - Will grab death bag instantly when you open allowing you to get your items and geet out.  Great feature for PVP especially.<BR><BR>
+   - Auto Flak Changer<BR>
+      - (WIP) Automatically changes broken flak when opening inventory.<BR><BR>
+   - Empty Snails<BR>
+      - (WIP) Will send tribelog activities to disccord.<BR><BR>
 
 - Auto Walk / Fly<BR>
    - As name implies, will just automatically move you forward without pressing anything.  Check the "Run Modifier" box to change it to running forward automatically.<BR><BR>
@@ -67,11 +88,8 @@ User Guide
 - Alarm / Timer<BR>
    - Set the HR:MIN:SEC then start the timer for it to count down.  Will play a sound when it reaches zero if the checkbox is selected.<BR><BR>
 
-- XP Party (BETA)<BR>
-   - Start the program while hovering over item to craft, will automatically craft item.<BR>
-   - If "Broth / Chili" checked will automatically use Broth of Enlightenment every 20 minutes from hotbar 1 and Focal Chili every 15 minutes from hotbar 2.<BR>
-   - If "Eat / Drink" checked will automatically eat every 55 minutes from hotbar 9 and drink every 25 minutes from hotbar 0.<BR>
-   - (3440x1440 ONLY) Start "Toilet Buff" while seated on toilet.  Will automatically open inventory, que drawing paper, close inventory, punch air, poop with numpad +, eat / drink (need food in slots 5-7 and drink in 8-0), and reopen inventory when paper gets low and reque.(Do not check "Eat / Drink" with this)(REQUIRES BOB'S TALL TALES)<BR><BR>
+- AFK XP Party<BR>
+   - Start  this function while sitting on a toilet, will automatically que up items to craft that are input in the box.  Every time you stand up it will put the crafted items in what you choose from the dropdown menu.  Then it will pull out a weapon(preferably a bow) and either LCTRL the weapon or punch, auto detecting food, drink, or broth.  The number box is for turning around back to the toilet, depending on fps this value might need to be increased.  Will autodetect poop buff and wait until it goes away before using again then repeating the process over again.  Due to the food/drink bars being translucent, please adjust gamma up from 2.2 by 0.1 increments if eating when not low, and vice versa, adjust gamma down from 2.2 in 0.1 increments if eating when full. (Currently only works for 3440x1440, 2560x1440, and 1920x1080)<BR><BR>
 
 Troubleshooting
 =================================
@@ -115,11 +133,79 @@ Troubleshooting
            increased to jump slower or decreased to jump
            faster)<BR><BR>
 
+   - Troubleshooting AFK XP Party<BR>
+      - XP Party is not working for me:<BR>
+         - Currently only resolutions 3440x1440, 2560x14440,
+       and 1920x1080 are supported. Make sure you are
+       using base gamma 2.2<BR><BR>
+      - XP Party is using too much food and drink:<BR>
+         - Calibrated at gamma 2.2, since the backgrounds
+       are translucent for food and water, the background
+       is too dark behind them.  Increase gamma in
+       increments of 0.1 (e.g. 2.3, 2.4) until it is eating
+       and drinking correctly.<BR><BR>
+       - XP Party is not using food and drink:<BR>
+          -  Same as mentioned above except the background
+       is too light behind the icons.  Starting with gamma
+       2.2 slowly decrease by 0.1 (e.g. 2.1, 2.0) until
+       working properly.<BR><BR>
+
    - I have a different issue not listed:
         - Pleasse head over to <A href="https://github.com/Kexodus1/Ark-Ascended-Tools/issues">issues</A> and submit a new issue.<BR><BR>
      
 Changelog
 ==========================
+
+v5.0.0<BR>
+   - New Features "Fert Egg Dropper", "Empty
+       Snails", "Doed Dodge", "Tribelog Bot", and
+      "Auto Flak Changer"
+   - Started GFN/Minimized Backend Code (WIP)
+   - Added "Player XP" chart to Menu for levels
+   - Added more keys/set position to "Auto Clicker"
+   - New custom setting for "MagicINI"
+   - Consolidated "Auto Fishing" into "Auto Grabber"
+   - Consolidated "Solo Nanny", "Mass Baby Feed",
+       and "Fert Egg Dropper" into "Breeder Tools"
+   - Consolidated "Auto Farmer" and "Auto Dropper"
+       into "Farming Tools"
+   - Consolidated "Death Bag", "Tribelog Bot" and
+      "Auto Flak Changer" into "PVP Tools"
+   - Settings V2 Changes:
+       - Complete rework of settings code
+       - Multiple new settings for more customization
+       - Ability to fine tune ClubARK games
+       - Settings now save and load correctly
+       - Programmable hotkeys and new sliders
+   - AFK Club ARK Changes:
+       - Added new "Doed Dodge" game selection
+       - New FOV and Turn settings to games
+       - Multiplayer support to AFK multiple people
+       - Recalibrated colors to gamma 1.8
+       - Auto tribe detection / creation
+       - Full support for all resolutions
+       - Changed to run at multiple gammas
+       - Polling rate from 10hz to 20hz
+       - Additional menu checks for slower PCs
+       - Fixed code releasing DC after use
+       - Fixed misclicks to menu when no pts
+   - AFK XP Party Changes:
+       - Complete Rework of Code
+       - Support for 1920x1080 and 2560x1440
+       - Able to input own crafted item
+       - Auto food, water, broth, poop detection
+       - Selection of where to put crafted items
+       - Added "Troubleshooting"
+   - Fixed "Auto Join Server" stopped working
+   - Fixed "Anti AFK" check user guide
+   - Fixed "Alarm / Timer" resetting to 0
+   - Updated "User Guide" to reflect new changes
+   - Added new universal coordinates for future code
+   - Code reorganization / optimization / labeling
+   - Complete backend code structure overhauled
+   - Various function fixes for reported invalid clicks
+   - Minor fixes to code stop logic in some functions<BR><BR>
+
 v4.4.0<BR>
    - New features "Auto Clicker" and "XP Party"<BR>
    - Changed "AFK Club ARK" to start from Inv<BR>
