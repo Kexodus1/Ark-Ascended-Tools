@@ -1,9 +1,7 @@
-#include "pch.h"
-#include "Features.h"
-#include "Coordinates.h"
-#include <windows.h>
-#include <string>
+#include "../Headers/Features.h"
+#include "../Headers/Coordinates.h"
 
+// Function Auto Join Server Code
 void AutoJoiner(HWND ServerN)
 {
     setCoordinates(); // Set the coordinates based on the screen resolution
@@ -16,33 +14,25 @@ void AutoJoiner(HWND ServerN)
                 // Continue with the rest of the code if the color matches
                 break;
             }
-            if (!shouldContinueLoop) {
-                break; // Exit the loop immediately
-            }
+            if (!shouldContinueLoop) break;
             else {
                 // Simulate a mouse click if the color does not match
                 PerformMouseClick(click6X, click6Y);
                 Sleep(1000); // Wait for a bit before rechecking
             }
-            if (!shouldContinueLoop) {
-                break; // Exit the loop immediately
-            }
+            if (!shouldContinueLoop) break;
         }
         // Click Server Text Box
         PerformMouseClick(servnx, servny);
         Sleep(200);
-        if (!shouldContinueLoop) {
-            break; // Exit the loop immediately
-        }
+        if (!shouldContinueLoop) break;
         // Retrieve the Server Number
         wchar_t selectedValue[256];
         GetWindowText(ServerN, selectedValue, 256);
         // Type the selected value
         typeText(selectedValue);
         Sleep(500); // Wait for the text input
-        if (!shouldContinueLoop) {
-            break; // Exit the loop immediately
-        }
+        if (!shouldContinueLoop) break;
         // Top Server Click \ Check
         while (true)
         {
@@ -55,20 +45,16 @@ void AutoJoiner(HWND ServerN)
             // Check color for Top Server
             COLORREF pixelColor = GetPixelColor(servtx, servty);
             if (IsColorWithinTolerance(pixelColor, RGB(83, 39, 1), tolerance) ||
-                IsColorWithinTolerance(pixelColor, RGB(128, 64, 2), tolerance)) // Top Server Color
+                IsColorWithinTolerance(pixelColor, RGB(61, 27, 2), tolerance)) // Top Server Color
             {
                 break; // Exit the loop if the color matches
             }
         }
-        if (!shouldContinueLoop) {
-            break; // Exit the loop immediately
-        }
+        if (!shouldContinueLoop) break;
         // Server 1st Join Button
         PerformMouseClick(servjx, servjy);
         Sleep(500);
-        if (!shouldContinueLoop) {
-            break; // Exit the loop immediately
-        }
+        if (!shouldContinueLoop) break;
         // Wait for pixel color to match either Server Full Fail, Connection Failed, or Mod Screen Join
         bool ServerFullFail = false;
         bool ConnectionFailed = false;
@@ -94,9 +80,7 @@ void AutoJoiner(HWND ServerN)
                 break;
             }
             Sleep(500); // Wait before checking again
-            if (!shouldContinueLoop) {
-                break; // Exit the loop immediately
-            }
+            if (!shouldContinueLoop) break;
         }
         // Mod Screen Join
         if (ModScreenJoin)
@@ -134,21 +118,15 @@ void AutoJoiner(HWND ServerN)
                 // Server full accept button
                 PerformMouseClick(fullfX, fullfY);
                 Sleep(500);
-                if (!shouldContinueLoop) {
-                    break; // Exit the loop immediately
-                }
+                if (!shouldContinueLoop) break;
                 // Ark main menu start button
                 PerformMouseClick(startX, startY);
                 Sleep(500);
-                if (!shouldContinueLoop) {
-                    break; // Exit the loop immediately
-                }
+                if (!shouldContinueLoop) break;
                 // Select to Join
                 PerformMouseClick(click6X, click6Y);
                 Sleep(500);
-                if (!shouldContinueLoop) {
-                    break; // Exit the loop immediately
-                }
+                if (!shouldContinueLoop) break;
             }
             // Handle Connection Failed
             else if (ConnectionFailed)
@@ -156,21 +134,15 @@ void AutoJoiner(HWND ServerN)
                 // Cancel Que Wait
                 PerformMouseClick(click4X, click4Y);
                 Sleep(500);
-                if (!shouldContinueLoop) {
-                    break; // Exit the loop immediately
-                }
+                if (!shouldContinueLoop) break;
                 // Go back to Selection
                 PerformMouseClick(click5X, click5Y);
                 Sleep(200);
-                if (!shouldContinueLoop) {
-                    break; // Exit the loop immediately
-                }
+                if (!shouldContinueLoop) break;
                 // Select to Join
                 PerformMouseClick(click6X, click6Y);
                 Sleep(500);
-                if (!shouldContinueLoop) {
-                    break; // Exit the loop immediately
-                }
+                if (!shouldContinueLoop) break;
             }
         }
         // Connection Failed popup
@@ -179,21 +151,15 @@ void AutoJoiner(HWND ServerN)
             //Cancel Que Wait
             PerformMouseClick(click4X, click4Y);
             Sleep(500);
-            if (!shouldContinueLoop) {
-                break; // Exit the loop immediately
-            }
+            if (!shouldContinueLoop) break;
             //Go back to Selection
             PerformMouseClick(click5X, click5Y);
             Sleep(200);
-            if (!shouldContinueLoop) {
-                break; // Exit the loop immediately
-            }
+            if (!shouldContinueLoop) break;
             //Select to Join
             PerformMouseClick(click6X, click6Y);
             Sleep(500);
-            if (!shouldContinueLoop) {
-                break; // Exit the loop immediately
-            }
+            if (!shouldContinueLoop) break;
         }
         // Server Full Fail popup
         else if (ServerFullFail)
@@ -201,21 +167,15 @@ void AutoJoiner(HWND ServerN)
             // Server full accept button
             PerformMouseClick(fullfX, fullfY);
             Sleep(500);
-            if (!shouldContinueLoop) {
-                break; // Exit the loop immediately
-            }
+            if (!shouldContinueLoop) break;
             // Ark main menu start button
             PerformMouseClick(startX, startY);
             Sleep(500);
-            if (!shouldContinueLoop) {
-                break; // Exit the loop immediately
-            }
+            if (!shouldContinueLoop) break;
             //Select to Join
             PerformMouseClick(click6X, click6Y);
             Sleep(500);
-            if (!shouldContinueLoop) {
-                break; // Exit the loop immediately
-            }
+            if (!shouldContinueLoop) break;
         }
     }
 }

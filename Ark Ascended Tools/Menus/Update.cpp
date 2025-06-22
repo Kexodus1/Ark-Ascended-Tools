@@ -1,12 +1,6 @@
-#include "pch.h"
-#include "Features.h"
-#include "Resource.h"
-#include <windows.h>
+#include "../Headers/Menus.h"
+#include "../Headers/Resource.h"
 #include <wininet.h>
-#include <iostream>
-#include <sstream>
-#include <string>
-#include <vector>
 #include <urlmon.h> // For URLDownloadToFile
 #pragma comment(lib, "urlmon.lib") // Link against Urlmon library
 #pragma comment(lib, "wininet.lib")
@@ -16,7 +10,30 @@ extern HBRUSH hbrBackground;
 
 // Returns the current version of the application
 std::string GetCurrentVersion() {
-    return "v4.4.0";
+    return "v5.0.0";
+}
+
+void OnProgramStartup(HINSTANCE hInst, HWND hWnd) {
+    // Load settings
+    std::ifstream config("AATool Settings.ini");
+    bool checkForUpdates = false;
+
+    if (config.is_open()) {
+        std::string line;
+        while (std::getline(config, line)) {
+            if (line.find("CheckForUpdates=") == 0) {
+                std::string value = line.substr(strlen("CheckForUpdates="));
+                checkForUpdates = (std::stoi(value) == 1);
+                break;
+            }
+        }
+        config.close();
+    }
+
+    // If updates are enabled, check for updates
+    if (checkForUpdates) {
+        CheckForUpdates(hInst, hWnd, NULL);
+    }
 }
 
 // Fetches the latest version string from a GitHub URL

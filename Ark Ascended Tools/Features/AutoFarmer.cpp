@@ -1,8 +1,6 @@
-#include "pch.h"
-#include "Features.h"
-#include "Coordinates.h"
-#include <windows.h> // Required for Sleep, SetCursorPos, mouse_event, GetPixel, and keybd_event
-#include <sstream>   // Required for stringstream
+#include "../Headers/Features.h"
+#include "../Headers/Coordinates.h"
+#include "../Headers/Menus.h"
 
 // Function to split a string by a delimiter
 std::vector<std::wstring> split(const std::wstring& s, wchar_t delimiter) {
@@ -15,9 +13,12 @@ std::vector<std::wstring> split(const std::wstring& s, wchar_t delimiter) {
     return tokens;
 }
 
+// Function for Auto Farmer Code
 void AutoFarmer(HWND AutoFarm) 
 {
     setCoordinates(); // Set the coordinates based on the screen resolution
+    // Load hotkeys from the configuration
+    LoadSettings();
 
     int clickInterval = 2500;
     int colorCheckInterval = 20000;
@@ -25,48 +26,34 @@ void AutoFarmer(HWND AutoFarm)
 
     while (true) {
         Sleep(clickInterval);
-
-        if (!shouldContinueLoop) {
-            break; // Exit the loop immediately
-        }
+        if (!shouldContinueLoop) break;
 
         // Perform mouse click
         mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
         mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
-
-        if (!shouldContinueLoop) {
-            break; // Exit the loop immediately
-        }
+        if (!shouldContinueLoop) break;
 
         elapsedTime += clickInterval;
 
         if (elapsedTime >= colorCheckInterval) {
             elapsedTime = 0;
 
-            // Check color of Black Weight
-            COLORREF color = GetPixelColor(blackx, blacky);
+            // Check color of Dino Black Weight
+            COLORREF color = GetPixelColor(blak2x, blak2y);
             if (color == RGB(0, 0, 0)) 
             {
                 // Stop the clicking
                 shouldContinueLoop = false;
 
                 // Open Dino Inv
-                keybd_event('F', 0, 0, 0);
-                keybd_event('F', 0, KEYEVENTF_KEYUP, 0);
-
+                PerformKeyPress(static_cast<BYTE>(openDinoHotkey), 100, 100);
                 Sleep(500); // Wait for the inventory to open
-
-                if (!functionsRunning) {
-                    break; // Exit the loop immediately
-                }
+                if (!functionsRunning) break;
 
                 // Click Text Box
                 PerformMouseClick(text2x, text2y);
                 Sleep(500); // Wait for the click action
-
-                if (!functionsRunning) {
-                    break; // Exit the loop immediately
-                }
+                if (!functionsRunning) break;
 
                 // Get text from the AutoFarm box
                 wchar_t buffer[256];
@@ -86,19 +73,13 @@ void AutoFarmer(HWND AutoFarm)
                         keybd_event(LOBYTE(key), 0, KEYEVENTF_KEYUP, 0);
                     }
 
-                    if (!functionsRunning) {
-                        break; // Exit the loop immediately
-                    }
-
+                    if (!functionsRunning) break;
                     Sleep(800); // Wait for the text input
 
                     // Click drop all
                     PerformMouseClick(drop2x, drop2y);
                     Sleep(500); // Wait for the click action
-
-                    if (!functionsRunning) {
-                        break; // Exit the loop immediately
-                    }
+                    if (!functionsRunning) break;
 
                     // Check color at promptx, prompty
                     COLORREF color = GetPixelColor(promptx, prompty);
@@ -115,19 +96,13 @@ void AutoFarmer(HWND AutoFarm)
                     // Click text box
                     PerformMouseClick(text2x, text2y);
                     Sleep(500); // Wait for the click action
-
-                    if (!functionsRunning) {
-                        break; // Exit the loop immediately
-                    }
+                    if (!functionsRunning) break;
                 }
 
                 //Manually Close Inventory
                 PerformMouseClick(closex, closey);
                 Sleep(500); // Wait for the click action
-
-                if (!functionsRunning) {
-                    break; // Exit the loop immediately
-                }
+                if (!functionsRunning) break;
 
                 // Restart the clicking loop
                 shouldContinueLoop = true;

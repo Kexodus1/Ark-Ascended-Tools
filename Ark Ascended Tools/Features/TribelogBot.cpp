@@ -1,9 +1,7 @@
-#include "pch.h"
-#include "Features.h"
-#include "Coordinates.h"
-#include <windows.h>
+#include "../Headers/Features.h"
+#include "../Headers/Coordinates.h"
 
-void AutoFish()
+void TribelogBot()
 {
     setCoordinates(); // Set the coordinates based on the screen resolution
 

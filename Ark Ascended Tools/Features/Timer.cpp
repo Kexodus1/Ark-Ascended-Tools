@@ -1,7 +1,6 @@
-﻿#include "pch.h"
-#include "Resource.h"
-#include "Features.h"
-#include <windows.h>
+﻿#include "../Headers/Resource.h"
+#include "../Headers/Features.h"
+#include "../Headers/Menus.h"
 #include <mmsystem.h>
 #pragma comment(lib, "winmm.lib")
 
@@ -12,6 +11,10 @@ extern HINSTANCE hInst;
 int TimerHours = 0;
 int TimerMinutes = 0;
 int TimerSeconds = 0;
+// Global variables for initial timer values
+int InitialHours = 0;
+int InitialMinutes = 0;
+int InitialSeconds = 0;
 UINT_PTR TimerID = 0; // Timer ID for tracking the timer
 
 // Button Clicks for Timer up/down
@@ -108,8 +111,19 @@ void CALLBACK TimerProc(HWND hWnd, UINT message, UINT_PTR idTimer, DWORD dwTime)
                 // Wait for threads to terminate
                 Sleep(100);
                 functionsRunning = false;
+                // Reset the UI to the original values
+                swprintf_s(timerText, L"%02d", InitialHours);
+                SetDlgItemText(hWnd, IDC_TIMER_HOUR, timerText);
+                swprintf_s(timerText, L"%02d", InitialMinutes);
+                SetDlgItemText(hWnd, IDC_TIMER_MINUTE, timerText);
+                swprintf_s(timerText, L"%02d", InitialSeconds);
+                SetDlgItemText(hWnd, IDC_TIMER_SECOND, timerText);
+                // Load hotkeys from the configuration file
+                LoadSettings(); // Call to load hotkeys
+                // Create the start/stop button as an owner-drawn button
+                std::wstring hotkeyString = MapKeyToString(hotkey); // Convert hotkey to string
                 // Update UI: Change button text to "Start"
-                SetWindowText(hButton, L"Start - F4");
+                SetWindowText(hButton, (L"Start - " + hotkeyString).c_str());
                 // Redraw the button to update its appearance
                 RedrawWindow(hButton, NULL, NULL, RDW_ERASE | RDW_FRAME | RDW_INVALIDATE | RDW_ALLCHILDREN);
                 // Play sound if TimerSND is checked
@@ -125,6 +139,11 @@ void CALLBACK TimerProc(HWND hWnd, UINT message, UINT_PTR idTimer, DWORD dwTime)
 
 void StartTimer(HWND hWnd, int hours, int minutes, int seconds) 
 {
+    //Store initial timer values
+    InitialHours = hours;
+    InitialMinutes = minutes;
+    InitialSeconds = seconds;
+
     // Set initial timer values
     TimerHours = hours;
     TimerMinutes = minutes;

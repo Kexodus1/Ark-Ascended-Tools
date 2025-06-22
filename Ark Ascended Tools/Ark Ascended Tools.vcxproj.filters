@@ -5,139 +5,163 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    <Filter Include="Source Files\Features">
+      <UniqueIdentifier>{ebd564c1-f280-4fe2-909b-fd7e430203e6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Resource Files">
+    <Filter Include="Resources">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Headers">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Source Files\Menus">
+      <UniqueIdentifier>{3647cf9a-a285-4dcf-b1e1-c4ee641807b5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="framework.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="targetver.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Resource.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="pch.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\..\..\..\..\..\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\CommCtrl.h">
-      <Filter>Header Files</Filter>
+      <Filter>Headers</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\..\..\..\..\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\ShObjIdl.h">
-      <Filter>Header Files</Filter>
+      <Filter>Headers</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\..\..\..\..\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\WinUser.h">
-      <Filter>Header Files</Filter>
+      <Filter>Headers</Filter>
     </ClInclude>
-    <ClInclude Include="Features.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Headers\Coordinates.h">
+      <Filter>Headers</Filter>
     </ClInclude>
-    <ClInclude Include="Coordinates.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Headers\Features.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\framework.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\resource.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\targetver.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Menus.h">
+      <Filter>Headers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Ark Ascended Tools.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="pch.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="AutoFarmer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="AutoJoiner.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="BackupJoiner.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="AntiAFK.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="UserGuide.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Changelog.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="SoloNanny.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="MassBabyFeed.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Timer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="AutoWalk.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Coordinates.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="AutoDropper.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Features\AntiAFK.cpp">
+      <Filter>Source Files\Features</Filter>
     </ClCompile>
-    <ClCompile Include="Update.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Features\AutoClick.cpp">
+      <Filter>Source Files\Features</Filter>
     </ClCompile>
-    <ClCompile Include="Troubleshoot.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Features\AutoDropper.cpp">
+      <Filter>Source Files\Features</Filter>
     </ClCompile>
-    <ClCompile Include="ClubARK.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Features\AutoFarmer.cpp">
+      <Filter>Source Files\Features</Filter>
     </ClCompile>
-    <ClCompile Include="MagicINI.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Features\AutoFish.cpp">
+      <Filter>Source Files\Features</Filter>
     </ClCompile>
-    <ClCompile Include="AutoGrabber.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Features\AutoGrabber.cpp">
+      <Filter>Source Files\Features</Filter>
     </ClCompile>
-    <ClCompile Include="AutoFish.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Features\AutoJoiner.cpp">
+      <Filter>Source Files\Features</Filter>
     </ClCompile>
-    <ClCompile Include="XPParty.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Features\AutoWalk.cpp">
+      <Filter>Source Files\Features</Filter>
     </ClCompile>
-    <ClCompile Include="AutoClick.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Features\BackupJoiner.cpp">
+      <Filter>Source Files\Features</Filter>
+    </ClCompile>
+    <ClCompile Include="Features\ClubARK.cpp">
+      <Filter>Source Files\Features</Filter>
+    </ClCompile>
+    <ClCompile Include="Features\MagicINI.cpp">
+      <Filter>Source Files\Features</Filter>
+    </ClCompile>
+    <ClCompile Include="Features\MassBabyFeed.cpp">
+      <Filter>Source Files\Features</Filter>
+    </ClCompile>
+    <ClCompile Include="Features\SoloNanny.cpp">
+      <Filter>Source Files\Features</Filter>
+    </ClCompile>
+    <ClCompile Include="Features\Timer.cpp">
+      <Filter>Source Files\Features</Filter>
+    </ClCompile>
+    <ClCompile Include="Features\XPParty.cpp">
+      <Filter>Source Files\Features</Filter>
+    </ClCompile>
+    <ClCompile Include="Menus\Changelog.cpp">
+      <Filter>Source Files\Menus</Filter>
+    </ClCompile>
+    <ClCompile Include="Menus\Menus.cpp">
+      <Filter>Source Files\Menus</Filter>
+    </ClCompile>
+    <ClCompile Include="Menus\Troubleshoot.cpp">
+      <Filter>Source Files\Menus</Filter>
+    </ClCompile>
+    <ClCompile Include="Menus\Update.cpp">
+      <Filter>Source Files\Menus</Filter>
+    </ClCompile>
+    <ClCompile Include="Menus\UserGuide.cpp">
+      <Filter>Source Files\Menus</Filter>
+    </ClCompile>
+    <ClCompile Include="Features\EggDrop.cpp">
+      <Filter>Source Files\Features</Filter>
+    </ClCompile>
+    <ClCompile Include="Menus\Settings.cpp">
+      <Filter>Source Files\Menus</Filter>
+    </ClCompile>
+    <ClCompile Include="Features\TribelogBot.cpp">
+      <Filter>Source Files\Features</Filter>
+    </ClCompile>
+    <ClCompile Include="Features\PVPTools.cpp">
+      <Filter>Source Files\Features</Filter>
+    </ClCompile>
+    <ClCompile Include="Features\DevTools.cpp">
+      <Filter>Source Files\Features</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="Ark Ascended Tools.rc">
-      <Filter>Resource Files</Filter>
-    </ResourceCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="small.ico">
-      <Filter>Resource Files</Filter>
+    <Image Include="Resources\ColorID.bmp">
+      <Filter>Resources</Filter>
     </Image>
-    <Image Include="Ark Ascended Tools.ico">
-      <Filter>Resource Files</Filter>
+    <Image Include="Resources\PlayerXP.bmp">
+      <Filter>Resources</Filter>
     </Image>
-    <Image Include="ColorID.bmp">
-      <Filter>Resource Files</Filter>
+    <Image Include="Resources\Ark Ascended Tools.ico">
+      <Filter>Resources</Filter>
+    </Image>
+    <Image Include="Resources\small.ico">
+      <Filter>Resources</Filter>
     </Image>
   </ItemGroup>
   <ItemGroup>
-    <Media Include="alarm.wav">
-      <Filter>Resource Files</Filter>
+    <Media Include="Resources\alarm.wav">
+      <Filter>Resources</Filter>
     </Media>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="Version.txt">
-      <Filter>Source Files</Filter>
-    </Text>
     <Text Include="Changelog.txt">
       <Filter>Source Files</Filter>
     </Text>
+    <Text Include="Version.txt">
+      <Filter>Source Files</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Resources\Ark Ascended Tools.rc">
+      <Filter>Resources</Filter>
+    </ResourceCompile>
   </ItemGroup>
 </Project>

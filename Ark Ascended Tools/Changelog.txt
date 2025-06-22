@@ -1,6 +1,7 @@
-New Version v4.4.0 is available
-
-- New features "Auto Clicker" and "XP Party"
-- Changed "AFK Club ARK" to start from Inv
-- Sped up "Air Drop" timings for consistency
-- Updated "User Guide" to reflect changes
+New Version v5.0.0 is available
+- New Features Fert Egg Dropper and Empty Snails
+- Added Player XP chart to Menu for levels
+- Implemented Settings V2 with custom hotkeys
+- Complete rework of AFK Club Ark and XP Party
+- Additions to MagicINI for more INI settings
+- See changelog for additional changes, 2 many

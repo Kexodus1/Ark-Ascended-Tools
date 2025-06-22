@@ -1,17 +1,13 @@
-#include "pch.h"
-#include "Features.h"
-#include <windows.h> // Required for Sleep, keybd_event, and RegisterHotKey
+#include "../Headers/Features.h"
+#include "../Headers/Coordinates.h"
 
-bool IsAutoRunChecked()
-{
-    return SendMessage(AutoRun, BM_GETCHECK, 0, 0) == BST_CHECKED;
-}
-
+// Release Keys when Stopped
 void ReleaseKeys()
 {
     keybd_event('W', 0, KEYEVENTF_KEYUP, 0); // Release 'W'
 }
 
+// Run Modifier
 void TapRightShift()
 {
     // Press and release right 'Shift'
@@ -20,11 +16,12 @@ void TapRightShift()
     keybd_event(VK_RSHIFT, 0x36, KEYEVENTF_KEYUP, 0); // Release right 'Shift'
 }
 
-void AutoWalk()
+// Function for aAuto Walk / Run Code
+void AutoWalk(bool isAutoRunChecked)
 {
     while (true)
     {
-        if (IsAutoRunChecked()) {
+        if (isAutoRunChecked) {
             TapRightShift(); // Tap right 'Shift' once if AutoRun is checked
         }
 
@@ -32,21 +29,14 @@ void AutoWalk()
 
         while (shouldContinueLoop)
         {
-            Sleep(10); // Adjust the sleep duration if needed
-
-            if (!shouldContinueLoop) {
-                break;
-            }
+            Sleep(10);
+            if (!shouldContinueLoop) break;
         }
 
         ReleaseKeys(); // Release keys before exiting the function
-        if (IsAutoRunChecked()) {
+        if (isAutoRunChecked) {
             TapRightShift(); // Tap right 'Shift' once if AutoRun is checked
         }
-
-        // Exit the loop if shouldContinueLoop is false
-        if (!shouldContinueLoop) {
-            break;
-        }
+        if (!shouldContinueLoop) break;
     }
 }

@@ -1,23 +1,31 @@
-#include "pch.h"
-#include "Coordinates.h"
+#include "Headers\framework.h"
+#include "Headers\Coordinates.h"
+#include <windows.h>
 
-// Extern variables
-// inventory color #BCF4FF RGB(188, 244, 255).      
+// Universal Inventory Coords
 int text1x = 0, text1y = 0, text2x = 0, text2y = 0;
 int xfer1x = 0, xfer1y = 0, xfer2x = 0, xfer2y = 0;
 int closex = 0, closey = 0, drop1x = 0, drop1y = 0;
-int drop2x = 0, drop2y = 0, blackx = 0, blacky = 0;
-int invcolx = 0, invcoly = 0, xferdropx = 0, xferdropy = 0, promptx = 0, prompty = 0;
-int dropcolorx = 0, dropcolory = 0, servnx = 0, servny = 0, okayx = 0, okayy = 0;
-int servtx = 0, servty = 0, servjx = 0, servjy = 0;
-int color1x = 0, color1y = 0, color2x = 0, color2y = 0, color3x = 0, color3y = 0,
+int drop2x = 0, drop2y = 0, slot1x = 0, slot1y = 0;
+int slot2x = 0, slot2y = 0, blak1x = 0, blak1y = 0;
+int blak2x = 0, blak2y = 0, invcolx = 0, invcoly = 0;
+int dropcolorx = 0, dropcolory = 0, xferdropx = 0, xferdropy = 0;
+int promptx = 0, prompty = 0, okayx = 0, okayy = 0;
+// Autojoin Coords
+int servnx = 0, servny = 0, servtx = 0, servty = 0, servjx = 0, servjy = 0,
+color1x = 0, color1y = 0, color2x = 0, color2y = 0, color3x = 0, color3y = 0,
 click1X = 0, click1Y = 0, click2X = 0, click2Y = 0, click3X = 0, click3Y = 0,
 click4X = 0, click4Y = 0, click5X = 0, click5Y = 0, click6X = 0, click6Y = 0,
 fullfX = 0, fullfY = 0, startX = 0, startY = 0, servlcX = 0, servlcY = 0;
-int DDJC1X = 0, DDJC1Y = 0, DDJC2X = 0, DDJC2Y = 0, CAJC1X = 0, CAJC1Y = 0, 
-CAJC2X = 0, CAJC2Y = 0, CAJ1X = 0, CAJ1Y = 0, CAJ2X = 0, CAJ2Y = 0, CAJ3X = 0, CAJ3Y = 0,
-InvMiX = 0, InvMiY = 0;
-int PLInvX = 0, PLInvY = 0, PInvCX = 0, PInvCY = 0, PslotX = 0, PslotY = 0;
+// ClubARK Coords
+int DDJC1X = 0, DDJC1Y = 0, DDJC2X = 0, DDJC2Y = 0, CAINVX = 0, CAINVY = 0, CAJC1X = 0,
+CAJC1Y = 0, CAJC2X = 0, CAJC2Y = 0, CAJ1X = 0, CAJ1Y = 0, CAJ2X = 0, CAJ2Y = 0, CAJ3X = 0,
+CAJ3Y = 0, InvMiX = 0, InvMiY = 0, CATM1X = 0, CATM1Y = 0, CATM2X = 0, CATM2Y = 0,
+CATM3X = 0, CATM3Y = 0, DDAC1X = 0, DDAC1Y = 0, CDJ1X = 0, CDJ1Y = 0;
+// AFK XP Coords
+int PInvCX = 0, PInvCY = 0, EatinX = 0, EatinY = 0, DrinkX = 0, DrinkY = 0,
+Buff1X = 0, Buff1Y = 0, Buff2X = 0, Buff2Y = 0, Buff3X = 0, Buff3Y = 0,
+Buff4X = 0, Buff4Y = 0, PoopnX = 0, PoopnY = 0;
 int tolerance = 15;
 
 // Basic Mouse click
@@ -25,6 +33,15 @@ void PerformMouseClick(int x, int y) {
     SetCursorPos(x, y);
     mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
     mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
+}
+
+//Basic Key press
+void PerformKeyPress(BYTE vkCode, int keyDownDelay, int keyUpDelay)
+{
+    keybd_event(vkCode, 0, 0, 0);              // Key down
+    Sleep(keyDownDelay);                        // Wait for the specified delay before key up
+    keybd_event(vkCode, 0, KEYEVENTF_KEYUP, 0); // Key up
+    Sleep(keyUpDelay);                          // Additional small delay after key release
 }
 
 // Color Tolerances to allow variance
@@ -71,7 +88,10 @@ void setCoordinates() {
         closex = 3597;      closey = 133;       // Close (x) Button top right Inv
         drop1x = 810;       drop1y = 397;       // Player Drop All Button
         drop2x = 2852;      drop2y = 397;       // Dino Drop All Button
-        blackx = 3469;      blacky = 141;       // Black Weight Box top right
+        slot1x = 0;         slot1y = 0;         // Player Inventory 1st Slot (Non Implant)
+        slot2x = 0;         slot2y = 0;         // Dino \ Structure Inventory 1st Slot
+        blak1x = 0;         blak1y = 0;         // Player Black Weight Box
+        blak2x = 3469;      blak2y = 141;       // Dino Black Weight Box top right
         invcolx = 2542;     invcoly = 269;      // Inventory open color check
         xferdropx = 2855;   xferdropy = 393;    // Air Drop Xfer All Button
         dropcolorx = 3329;  dropcolory = 275;   // Air Drop color check
@@ -103,6 +123,13 @@ void setCoordinates() {
         rMin = 0;           rMax = 255;         // Duck Duck Jump red blob color to jump
         gMin = 110;         gMax = 255;         // Duck Duck Jump green blob color to jump
         bMin = 90;          bMax = 255;         // Duck Duck Jump blue blob color to jump
+        // XP Party
+        PInvCX = 0;         PInvCY = 0;         // Player Inventory crafting button
+        EatinX = 0;         EatinY = 0;         // Bottom of rightside food indicator
+        DrinkX = 0;         DrinkY = 0;         // Bottom of rightside drink indicator
+        Buff1X = 0;         Buff1Y = 0;         // Buffs Bottom 1st buff
+        Buff2X = 0;         Buff2Y = 0;         // Buffs Bottom 2nd buff
+        PoopnX = 0;         PoopnY = 0;         // Lowest point of Food bar
     }
     else if (screenWidth == 3840 && screenHeight == 1080) {
         // 3840x1080
@@ -114,7 +141,10 @@ void setCoordinates() {
         closex = 2758;      closey = 68;        // Close (x) Button top right Inv
         drop1x = 1367;      drop1y = 198;       // Player Drop All Button
         drop2x = 2386;      drop2y = 195;       // Dino Drop All Button
-        blackx = 3658;      blacky = 67;        // Black Weight Box top right
+        slot1x = 0;         slot1y = 0;         // Player Inventory 1st Slot (Non Implant)
+        slot2x = 0;         slot2y = 0;         // Dino \ Structure Inventory 1st Slot
+        blak1x = 0;         blak1y = 0;         // Player Black Weight Box
+        blak2x = 3658;      blak2y = 67;        // Dino Black Weight Box top right
         invcolx = 2231;     invcoly = 135;      // Inventory open color check
         xferdropx = 2388;   xferdropy = 197;    // Air Drop Xfer All Button
         dropcolorx = 2650;  dropcolory = 136;   // Air Drop color check
@@ -146,6 +176,13 @@ void setCoordinates() {
         rMin = 0;           rMax = 255;         // Duck Duck Jump red blob color to jump
         gMin = 110;         gMax = 255;         // Duck Duck Jump green blob color to jump
         bMin = 70;          bMax = 255;         // Duck Duck Jump blue blob color to jump
+        // XP Party
+        PInvCX = 0;         PInvCY = 0;         // Player Inventory crafting button
+        EatinX = 0;         EatinY = 0;         // Bottom of rightside food indicator
+        DrinkX = 0;         DrinkY = 0;         // Bottom of rightside drink indicator
+        Buff1X = 0;         Buff1Y = 0;         // Buffs Bottom 1st buff
+        Buff2X = 0;         Buff2Y = 0;         // Buffs Bottom 2nd buff
+        PoopnX = 0;         PoopnY = 0;         // Lowest point of Food bar
     }
     else if (screenWidth == 3440 && screenHeight == 1440) {
         // 3440x1440
@@ -155,18 +192,17 @@ void setCoordinates() {
         xfer1x = 920;       xfer1y = 263;       // Player Xfer All Button
         xfer2x = 2286;      xfer2y = 261;       // Dino Xfer All Button
         closex = 2837;      closey = 89;        // Close (x) Button top right Inv
-        drop1x = 2131;      drop1y = 265;       // Player Drop All Button
+        drop1x = 977;       drop1y = 265;       // Player Drop All Button
         drop2x = 2343;      drop2y = 261;       // Dino Drop All Button
-        blackx = 3199;      blacky = 85;        // Black Weight Box top right
+        slot1x = 732;       slot1y = 374;       // Player Inventory 1st Slot (Non Implant)
+        slot2x = 2105;      slot2y = 374;       // Dino \ Structure Inventory 1st Slot
+        blak1x = 0;         blak1y = 0;         // Player Black Weight Box
+        blak2x = 3199;      blak2y = 85;        // Dino Black Weight Box top right
         invcolx = 2070;     invcoly = 180;      // Inventory open color check
         xferdropx = 2349;   xferdropy = 263;    // Air Drop Xfer All Button
         dropcolorx = 2659;  dropcolory = 182;   // Air Drop color check
         promptx = 1603;     prompty = 487;      // Menu Transitions color check
         okayx = 1565;       okayy = 971;        // Menu Transitions okay button
-        // XP Party
-        PLInvX = 1460;      PLInvY = 226;       // Player Inventory white bar under You
-        PInvCX = 1318;      PInvCY = 181;       // Player Inventory crafting button
-        PslotX = 732;       PslotY = 374;       // Player Inventory 1st crafting slot
         // Auto join Server Coords
         color1x = 1638;     color1y = 558;      // Server full popup color check (M)
         color2x = 1072;     color2y = 1246;     // Join server popup color check
@@ -182,17 +218,32 @@ void setCoordinates() {
         fullfX = 1709;      fullfY = 973;       // Server Full Fail popup accept
         startX = 1707;      startY = 1140;      // Ark Main Menu Start Button
         // AFK Club ARK Coords
-        DDJC1X = 2953;      DDJC1Y = 421;       // Alpha Color detection
-        DDJC2X = 2375;      DDJC2Y = 676;       // Color location of blobs
+        DDJC1X = 2953;      DDJC1Y = 421;       // Duck Duck Jump Alpha Color
+        DDAC1X = 2876;      DDAC1Y = 421;       // Doed Dodge Alpha Color
+        DDJC2X = 2370;      DDJC2Y = 676;       // Color location of blobs
+        CAINVX = 1511;      CAINVY = 646;       // Color of Player Green Health Bar
         CAJC1X = 1786;      CAJC1Y = 238;       // Color of White Mission Board Bar
-        InvMiX = 1683;      InvMiY = 103;       // Inventory Mission Click
+        InvMiX = 1693;      InvMiY = 103;       // Inventory Mission Click
+        CATM1X = 1715;      CATM1Y = 676;       // Color of Red Need Tribe (M)
+        CATM2X = 1707;      CATM2Y = 748;       // Tribe Manager Button
+        CATM3X = 1020;      CATM3Y = 912;       // Creaate Tribe Button
         CAJC2X = 2509;      CAJC2Y = 168;       // Color of Yellow Join
         CAJ1X = 1019;       CAJ1Y = 392;        // MiniGames Click 
+        CDJ1X = 1212;       CDJ1Y = 576;        // Doed Dodge Alpha Click
         CAJ2X = 1126;       CAJ2Y = 788;        // Duck Duck Jump Alpha Click
         CAJ3X = 2614;       CAJ3Y = 197;        // Join Game Click
         rMin = 0;           rMax = 255;         // Duck Duck Jump red blob color to jump
-        gMin = 60;          gMax = 255;         // Duck Duck Jump green blob color to jump
+        gMin = 105;         gMax = 255;         // Duck Duck Jump green blob color to jump
         bMin = 105;         bMax = 255;         // Duck Duck Jump blue blob color to jump
+        // XP Party
+        PInvCX = 1318;      PInvCY = 181;       // Player Inventory crafting button
+        EatinX = 3392;      EatinY = 1185;      // Bottom of rightside food indicator
+        DrinkX = 3393;      DrinkY = 1127;      // Bottom of rightside drink indicator
+        Buff1X = 3190;      Buff1Y = 1340;      // Buffs Bottom 1st buff
+        Buff2X = 3084;      Buff2Y = 1341;      // Buffs Bottom 2nd buff
+        Buff3X = 2976;      Buff3Y = 1342;      // Buffs Bottom 3rd buff
+        Buff4X = 2870;      Buff4Y = 1340;      // Buffs Bottom 4th buff
+        PoopnX = 3388;      PoopnY = 1196;      // Lowest point of Food bar
     }
     else if (screenWidth == 2560 && screenHeight == 1440) {
         // 2560x1440
@@ -204,7 +255,10 @@ void setCoordinates() {
         closex = 2400;      closey = 84;        // Close (x) Button top right Inv
         drop1x = 541;       drop1y = 263;       // Player Drop All Button
         drop2x = 1907;      drop2y = 265;       // Dino Drop All Button
-        blackx = 2316;      blacky = 89;        // Black Weight Box top right
+        slot1x = 295;       slot1y = 373;       // Player Inventory 1st Slot (Non Implant)
+        slot2x = 1667;      slot2y = 373;       // Dino \ Structure Inventory 1st Slot
+        blak1x = 0;         blak1y = 0;         // Player Black Weight Box
+        blak2x = 2316;      blak2y = 89;        // Dino Black Weight Box top right
         invcolx = 1631;     invcoly = 182;      // Inventory open color check
         xferdropx = 1907;   xferdropy = 266;    // Air Drop Xfer All Button
         dropcolorx = 2217;  dropcolory = 184;   // Air Drop color check
@@ -225,17 +279,32 @@ void setCoordinates() {
         fullfX = 1268;      fullfY = 969;       // Server Full Fail popup accept
         startX = 1265;      startY = 1144;      // Ark Main Menu Start Button
         // AFK Club ARK Coords
-        DDJC1X = 2073;      DDJC1Y = 420;       // Alpha Color detection
-        DDJC2X = 1754;      DDJC2Y = 676;       // Color location of blobs
+        DDJC1X = 2073;      DDJC1Y = 420;       // Duck Duck Alpha Color
+        DDAC1X = 1996;      DDAC1Y = 420;       // Doed Dodge Alpha Color
+        DDJC2X = 1754;      DDJC2Y = 686;       // Color location of blobs
+        CAINVX = 1050;      CAINVY = 645;       // Color of Player Green Health Bar
         CAJC1X = 1345;      CAJC1Y = 238;       // Color of White Mission Board Bar
-        InvMiX = 1243;      InvMiY = 103;       // Inventory Mission Click
+        InvMiX = 1263;      InvMiY = 103;       // Inventory Mission Click
+        CATM1X = 1274;      CATM1Y = 676;       // Color of Red Need Tribe (M)
+        CATM2X = 1273;      CATM2Y = 747;       // Tribe Manager Button
+        CATM3X = 572;       CATM3Y = 910;       // Creaate Tribe Button
         CAJC2X = 2061;      CAJC2Y = 192;       // Color of Yellow Join
         CAJ1X = 665;        CAJ1Y = 393;        // MiniGames Click 
+        CDJ1X = 729;        CDJ1Y = 572;        // Doed Dodge Alpha Click
         CAJ2X = 725;        CAJ2Y = 788;        // Duck Duck Jump Alpha Click
         CAJ3X = 2174;       CAJ3Y = 197;        // Join Game Click
         rMin = 0;           rMax = 255;         // Duck Duck Jump red blob color to jump
-        gMin = 60;          gMax = 255;         // Duck Duck Jump green blob color to jump
+        gMin = 105;         gMax = 255;         // Duck Duck Jump green blob color to jump
         bMin = 105;         bMax = 255;         // Duck Duck Jump blue blob color to jump
+        // XP Party
+        PInvCX = 882;       PInvCY = 180;       // Player Inventory crafting button
+        EatinX = 2512;      EatinY = 1185;      // Bottom of rightside food indicator
+        DrinkX = 2512;      DrinkY = 1126;      // Bottom of rightside drink indicator
+        Buff1X = 2310;      Buff1Y = 1341;      // Buffs Bottom 1st buff
+        Buff2X = 2204;      Buff2Y = 1342;      // Buffs Bottom 2nd buff
+        Buff3X = 2098;      Buff3Y = 1342;      // Buffs Bottom 3rd buff
+        Buff4X = 1992;      Buff4Y = 1342;      // Buffs Bottom 4th buff
+        PoopnX = 2508;      PoopnY = 1195;      // Lowest point of Food bar
     }
     else if (screenWidth == 1920 && screenHeight == 1080) {
         // 1920x1080
@@ -247,7 +316,10 @@ void setCoordinates() {
         closex = 1795;      closey = 63;        // Close (x) Button top right Inv
         drop1x = 407;       drop1y = 197;       // Player Drop All Button
         drop2x = 1426;      drop2y = 197;       // Dino Drop All Button
-        blackx = 1738;      blacky = 66;        // Black Weight Box top right
+        slot1x = 222;       slot1y = 280;       // Player Inventory 1st Slot (Non Implant)
+        slot2x = 1249;      slot2y = 274;       // Dino \ Structure Inventory 1st Slot
+        blak1x = 0;         blak1y = 0;         // Player Black Weight Box
+        blak2x = 1738;      blak2y = 66;        // Dino Black Weight Box top right
         invcolx = 1222;     invcoly = 135;      // Inventory open color check
         xferdropx = 1425;   xferdropy = 197;    // Air Drop Xfer All Button
         dropcolorx = 1665;  dropcolory = 136;   // Air Drop color check
@@ -269,16 +341,29 @@ void setCoordinates() {
         startX = 954;       startY = 859;       // Ark Main Menu Start Button
         // AFK Club ARK Coords
         DDJC1X = 1561;      DDJC1Y = 314;       // Alpha Color detection
-        DDJC2X = 1325;      DDJC2Y = 515;       // Color location of blobs
+        DDJC2X = 1335;      DDJC2Y = 515;       // Color location of blobs
+        CAINVX = 777;       CAINVY = 484;       // Color of Player Green Health Bar
         CAJC1X = 1041;      CAJC1Y = 178;       // Color of White Mission Board Bar
-        InvMiX = 931;       InvMiY = 77;        // Inventory Mission Click
+        InvMiX = 948;       InvMiY = 76;        // Inventory Mission Click
+        CATM1X = 957;       CATM1Y = 508;       // Color of Red Need Tribe (M)
+        CATM2X = 955;       CATM2Y = 563;       // Tribe Manager Button
+        CATM3X = 432;       CATM3Y = 683;       // Creaate Tribe Button
         CAJC2X = 1542;      CAJC2Y = 144;       // Color of Yellow Join
         CAJ1X = 516;        CAJ1Y = 294;        // MiniGames Click 
         CAJ2X = 547;        CAJ2Y = 593;        // Duck Duck Jump Alpha Click
         CAJ3X = 1629;       CAJ3Y = 147;        // Join Game Click
         rMin = 0;           rMax = 255;         // Duck Duck Jump red blob color to jump
-        gMin = 150;         gMax = 255;         // Duck Duck Jump green blob color to jump
-        bMin = 95;          bMax = 255;         // Duck Duck Jump blue blob color to jump
+        gMin = 105;         gMax = 255;         // Duck Duck Jump green blob color to jump
+        bMin = 105;         bMax = 255;         // Duck Duck Jump blue blob color to jump
+        // XP Party
+        PInvCX = 656;       PInvCY = 132;       // Player Inventory crafting button
+        EatinX = 1885;      EatinY = 888;       // Bottom of rightside food indicator
+        DrinkX = 1886;      DrinkY = 845;       // Bottom of rightside drink indicator
+        Buff1X = 1734;      Buff1Y = 1008;      // Buffs Bottom 1st buff
+        Buff2X = 1655;      Buff2Y = 1008;      // Buffs Bottom 2nd buff
+        Buff3X = 1574;      Buff3Y = 1008;      // Buffs Bottom 3rd buff
+        Buff4X = 1493;      Buff4Y = 1008;      // Buffs Bottom 4th buff
+        PoopnX = 1882;      PoopnY = 896;       // Lowest point of Food bar
     }
     else if (screenWidth == 1920 && screenHeight == 1200) {
         // 1920x1200
@@ -290,7 +375,8 @@ void setCoordinates() {
         closex = 1796;      closey = 131;       // Close (x) Button top right Inv
         drop1x = 406;       drop1y = 254;       // Player Drop All Button
         drop2x = 1422;      drop2y = 258;       // Dino Drop All Button
-        blackx = 1718;      blacky = 75;        // Black Weight Box top right
+        blak1x = 0;         blak1y = 0;         // Player Black Weight Box
+        blak2x = 1718;      blak2y = 75;        // Dino Black Weight Box top right
         invcolx = 1222;     invcoly = 195;      // Inventory open color check
         xferdropx = 1425;   xferdropy = 258;    // Air Drop Xfer All Button
         dropcolorx = 1665;  dropcolory = 196;   // Air Drop color check
@@ -308,8 +394,24 @@ void setCoordinates() {
         click4X = 1069;     click4Y = 806;      // Cancel on Connection failed screen
         click5X = 170;      click5Y = 937;      // Back button on server list
         click6X = 524;      click6Y = 647;      // Join server list button
-        fullfX =  953;      fullfY = 812;       // Server Full Fail popup accept
+        fullfX = 953;       fullfY = 812;       // Server Full Fail popup accept
         startX = 948;       startY = 922;       // Ark Main Menu Start Button
+        // AFK Club ARK Coords
+        DDJC1X = 1519;      DDJC1Y = 349;       // Alpha Color detection
+        DDJC2X = 1305;      DDJC2Y = 574;       // Color location of blobs
+        CAINVX = 810;       CAINVY = 544;       // Color of Player Green Health Bar
+        CAJC1X = 1119;      CAJC1Y = 239;       // Color of White Mission Board Bar
+        InvMiX = 935;       InvMiY = 135;       // Inventory Mission Click
+        CATM1X = 957;       CATM1Y = 598;       // Color of Red Need Tribe (M)
+        CATM2X = 562;       CATM2Y = 622;       // Tribe Manager Button
+        CATM3X = 428;       CATM3Y = 743;       // Creaate Tribe Button
+        CAJC2X = 1542;      CAJC2Y = 144;       // Color of Yellow Join
+        CAJ1X = 491;        CAJ1Y = 356;        // MiniGames Click 
+        CAJ2X = 516;        CAJ2Y = 653;        // Duck Duck Jump Alpha Click
+        CAJ3X = 1639;       CAJ3Y = 207;        // Join Game Click
+        rMin = 0;           rMax = 255;         // Duck Duck Jump red blob color to jump
+        gMin = 105;         gMax = 255;         // Duck Duck Jump green blob color to jump
+        bMin = 105;         bMax = 255;         // Duck Duck Jump blue blob color to jump
     }
     else if (screenWidth == 1536 && screenHeight == 864) {
         // 1536x864
@@ -321,7 +423,8 @@ void setCoordinates() {
         closex = 1439;      closey = 50;        // Close (x) Button top right Inv
         drop1x = 323;       drop1y = 156;       // Player Drop All Button
         drop2x = 1142;      drop2y = 159;       // Dino Drop All Button
-        blackx = 1390;      blacky = 55;        // Black Weight Box top right
+        blak1x = 0;         blak1y = 0;         // Player Black Weight Box
+        blak2x = 1390;      blak2y = 55;        // Dino Black Weight Box top right
         invcolx = 978;      invcoly = 108;      // Inventory open color check
         xferdropx = 1141;   xferdropy = 157;    // Air Drop Xfer All Button
         dropcolorx = 1333;  dropcolory = 109;   // Air Drop color check
@@ -341,5 +444,21 @@ void setCoordinates() {
         click6X = 421;      click6Y = 454;      // Join server list button
         fullfX = 761;       fullfY = 582;       // Server Full Fail popup accept
         startX = 759;       startY = 688;       // Ark Main Menu Start Button
+        // AFK Club ARK Coords
+        DDJC1X = 1238;      DDJC1Y = 252;       // Alpha Color detection
+        DDJC2X = 1030;      DDJC2Y = 412;       // Color location of blobs
+        CAINVX = 646;       CAINVY = 387;       // Color of Player Green Health Bar
+        CAJC1X = 855;       CAJC1Y = 142;       // Color of White Mission Board Bar
+        InvMiX = 745;       InvMiY = 58;        // Inventory Mission Click
+        CATM1X = 764;       CATM1Y = 405;       // Color of Red Need Tribe (M)
+        CATM2X = 765;       CATM2Y = 447;       // Tribe Manager Button
+        CATM3X = 341;       CATM3Y = 546;       // Creaate Tribe Button
+        CAJC2X = 1542;      CAJC2Y = 144;       // Color of Yellow Join
+        CAJ1X = 425;        CAJ1Y = 232;        // MiniGames Click 
+        CAJ2X = 413;        CAJ2Y = 474;        // Duck Duck Jump Alpha Click
+        CAJ3X = 1314;       CAJ3Y = 117;        // Join Game Click
+        rMin = 0;           rMax = 255;         // Duck Duck Jump red blob color to jump
+        gMin = 105;         gMax = 255;         // Duck Duck Jump green blob color to jump
+        bMin = 105;         bMax = 255;         // Duck Duck Jump blue blob color to jump
     }
 }
